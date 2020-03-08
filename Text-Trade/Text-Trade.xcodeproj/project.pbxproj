@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4213B5186FF3C570B5749643 /* Pods_Text_Trade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2797799DE21FCC0C7701CD28 /* Pods_Text_Trade.framework */; };
 		CE10D37C2415632A00A653AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10D37B2415632A00A653AE /* AppDelegate.swift */; };
 		CE10D37E2415632A00A653AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10D37D2415632A00A653AE /* SceneDelegate.swift */; };
 		CE10D3802415632A00A653AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10D37F2415632A00A653AE /* ViewController.swift */; };
 		CE10D3832415632A00A653AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE10D3812415632A00A653AE /* Main.storyboard */; };
 		CE10D3852415632D00A653AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE10D3842415632D00A653AE /* Assets.xcassets */; };
 		CE10D3882415632D00A653AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE10D3862415632D00A653AE /* LaunchScreen.storyboard */; };
+		CE10D3902415B64400A653AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE10D38F2415B64400A653AE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2797799DE21FCC0C7701CD28 /* Pods_Text_Trade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Trade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8619F6557A1F295B763125FD /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
+		A579E68767D2DCADDB258234 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
 		CE10D3782415632A00A653AE /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE10D37B2415632A00A653AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE10D37D2415632A00A653AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		CE10D3842415632D00A653AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE10D3872415632D00A653AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE10D3892415632D00A653AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE10D38F2415B64400A653AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4213B5186FF3C570B5749643 /* Pods_Text_Trade.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6981B2D15156D3085B23D40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2797799DE21FCC0C7701CD28 /* Pods_Text_Trade.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE10D36F2415632A00A653AE = {
 			isa = PBXGroup;
 			children = (
 				CE10D37A2415632A00A653AE /* Text-Trade */,
 				CE10D3792415632A00A653AE /* Products */,
+				E8779FE702038F31193EF694 /* Pods */,
+				A6981B2D15156D3085B23D40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +80,19 @@
 				CE10D3842415632D00A653AE /* Assets.xcassets */,
 				CE10D3862415632D00A653AE /* LaunchScreen.storyboard */,
 				CE10D3892415632D00A653AE /* Info.plist */,
+				CE10D38F2415B64400A653AE /* GoogleService-Info.plist */,
 			);
 			path = "Text-Trade";
+			sourceTree = "<group>";
+		};
+		E8779FE702038F31193EF694 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8619F6557A1F295B763125FD /* Pods-Text-Trade.debug.xcconfig */,
+				A579E68767D2DCADDB258234 /* Pods-Text-Trade.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE10D38C2415632D00A653AE /* Build configuration list for PBXNativeTarget "Text-Trade" */;
 			buildPhases = (
+				ABBE709C038A64579BD125C9 /* [CP] Check Pods Manifest.lock */,
 				CE10D3742415632A00A653AE /* Sources */,
 				CE10D3752415632A00A653AE /* Frameworks */,
 				CE10D3762415632A00A653AE /* Resources */,
+				85493E68A4DA73524EA87E3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE10D3902415B64400A653AE /* GoogleService-Info.plist in Resources */,
 				CE10D3882415632D00A653AE /* LaunchScreen.storyboard in Resources */,
 				CE10D3852415632D00A653AE /* Assets.xcassets in Resources */,
 				CE10D3832415632A00A653AE /* Main.storyboard in Resources */,
@@ -132,6 +163,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		85493E68A4DA73524EA87E3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABBE709C038A64579BD125C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Text-Trade-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE10D3742415632A00A653AE /* Sources */ = {
@@ -282,6 +355,7 @@
 		};
 		CE10D38D2415632D00A653AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8619F6557A1F295B763125FD /* Pods-Text-Trade.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +374,7 @@
 		};
 		CE10D38E2415632D00A653AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A579E68767D2DCADDB258234 /* Pods-Text-Trade.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
