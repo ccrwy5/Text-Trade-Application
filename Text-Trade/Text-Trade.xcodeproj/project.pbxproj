@@ -17,6 +17,9 @@
 		CEDCAACF2415E013001E112C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAACE2415E013001E112C /* GoogleService-Info.plist */; };
 		CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD02415E355001E112C /* SignUpViewController.swift */; };
 		CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD22415ECBB001E112C /* FeedViewController.swift */; };
+		CEDCAAD62415F56D001E112C /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */; };
+		CEDCAAD72415F56D001E112C /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAAD52415F56D001E112C /* FeedTableViewCell.xib */; };
+		CEDCAADA2415F8B6001E112C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD92415F8B6001E112C /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		CEDCAACE2415E013001E112C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEDCAAD02415E355001E112C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEDCAAD22415ECBB001E112C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		CEDCAAD52415F56D001E112C /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		CEDCAAD92415F8B6001E112C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 		CEDCAAB72415DD73001E112C /* Text-Trade */ = {
 			isa = PBXGroup;
 			children = (
+				CEDCAAD82415F8AB001E112C /* Model */,
 				CEDCAAB82415DD73001E112C /* AppDelegate.swift */,
 				CEDCAABA2415DD73001E112C /* SceneDelegate.swift */,
 				CEDCAACC2415DDD0001E112C /* LoginViewController.swift */,
@@ -96,8 +103,18 @@
 				CEDCAAC62415DD75001E112C /* Info.plist */,
 				CEDCAACE2415E013001E112C /* GoogleService-Info.plist */,
 				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
+				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
+				CEDCAAD52415F56D001E112C /* FeedTableViewCell.xib */,
 			);
 			path = "Text-Trade";
+			sourceTree = "<group>";
+		};
+		CEDCAAD82415F8AB001E112C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEDCAAD92415F8B6001E112C /* Post.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */,
+				CEDCAAD72415F56D001E112C /* FeedTableViewCell.xib in Resources */,
 				CEDCAACF2415E013001E112C /* GoogleService-Info.plist in Resources */,
 				CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */,
 				CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */,
@@ -217,9 +235,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */,
+				CEDCAAD62415F56D001E112C /* FeedTableViewCell.swift in Sources */,
 				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
 				CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */,
 				CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */,
+				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
 				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
