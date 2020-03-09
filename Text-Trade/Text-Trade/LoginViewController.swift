@@ -24,6 +24,47 @@ class LoginViewController: UIViewController {
 
     }
     
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+           if error == nil{
+             self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
+                          }
+            else{
+             let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            
+              alertController.addAction(defaultAction)
+              self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let user = Auth.auth().currentUser {
+            self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
+        }
+    }
+    
+    @objc func handleSignIn() {
+        guard let userName = emailTextField.text else { return }
+        guard let pass = passwordTextField.text else { return }
+        
+        //setContinueButton(enabled: false)
+        //continueButton.setTitle("", for: .normal)
+        //activityView.startAnimating()
+        
+        Auth.auth().signIn(withEmail: userName, password: pass) { user, error in
+            if error == nil && user != nil {
+                self.dismiss(animated: false, completion: nil)
+            } else {
+                print("Error logging in: \(error!.localizedDescription)")
+            }
+        }
+    }
+    
+    
     func setupUI(){
         emailTextField.layer.borderWidth = 2
         emailTextField.layer.cornerRadius = 10

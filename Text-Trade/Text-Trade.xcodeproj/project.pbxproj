@@ -16,6 +16,7 @@
 		CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAACC2415DDD0001E112C /* LoginViewController.swift */; };
 		CEDCAACF2415E013001E112C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAACE2415E013001E112C /* GoogleService-Info.plist */; };
 		CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD02415E355001E112C /* SignUpViewController.swift */; };
+		CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD22415ECBB001E112C /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CEDCAACC2415DDD0001E112C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEDCAACE2415E013001E112C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEDCAAD02415E355001E112C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CEDCAAD22415ECBB001E112C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */,
 				CEDCAAC62415DD75001E112C /* Info.plist */,
 				CEDCAACE2415E013001E112C /* GoogleService-Info.plist */,
+				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
 			);
 			path = "Text-Trade";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			files = (
 				CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */,
 				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
+				CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */,
 				CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */,
 				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,
 			);
