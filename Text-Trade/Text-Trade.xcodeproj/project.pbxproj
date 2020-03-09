@@ -3,110 +3,112 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4213B5186FF3C570B5749643 /* Pods_Text_Trade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2797799DE21FCC0C7701CD28 /* Pods_Text_Trade.framework */; };
-		CE10D37C2415632A00A653AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10D37B2415632A00A653AE /* AppDelegate.swift */; };
-		CE10D37E2415632A00A653AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10D37D2415632A00A653AE /* SceneDelegate.swift */; };
-		CE10D3802415632A00A653AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE10D37F2415632A00A653AE /* ViewController.swift */; };
-		CE10D3832415632A00A653AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE10D3812415632A00A653AE /* Main.storyboard */; };
-		CE10D3852415632D00A653AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE10D3842415632D00A653AE /* Assets.xcassets */; };
-		CE10D3882415632D00A653AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE10D3862415632D00A653AE /* LaunchScreen.storyboard */; };
-		CE10D3902415B64400A653AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE10D38F2415B64400A653AE /* GoogleService-Info.plist */; };
+		B3BF92A3B695F81440D0AD78 /* Pods_Text_Trade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */; };
+		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
+		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
+		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
+		CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAAC12415DD75001E112C /* Assets.xcassets */; };
+		CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */; };
+		CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAACC2415DDD0001E112C /* LoginViewController.swift */; };
+		CEDCAACF2415E013001E112C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAACE2415E013001E112C /* GoogleService-Info.plist */; };
+		CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD02415E355001E112C /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2797799DE21FCC0C7701CD28 /* Pods_Text_Trade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Trade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8619F6557A1F295B763125FD /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
-		A579E68767D2DCADDB258234 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
-		CE10D3782415632A00A653AE /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE10D37B2415632A00A653AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE10D37D2415632A00A653AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE10D37F2415632A00A653AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE10D3822415632A00A653AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CE10D3842415632D00A653AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE10D3872415632D00A653AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CE10D3892415632D00A653AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE10D38F2415B64400A653AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Trade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
+		B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
+		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CEDCAABF2415DD73001E112C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEDCAAC12415DD75001E112C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEDCAAC42415DD75001E112C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CEDCAAC62415DD75001E112C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEDCAACC2415DDD0001E112C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CEDCAACE2415E013001E112C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEDCAAD02415E355001E112C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CE10D3752415632A00A653AE /* Frameworks */ = {
+		CEDCAAB22415DD73001E112C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4213B5186FF3C570B5749643 /* Pods_Text_Trade.framework in Frameworks */,
+				B3BF92A3B695F81440D0AD78 /* Pods_Text_Trade.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A6981B2D15156D3085B23D40 /* Frameworks */ = {
+		3D96C1F04B1AB7572AAC0DEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2797799DE21FCC0C7701CD28 /* Pods_Text_Trade.framework */,
+				02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE10D36F2415632A00A653AE = {
+		A6FA7594C19264268B81BAE4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CE10D37A2415632A00A653AE /* Text-Trade */,
-				CE10D3792415632A00A653AE /* Products */,
-				E8779FE702038F31193EF694 /* Pods */,
-				A6981B2D15156D3085B23D40 /* Frameworks */,
+				780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */,
+				B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CEDCAAAC2415DD73001E112C = {
+			isa = PBXGroup;
+			children = (
+				CEDCAAB72415DD73001E112C /* Text-Trade */,
+				CEDCAAB62415DD73001E112C /* Products */,
+				A6FA7594C19264268B81BAE4 /* Pods */,
+				3D96C1F04B1AB7572AAC0DEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		CE10D3792415632A00A653AE /* Products */ = {
+		CEDCAAB62415DD73001E112C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE10D3782415632A00A653AE /* Text-Trade.app */,
+				CEDCAAB52415DD73001E112C /* Text-Trade.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE10D37A2415632A00A653AE /* Text-Trade */ = {
+		CEDCAAB72415DD73001E112C /* Text-Trade */ = {
 			isa = PBXGroup;
 			children = (
-				CE10D37B2415632A00A653AE /* AppDelegate.swift */,
-				CE10D37D2415632A00A653AE /* SceneDelegate.swift */,
-				CE10D37F2415632A00A653AE /* ViewController.swift */,
-				CE10D3812415632A00A653AE /* Main.storyboard */,
-				CE10D3842415632D00A653AE /* Assets.xcassets */,
-				CE10D3862415632D00A653AE /* LaunchScreen.storyboard */,
-				CE10D3892415632D00A653AE /* Info.plist */,
-				CE10D38F2415B64400A653AE /* GoogleService-Info.plist */,
+				CEDCAAB82415DD73001E112C /* AppDelegate.swift */,
+				CEDCAABA2415DD73001E112C /* SceneDelegate.swift */,
+				CEDCAACC2415DDD0001E112C /* LoginViewController.swift */,
+				CEDCAAD02415E355001E112C /* SignUpViewController.swift */,
+				CEDCAABE2415DD73001E112C /* Main.storyboard */,
+				CEDCAAC12415DD75001E112C /* Assets.xcassets */,
+				CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */,
+				CEDCAAC62415DD75001E112C /* Info.plist */,
+				CEDCAACE2415E013001E112C /* GoogleService-Info.plist */,
 			);
 			path = "Text-Trade";
-			sourceTree = "<group>";
-		};
-		E8779FE702038F31193EF694 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8619F6557A1F295B763125FD /* Pods-Text-Trade.debug.xcconfig */,
-				A579E68767D2DCADDB258234 /* Pods-Text-Trade.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE10D3772415632A00A653AE /* Text-Trade */ = {
+		CEDCAAB42415DD73001E112C /* Text-Trade */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE10D38C2415632D00A653AE /* Build configuration list for PBXNativeTarget "Text-Trade" */;
+			buildConfigurationList = CEDCAAC92415DD75001E112C /* Build configuration list for PBXNativeTarget "Text-Trade" */;
 			buildPhases = (
-				ABBE709C038A64579BD125C9 /* [CP] Check Pods Manifest.lock */,
-				CE10D3742415632A00A653AE /* Sources */,
-				CE10D3752415632A00A653AE /* Frameworks */,
-				CE10D3762415632A00A653AE /* Resources */,
-				85493E68A4DA73524EA87E3D /* [CP] Embed Pods Frameworks */,
+				5483D540AF3C791FB3820381 /* [CP] Check Pods Manifest.lock */,
+				CEDCAAB12415DD73001E112C /* Sources */,
+				CEDCAAB22415DD73001E112C /* Frameworks */,
+				CEDCAAB32415DD73001E112C /* Resources */,
+				37BB7D45A8B6191CA33DC90C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -114,25 +116,25 @@
 			);
 			name = "Text-Trade";
 			productName = "Text-Trade";
-			productReference = CE10D3782415632A00A653AE /* Text-Trade.app */;
+			productReference = CEDCAAB52415DD73001E112C /* Text-Trade.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CE10D3702415632A00A653AE /* Project object */ = {
+		CEDCAAAD2415DD73001E112C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Chris Rehagen";
 				TargetAttributes = {
-					CE10D3772415632A00A653AE = {
+					CEDCAAB42415DD73001E112C = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = CE10D3732415632A00A653AE /* Build configuration list for PBXProject "Text-Trade" */;
+			buildConfigurationList = CEDCAAB02415DD73001E112C /* Build configuration list for PBXProject "Text-Trade" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -140,32 +142,32 @@
 				en,
 				Base,
 			);
-			mainGroup = CE10D36F2415632A00A653AE;
-			productRefGroup = CE10D3792415632A00A653AE /* Products */;
+			mainGroup = CEDCAAAC2415DD73001E112C;
+			productRefGroup = CEDCAAB62415DD73001E112C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE10D3772415632A00A653AE /* Text-Trade */,
+				CEDCAAB42415DD73001E112C /* Text-Trade */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CE10D3762415632A00A653AE /* Resources */ = {
+		CEDCAAB32415DD73001E112C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE10D3902415B64400A653AE /* GoogleService-Info.plist in Resources */,
-				CE10D3882415632D00A653AE /* LaunchScreen.storyboard in Resources */,
-				CE10D3852415632D00A653AE /* Assets.xcassets in Resources */,
-				CE10D3832415632A00A653AE /* Main.storyboard in Resources */,
+				CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */,
+				CEDCAACF2415E013001E112C /* GoogleService-Info.plist in Resources */,
+				CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */,
+				CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		85493E68A4DA73524EA87E3D /* [CP] Embed Pods Frameworks */ = {
+		37BB7D45A8B6191CA33DC90C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -182,7 +184,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABBE709C038A64579BD125C9 /* [CP] Check Pods Manifest.lock */ = {
+		5483D540AF3C791FB3820381 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -207,31 +209,32 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CE10D3742415632A00A653AE /* Sources */ = {
+		CEDCAAB12415DD73001E112C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE10D3802415632A00A653AE /* ViewController.swift in Sources */,
-				CE10D37C2415632A00A653AE /* AppDelegate.swift in Sources */,
-				CE10D37E2415632A00A653AE /* SceneDelegate.swift in Sources */,
+				CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */,
+				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
+				CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */,
+				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE10D3812415632A00A653AE /* Main.storyboard */ = {
+		CEDCAABE2415DD73001E112C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE10D3822415632A00A653AE /* Base */,
+				CEDCAABF2415DD73001E112C /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		CE10D3862415632D00A653AE /* LaunchScreen.storyboard */ = {
+		CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE10D3872415632D00A653AE /* Base */,
+				CEDCAAC42415DD75001E112C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -239,7 +242,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CE10D38A2415632D00A653AE /* Debug */ = {
+		CEDCAAC72415DD75001E112C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -299,7 +302,7 @@
 			};
 			name = Debug;
 		};
-		CE10D38B2415632D00A653AE /* Release */ = {
+		CEDCAAC82415DD75001E112C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -353,9 +356,9 @@
 			};
 			name = Release;
 		};
-		CE10D38D2415632D00A653AE /* Debug */ = {
+		CEDCAACA2415DD75001E112C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8619F6557A1F295B763125FD /* Pods-Text-Trade.debug.xcconfig */;
+			baseConfigurationReference = 780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -372,9 +375,9 @@
 			};
 			name = Debug;
 		};
-		CE10D38E2415632D00A653AE /* Release */ = {
+		CEDCAACB2415DD75001E112C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A579E68767D2DCADDB258234 /* Pods-Text-Trade.release.xcconfig */;
+			baseConfigurationReference = B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -394,25 +397,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE10D3732415632A00A653AE /* Build configuration list for PBXProject "Text-Trade" */ = {
+		CEDCAAB02415DD73001E112C /* Build configuration list for PBXProject "Text-Trade" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE10D38A2415632D00A653AE /* Debug */,
-				CE10D38B2415632D00A653AE /* Release */,
+				CEDCAAC72415DD75001E112C /* Debug */,
+				CEDCAAC82415DD75001E112C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE10D38C2415632D00A653AE /* Build configuration list for PBXNativeTarget "Text-Trade" */ = {
+		CEDCAAC92415DD75001E112C /* Build configuration list for PBXNativeTarget "Text-Trade" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE10D38D2415632D00A653AE /* Debug */,
-				CE10D38E2415632D00A653AE /* Release */,
+				CEDCAACA2415DD75001E112C /* Debug */,
+				CEDCAACB2415DD75001E112C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CE10D3702415632A00A653AE /* Project object */;
+	rootObject = CEDCAAAD2415DD73001E112C /* Project object */;
 }

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>927424836344-feul861764lc22pegclndgepguc5bll0.apps.googleusercontent.com</string>
+	<string>622685527142-0o7gb15bnmh6o3iu2l7gkqgvmbsldujr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.927424836344-feul861764lc22pegclndgepguc5bll0</string>
+	<string>com.googleusercontent.apps.622685527142-0o7gb15bnmh6o3iu2l7gkqgvmbsldujr</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBNWYfOOzIlH42gGw89RwS3v-jOskPix-s</string>
+	<string>AIzaSyCDfCvtCnuwLrtt--FeYJj8MqB30D9gnl0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>927424836344</string>
+	<string>622685527142</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.chrisrehagen.Text-Trade</string>
 	<key>PROJECT_ID</key>
-	<string>text-trade-4c4cb</string>
+	<string>text-trade-7cb9f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>text-trade-4c4cb.appspot.com</string>
+	<string>text-trade-7cb9f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:927424836344:ios:834ca8f91a75b19c1dc10d</string>
+	<string>1:622685527142:ios:c500497992ed9571f5e1a7</string>
 	<key>DATABASE_URL</key>
-	<string>https://text-trade-4c4cb.firebaseio.com</string>
+	<string>https://text-trade-7cb9f.firebaseio.com</string>
 </dict>
 </plist>
