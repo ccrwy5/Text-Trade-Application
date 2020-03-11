@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B3BF92A3B695F81440D0AD78 /* Pods_Text_Trade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */; };
+		C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6501D802419A60C0012EE41 /* FlexibleTextField.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Trade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
 		B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
+		C6501D802419A60C0012EE41 /* FlexibleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextField.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C6501D7F2419A5F40012EE41 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6501D802419A60C0012EE41 /* FlexibleTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CEDCAAAC2415DD73001E112C = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		CEDCAAB72415DD73001E112C /* Text-Trade */ = {
 			isa = PBXGroup;
 			children = (
+				C6501D7F2419A5F40012EE41 /* View */,
 				CEDCAAD82415F8AB001E112C /* Model */,
 				CEDCAAB82415DD73001E112C /* AppDelegate.swift */,
 				CEDCAABA2415DD73001E112C /* SceneDelegate.swift */,
@@ -240,6 +251,7 @@
 				CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */,
 				CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */,
 				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
+				C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */,
 				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -71,14 +71,14 @@ class LoginViewController: UIViewController {
         emailTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
         emailTextField.layer.cornerRadius = 22
         emailTextField.clipsToBounds = true
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "   Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        //emailTextField.attributedPlaceholder = NSAttributedString(string: "   Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         passwordTextField.layer.borderWidth = 2
         passwordTextField.layer.cornerRadius = 10
         passwordTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
         passwordTextField.layer.cornerRadius = 22
         passwordTextField.clipsToBounds = true
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "   Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        //passwordTextField.attributedPlaceholder = NSAttributedString(string: "   Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         loginButton.layer.cornerRadius = 22
 
