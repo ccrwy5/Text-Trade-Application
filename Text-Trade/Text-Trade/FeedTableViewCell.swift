@@ -27,7 +27,11 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     func setPost(post: Post){
-        usernameLabel.text = post.author
+        ImageService.getImage(withURL: post.author.photoURL) { image in
+            self.profileImageView.image = image
+        }
+        
+        usernameLabel.text = post.author.username
         contentLabel.text = post.text
     }
     

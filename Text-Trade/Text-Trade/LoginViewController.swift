@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
            if error == nil{
              self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
+            print("logged in")
                           }
             else{
              let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -42,9 +43,9 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let user = Auth.auth().currentUser {
-            self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
-        }
+//        if let user = Auth.auth().currentUser {
+//            self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
+//        }
     }
     
     @objc func handleSignIn() {

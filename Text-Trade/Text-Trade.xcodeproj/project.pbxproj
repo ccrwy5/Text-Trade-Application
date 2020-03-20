@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B3BF92A3B695F81440D0AD78 /* Pods_Text_Trade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */; };
 		C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6501D802419A60C0012EE41 /* FlexibleTextField.swift */; };
+		CE258E82242499E8003DCE90 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E81242499E8003DCE90 /* NewPostViewController.swift */; };
+		CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8324249AB8003DCE90 /* UserProfile.swift */; };
+		CE258E8624249DA6003DCE90 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8524249DA6003DCE90 /* UserService.swift */; };
+		CE258E88242537B6003DCE90 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E87242537B6003DCE90 /* ImageService.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
@@ -28,6 +32,10 @@
 		780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
 		B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
 		C6501D802419A60C0012EE41 /* FlexibleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextField.swift; sourceTree = "<group>"; };
+		CE258E81242499E8003DCE90 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		CE258E8324249AB8003DCE90 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		CE258E8524249DA6003DCE90 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		CE258E87242537B6003DCE90 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +124,9 @@
 				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
 				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
 				CEDCAAD52415F56D001E112C /* FeedTableViewCell.xib */,
+				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
+				CE258E8524249DA6003DCE90 /* UserService.swift */,
+				CE258E87242537B6003DCE90 /* ImageService.swift */,
 			);
 			path = "Text-Trade";
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDCAAD92415F8B6001E112C /* Post.swift */,
+				CE258E8324249AB8003DCE90 /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +262,10 @@
 				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
 				CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */,
 				CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */,
+				CE258E88242537B6003DCE90 /* ImageService.swift in Sources */,
+				CE258E82242499E8003DCE90 /* NewPostViewController.swift in Sources */,
+				CE258E8624249DA6003DCE90 /* UserService.swift in Sources */,
+				CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */,
 				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
 				C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */,
 				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,

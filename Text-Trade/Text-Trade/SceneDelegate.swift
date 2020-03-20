@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,6 +15,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if user != nil {
+                
+                UserService.observeUserProfile(user!.uid) { userProfile in
+                    UserService.currentUserProfile = userProfile
+                }
+                //
+                let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
+                self.window?.rootViewController = controller
+                self.window?.makeKeyAndVisible()
+            } else {
+                
+                
+                UserService.currentUserProfile = nil
+                
+                // menu screen
+                let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.window?.rootViewController = controller
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        
+        
+        
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).

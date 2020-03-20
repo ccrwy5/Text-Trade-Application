@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().createUser(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
                 print("User created!")
-                self.performSegue(withIdentifier: "accountCreated", sender: self)
+                //self.performSegue(withIdentifier: "accountCreated", sender: self)
                 
                 // 1. Upload the profile image to Firebase Storage
                 

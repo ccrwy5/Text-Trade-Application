@@ -12,11 +12,7 @@ import Firebase
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
-    var posts = [
-        Post(id: "1", author: "Chris Rehagen", text: "Testing"),
-        Post(id: "2", author: "Testing ", text: "Phi Delta Theta (ΦΔΘ), commonly known as Phi Delt, is an international social fraternity founded at Miami University in 1848 and headquartered in Oxford, Ohio."),
-        Post(id: "3", author: "Testing", text: "Phi Delta Theta, along with Beta Theta Pi and Sigma Chi form the Miami Triad")
-    ]
+    var posts = [Post]()
 
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
@@ -31,13 +27,45 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
+        
+        observePosts()
 
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         try! Auth.auth().signOut()
-        self.dismiss(animated: false, completion: nil)
-        self.performSegue(withIdentifier: "logOutClicked", sender: self)
+        //self.dismiss(animated: false, completion: nil)
+        //self.performSegue(withIdentifier: "logOutClicked", sender: self)
+    }
+    
+    func observePosts(){
+        let postsRef = Database.database().reference().child("posts")
+        
+        postsRef.observe(.value, with: { snapshot in
+            
+            var tempPosts = [Post]()
+            
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    let author = dict["author"] as? [String:Any],
+                    let uid = author["uid"] as? String,
+                    let username = author["username"] as? String,
+                    let photoURL = author["photoURL"] as? String,
+                    let url = URL(string:photoURL),
+                    let text = dict["text"] as? String,
+                    let timestamp = dict["timestamp"] as? Double {
+                    
+                    let userProfile = UserProfile(uid: uid, username: username, photoURL: url)
+                    let post = Post(id: childSnapshot.key, author: userProfile, text: text, timestamp:timestamp)
+                    tempPosts.append(post)
+                }
+            }
+            
+            self.posts = tempPosts
+            self.tableView.reloadData()
+            
+        })
     }
     
     
