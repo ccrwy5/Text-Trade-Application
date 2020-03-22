@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
            if error == nil{
-             self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
+             //self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
             print("logged in")
                           }
             else{
