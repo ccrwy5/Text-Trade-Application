@@ -26,13 +26,25 @@ class FeedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    weak var post:Post?
+    
     func setPost(post: Post){
-        ImageService.getImage(withURL: post.author.photoURL) { image in
-            self.profileImageView.image = image
+        
+        self.post = post
+        self.profileImageView.image = nil
+        
+        ImageService.getImage(withURL: post.author.photoURL) { image, url in
+            guard let _post = self.post else { return }
+            if _post.author.photoURL.absoluteString == url.absoluteString {
+                self.profileImageView.image = image
+            } else {
+                print("Not the right image")
+            }
         }
         
         usernameLabel.text = post.author.username
         contentLabel.text = post.text
+        subtitleLabel.text = post.createdAt.calenderTimeSinceNow()
     }
     
 }
