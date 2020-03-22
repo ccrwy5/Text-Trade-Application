@@ -40,8 +40,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func observePosts(){
         let postsRef = Database.database().reference().child("posts")
+        let queryRef = postsRef.queryOrdered(byChild: "timestamp").queryLimited(toLast: 20)
         
+        //postsRef.observe(.value, with: { snapshot in
         postsRef.observe(.value, with: { snapshot in
+
             
             var tempPosts = [Post]()
             
@@ -58,7 +61,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let userProfile = UserProfile(uid: uid, username: username, photoURL: url)
                     let post = Post(id: childSnapshot.key, author: userProfile, text: text, timestamp:timestamp)
-                    tempPosts.append(post)
+                    tempPosts.insert(post, at: 0)
                 }
             }
             
