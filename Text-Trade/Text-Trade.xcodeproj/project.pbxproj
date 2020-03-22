@@ -89,8 +89,23 @@
 			isa = PBXGroup;
 			children = (
 				C6501D802419A60C0012EE41 /* FlexibleTextField.swift */,
+				CEDCAABE2415DD73001E112C /* Main.storyboard */,
+				CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CE258E8D242811DC003DCE90 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEDCAACC2415DDD0001E112C /* LoginViewController.swift */,
+				CEDCAAD02415E355001E112C /* SignUpViewController.swift */,
+				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
+				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
+				CEDCAAD52415F56D001E112C /* FeedTableViewCell.xib */,
+				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		CEDCAAAC2415DD73001E112C = {
@@ -114,25 +129,14 @@
 		CEDCAAB72415DD73001E112C /* Text-Trade */ = {
 			isa = PBXGroup;
 			children = (
+				CE258E8D242811DC003DCE90 /* ViewControllers */,
 				C6501D7F2419A5F40012EE41 /* View */,
 				CEDCAAD82415F8AB001E112C /* Model */,
 				CEDCAAB82415DD73001E112C /* AppDelegate.swift */,
 				CEDCAABA2415DD73001E112C /* SceneDelegate.swift */,
-				CEDCAACC2415DDD0001E112C /* LoginViewController.swift */,
-				CEDCAAD02415E355001E112C /* SignUpViewController.swift */,
-				CEDCAABE2415DD73001E112C /* Main.storyboard */,
 				CEDCAAC12415DD75001E112C /* Assets.xcassets */,
-				CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */,
 				CEDCAAC62415DD75001E112C /* Info.plist */,
 				CEDCAACE2415E013001E112C /* GoogleService-Info.plist */,
-				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
-				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
-				CEDCAAD52415F56D001E112C /* FeedTableViewCell.xib */,
-				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
-				CE258E8524249DA6003DCE90 /* UserService.swift */,
-				CE258E87242537B6003DCE90 /* ImageService.swift */,
-				CE258E892425A272003DCE90 /* HelperExtensions.swift */,
-				CE258E8B24280C97003DCE90 /* LoadingCell.swift */,
 			);
 			path = "Text-Trade";
 			sourceTree = "<group>";
@@ -142,6 +146,10 @@
 			children = (
 				CEDCAAD92415F8B6001E112C /* Post.swift */,
 				CE258E8324249AB8003DCE90 /* UserProfile.swift */,
+				CE258E8524249DA6003DCE90 /* UserService.swift */,
+				CE258E87242537B6003DCE90 /* ImageService.swift */,
+				CE258E892425A272003DCE90 /* HelperExtensions.swift */,
+				CE258E8B24280C97003DCE90 /* LoadingCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
