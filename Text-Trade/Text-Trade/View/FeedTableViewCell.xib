@@ -62,10 +62,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="J5U-JO-wNM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="0.5" id="O6g-wi-6Hz"/>
+                    <constraint firstItem="J5U-JO-wNM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="0.29999999999999999" id="O6g-wi-6Hz"/>
                     <constraint firstItem="J5U-JO-wNM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QZA-2N-F0D"/>
                     <constraint firstAttribute="trailing" secondItem="J5U-JO-wNM" secondAttribute="trailing" id="UiE-qZ-ZJL"/>
-                    <constraint firstAttribute="bottom" secondItem="J5U-JO-wNM" secondAttribute="bottom" constant="0.5" id="cR0-BD-Qwl"/>
+                    <constraint firstAttribute="bottom" secondItem="J5U-JO-wNM" secondAttribute="bottom" constant="0.29999999999999999" id="cR0-BD-Qwl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
