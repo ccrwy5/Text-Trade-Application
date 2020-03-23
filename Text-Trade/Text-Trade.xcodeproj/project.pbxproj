@@ -15,6 +15,7 @@
 		CE258E88242537B6003DCE90 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E87242537B6003DCE90 /* ImageService.swift */; };
 		CE258E8A2425A272003DCE90 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E892425A272003DCE90 /* HelperExtensions.swift */; };
 		CE258E8C24280C97003DCE90 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8B24280C97003DCE90 /* LoadingCell.swift */; };
+		CE258E8F2429281E003DCE90 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		CE258E87242537B6003DCE90 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		CE258E892425A272003DCE90 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		CE258E8B24280C97003DCE90 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
 				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
 				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
+				CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				CE258E8A2425A272003DCE90 /* HelperExtensions.swift in Sources */,
 				CE258E82242499E8003DCE90 /* NewPostViewController.swift in Sources */,
 				CE258E8624249DA6003DCE90 /* UserService.swift in Sources */,
+				CE258E8F2429281E003DCE90 /* ProfilePageViewController.swift in Sources */,
 				CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */,
 				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
 				C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */,
