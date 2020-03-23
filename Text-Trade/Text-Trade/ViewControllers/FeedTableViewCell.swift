@@ -13,7 +13,9 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var bookTitleLabel: UILabel!
+    @IBOutlet weak var bookAuthorLabel: UILabel!
+    @IBOutlet weak var classUsedForLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,7 +47,9 @@ class FeedTableViewCell: UITableViewCell {
         }
         
         usernameLabel.text = post.author.username
-        contentLabel.text = post.text
+        bookTitleLabel.text = post.bookTitle
+        bookAuthorLabel.text = "By: " + post.bookAuthor
+        classUsedForLabel.text = "Used in: " + post.classUsedFor
         subtitleLabel.text = post.createdAt.calenderTimeSinceNow()
     }
     

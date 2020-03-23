@@ -11,15 +11,19 @@ import Foundation
 class Post{
     var id: String
     var author: UserProfile
-    var text: String
+    var bookTitle: String
     var createdAt: Date
+    var bookAuthor: String
+    var classUsedFor: String
 
     
-    init(id: String, author: UserProfile, text: String, timestamp: Double) {
+    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String) {
         self.id = id
         self.author = author
-        self.text = text
+        self.bookTitle = bookTitle
         self.createdAt = Date(timeIntervalSince1970: timestamp/1000)
+        self.bookAuthor = bookAuthor
+        self.classUsedFor = classUsedFor
     }
     
     static func parse(_ key:String, _ data:[String:Any]) -> Post? {
@@ -29,11 +33,13 @@ class Post{
             let username = author["username"] as? String,
             let photoURL = author["photoURL"] as? String,
             let url = URL(string:photoURL),
-            let text = data["text"] as? String,
-            let timestamp = data["timestamp"] as? Double {
+            let bookTitle = data["bookTitle"] as? String,
+            let timestamp = data["timestamp"] as? Double,
+            let bookAuthor = data["bookAuthor"] as? String,
+            let classUsedFor = data["classUsedFor"] as? String {
             
             let userProfile = UserProfile(uid: uid, username: username, photoURL: url)
-            return Post(id: key, author: userProfile, text: text, timestamp:timestamp)
+            return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor)
             
         }
         

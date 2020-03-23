@@ -60,9 +60,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                 "photoURL": userProfile.photoURL.absoluteString
             ],
             //"text": textView.text,
-            "text": titleTextField.text ?? "",
-            "authorName": authorTextField.text ?? "",
-            "classUF": classUsedForTextField.text ?? "",
+            "bookTitle": titleTextField.text ?? "",
+            "bookAuthor": authorTextField.text ?? "",
+            "classUsedFor": classUsedForTextField.text ?? "",
             "timestamp": [".sv":"timestamp"]
         ] as [String:Any]
         

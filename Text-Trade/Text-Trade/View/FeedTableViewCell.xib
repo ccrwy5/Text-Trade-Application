@@ -39,25 +39,43 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqo-DM-VoM">
-                                <rect key="frame" x="80" y="73" width="296" height="65"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqo-DM-VoM">
+                                <rect key="frame" x="80" y="65" width="296" height="20.5"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Book Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5x-QA-FYF">
+                                <rect key="frame" x="80" y="87.5" width="296" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoD-m3-Lob">
+                                <rect key="frame" x="80" y="104" width="296" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GL4-b6-I6e" firstAttribute="top" secondItem="J5U-JO-wNM" secondAttribute="top" constant="15" id="19d-F0-9LV"/>
-                            <constraint firstAttribute="bottom" secondItem="Lqo-DM-VoM" secondAttribute="bottom" constant="8" id="2j8-dx-747"/>
+                            <constraint firstItem="X5x-QA-FYF" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="4u8-Jk-QLM"/>
                             <constraint firstItem="s5C-Gm-NGh" firstAttribute="top" secondItem="J5U-JO-wNM" secondAttribute="top" constant="15" id="AQ1-9H-3sf"/>
+                            <constraint firstAttribute="trailing" secondItem="X5x-QA-FYF" secondAttribute="trailing" constant="8" id="Fwn-kq-0y6"/>
                             <constraint firstItem="ycA-QB-ega" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="Hml-5W-RLu"/>
                             <constraint firstAttribute="trailing" secondItem="Lqo-DM-VoM" secondAttribute="trailing" constant="8" id="Sog-R1-bl2"/>
                             <constraint firstItem="ycA-QB-ega" firstAttribute="top" secondItem="GL4-b6-I6e" secondAttribute="bottom" constant="2" id="TCU-4q-wnt"/>
                             <constraint firstItem="GL4-b6-I6e" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="TVf-6z-40s"/>
                             <constraint firstItem="Lqo-DM-VoM" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="ZBy-2g-UEH"/>
+                            <constraint firstItem="X5x-QA-FYF" firstAttribute="top" secondItem="Lqo-DM-VoM" secondAttribute="bottom" constant="2" id="cz9-gc-NRI"/>
+                            <constraint firstAttribute="bottom" secondItem="aoD-m3-Lob" secondAttribute="bottom" constant="25" id="eIw-7O-xqi"/>
+                            <constraint firstItem="aoD-m3-Lob" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="hfV-33-8wN"/>
                             <constraint firstItem="s5C-Gm-NGh" firstAttribute="leading" secondItem="J5U-JO-wNM" secondAttribute="leading" constant="15" id="hun-ZS-OCu"/>
-                            <constraint firstItem="Lqo-DM-VoM" firstAttribute="top" secondItem="s5C-Gm-NGh" secondAttribute="bottom" constant="8" id="rPB-Se-hkE"/>
+                            <constraint firstItem="aoD-m3-Lob" firstAttribute="top" secondItem="X5x-QA-FYF" secondAttribute="bottom" constant="2" id="j4n-WG-jpt"/>
+                            <constraint firstItem="Lqo-DM-VoM" firstAttribute="top" secondItem="s5C-Gm-NGh" secondAttribute="bottom" id="rPB-Se-hkE"/>
+                            <constraint firstAttribute="trailing" secondItem="aoD-m3-Lob" secondAttribute="trailing" constant="8" id="vSS-pj-6ek"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -70,7 +88,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="contentLabel" destination="Lqo-DM-VoM" id="UtO-YR-aJp"/>
+                <outlet property="bookAuthorLabel" destination="X5x-QA-FYF" id="5sM-o1-htw"/>
+                <outlet property="bookTitleLabel" destination="Lqo-DM-VoM" id="dNe-MC-KlS"/>
+                <outlet property="classUsedForLabel" destination="aoD-m3-Lob" id="gt9-sl-IsW"/>
                 <outlet property="profileImageView" destination="s5C-Gm-NGh" id="kxC-Zx-qar"/>
                 <outlet property="subtitleLabel" destination="ycA-QB-ega" id="Ohk-UV-aNx"/>
                 <outlet property="usernameLabel" destination="GL4-b6-I6e" id="lCc-nN-5EI"/>
