@@ -236,12 +236,6 @@
                                     <constraint firstAttribute="width" secondItem="aKX-g9-XGe" secondAttribute="height" multiplier="1:1" id="aET-Xq-w5Q"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lg-t2-mj8">
-                                <rect key="frame" x="30" y="94" width="98.5" height="41"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfs-aK-azE">
                                 <rect key="frame" x="30" y="331" width="354" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,22 +260,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHz-L0-Ujo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Profile" id="pYx-6L-fVe">
+                                        <barButtonItem key="rightBarButtonItem" title="Logout" id="rDx-at-RjK">
+                                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aKX-g9-XGe" firstAttribute="top" secondItem="7lg-t2-mj8" secondAttribute="bottom" constant="30" id="0wJ-CD-Wgo"/>
                             <constraint firstItem="Wfs-aK-azE" firstAttribute="top" secondItem="ezw-tK-JOe" secondAttribute="bottom" constant="30" id="2je-Mh-r2W"/>
                             <constraint firstItem="BYT-RT-SSA" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" id="8ua-RQ-Nwx"/>
                             <constraint firstItem="qUl-PE-Snd" firstAttribute="trailing" secondItem="Wfs-aK-azE" secondAttribute="trailing" constant="30" id="C6a-hx-EG6"/>
+                            <constraint firstItem="aKX-g9-XGe" firstAttribute="top" secondItem="OHz-L0-Ujo" secondAttribute="bottom" constant="77" id="C6q-s6-1dc"/>
                             <constraint firstItem="BYT-RT-SSA" firstAttribute="top" secondItem="Wfs-aK-azE" secondAttribute="bottom" constant="46" id="DBx-uv-W7Q"/>
                             <constraint firstItem="qUl-PE-Snd" firstAttribute="trailing" secondItem="BYT-RT-SSA" secondAttribute="trailing" id="KZU-8Z-COM"/>
-                            <constraint firstItem="7lg-t2-mj8" firstAttribute="top" secondItem="qUl-PE-Snd" secondAttribute="top" constant="50" id="N73-nf-t9u"/>
+                            <constraint firstItem="OHz-L0-Ujo" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" id="KaL-dP-L2D"/>
+                            <constraint firstItem="OHz-L0-Ujo" firstAttribute="top" secondItem="qUl-PE-Snd" secondAttribute="top" id="LUQ-2i-Zjx"/>
                             <constraint firstItem="aKX-g9-XGe" firstAttribute="centerX" secondItem="B3U-HJ-v8r" secondAttribute="centerX" id="Nlw-GY-0aG"/>
                             <constraint firstItem="ezw-tK-JOe" firstAttribute="top" secondItem="aKX-g9-XGe" secondAttribute="bottom" constant="15" id="Omc-mR-atc"/>
                             <constraint firstItem="ezw-tK-JOe" firstAttribute="centerX" secondItem="B3U-HJ-v8r" secondAttribute="centerX" id="SRr-Dr-Ykf"/>
                             <constraint firstItem="BYT-RT-SSA" firstAttribute="bottom" secondItem="qUl-PE-Snd" secondAttribute="bottom" id="VYA-U2-V4X"/>
-                            <constraint firstItem="7lg-t2-mj8" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" constant="30" id="a1a-PM-FKT"/>
                             <constraint firstItem="Wfs-aK-azE" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" constant="30" id="cTr-rT-8Ro"/>
+                            <constraint firstItem="OHz-L0-Ujo" firstAttribute="trailing" secondItem="qUl-PE-Snd" secondAttribute="trailing" id="dV7-nQ-hqe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qUl-PE-Snd"/>
                     </view>
