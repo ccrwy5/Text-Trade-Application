@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SLi-uv-ffy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SLi-uv-ffy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -252,64 +252,49 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPg-Qo-H6i">
-                                <rect key="frame" x="30" y="571" width="354" height="100"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="mQ1-jt-SDN"/>
-                                </constraints>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="handleLogoutButton:" destination="nAo-oD-gLd" eventType="touchUpInside" id="JNR-c7-4CH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WJ-oV-MYI">
-                                <rect key="frame" x="30" y="451" width="354" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="l8k-bN-Pu9"/>
-                                </constraints>
-                                <state key="normal" title="Wish list">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BYT-RT-SSA">
+                                <rect key="frame" x="0.0" y="477" width="414" height="336"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KrZ-fy-5we">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KrZ-fy-5we" id="Ytp-CL-PA7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aKX-g9-XGe" firstAttribute="top" secondItem="7lg-t2-mj8" secondAttribute="bottom" constant="30" id="0wJ-CD-Wgo"/>
                             <constraint firstItem="Wfs-aK-azE" firstAttribute="top" secondItem="ezw-tK-JOe" secondAttribute="bottom" constant="30" id="2je-Mh-r2W"/>
-                            <constraint firstItem="qUl-PE-Snd" firstAttribute="trailing" secondItem="zPg-Qo-H6i" secondAttribute="trailing" constant="30" id="51i-xG-DU2"/>
+                            <constraint firstItem="BYT-RT-SSA" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" id="8ua-RQ-Nwx"/>
                             <constraint firstItem="qUl-PE-Snd" firstAttribute="trailing" secondItem="Wfs-aK-azE" secondAttribute="trailing" constant="30" id="C6a-hx-EG6"/>
-                            <constraint firstItem="zPg-Qo-H6i" firstAttribute="top" secondItem="2WJ-oV-MYI" secondAttribute="bottom" constant="20" id="CgA-3q-3EJ"/>
-                            <constraint firstItem="qUl-PE-Snd" firstAttribute="trailing" secondItem="2WJ-oV-MYI" secondAttribute="trailing" constant="30" id="FVO-TG-7KE"/>
+                            <constraint firstItem="BYT-RT-SSA" firstAttribute="top" secondItem="Wfs-aK-azE" secondAttribute="bottom" constant="46" id="DBx-uv-W7Q"/>
+                            <constraint firstItem="qUl-PE-Snd" firstAttribute="trailing" secondItem="BYT-RT-SSA" secondAttribute="trailing" id="KZU-8Z-COM"/>
                             <constraint firstItem="7lg-t2-mj8" firstAttribute="top" secondItem="qUl-PE-Snd" secondAttribute="top" constant="50" id="N73-nf-t9u"/>
                             <constraint firstItem="aKX-g9-XGe" firstAttribute="centerX" secondItem="B3U-HJ-v8r" secondAttribute="centerX" id="Nlw-GY-0aG"/>
                             <constraint firstItem="ezw-tK-JOe" firstAttribute="top" secondItem="aKX-g9-XGe" secondAttribute="bottom" constant="15" id="Omc-mR-atc"/>
-                            <constraint firstItem="zPg-Qo-H6i" firstAttribute="centerX" secondItem="B3U-HJ-v8r" secondAttribute="centerX" id="QVp-qm-Qh0"/>
                             <constraint firstItem="ezw-tK-JOe" firstAttribute="centerX" secondItem="B3U-HJ-v8r" secondAttribute="centerX" id="SRr-Dr-Ykf"/>
-                            <constraint firstItem="2WJ-oV-MYI" firstAttribute="top" secondItem="Wfs-aK-azE" secondAttribute="bottom" constant="20" id="UkK-d1-p0z"/>
+                            <constraint firstItem="BYT-RT-SSA" firstAttribute="bottom" secondItem="qUl-PE-Snd" secondAttribute="bottom" id="VYA-U2-V4X"/>
                             <constraint firstItem="7lg-t2-mj8" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" constant="30" id="a1a-PM-FKT"/>
                             <constraint firstItem="Wfs-aK-azE" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" constant="30" id="cTr-rT-8Ro"/>
-                            <constraint firstItem="zPg-Qo-H6i" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" constant="30" id="pjl-ZG-76r"/>
-                            <constraint firstItem="2WJ-oV-MYI" firstAttribute="centerX" secondItem="B3U-HJ-v8r" secondAttribute="centerX" id="uUu-BL-OVZ"/>
-                            <constraint firstItem="2WJ-oV-MYI" firstAttribute="leading" secondItem="qUl-PE-Snd" secondAttribute="leading" constant="30" id="wkC-je-dpb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qUl-PE-Snd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="aP7-ic-He3"/>
                     <connections>
                         <outlet property="listABookButton" destination="Wfs-aK-azE" id="mmC-8V-c6i"/>
-                        <outlet property="logoutButton" destination="zPg-Qo-H6i" id="Bgh-HQ-ZkQ"/>
                         <outlet property="profileImageView" destination="aKX-g9-XGe" id="4pr-in-LCP"/>
                         <outlet property="usernameLabel" destination="ezw-tK-JOe" id="znJ-fb-2Jy"/>
-                        <outlet property="wishListButton" destination="2WJ-oV-MYI" id="H5T-me-mGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9j7-CV-ngu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="860"/>
+            <point key="canvasLocation" x="3131.884057971015" y="859.82142857142856"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="x0e-Xk-3W6">
