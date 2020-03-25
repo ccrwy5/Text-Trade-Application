@@ -23,8 +23,8 @@ class ProfilePageViewController: UIViewController {
         loadCurrentProfileInfo()
         
         listABookButton.layer.cornerRadius = 10
-        logoutButton.layer.cornerRadius = 10
-        wishListButton.layer.cornerRadius = 10
+       // logoutButton.layer.cornerRadius = 10
+       // wishListButton.layer.cornerRadius = 10
 
     }
     
