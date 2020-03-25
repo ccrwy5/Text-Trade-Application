@@ -270,6 +270,9 @@
                                     <navigationItem title="Profile" id="pYx-6L-fVe">
                                         <barButtonItem key="rightBarButtonItem" title="Logout" id="rDx-at-RjK">
                                             <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="logoutButton:" destination="nAo-oD-gLd" id="W0J-I6-rXh"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -297,6 +300,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="aP7-ic-He3"/>
                     <connections>
                         <outlet property="listABookButton" destination="Wfs-aK-azE" id="mmC-8V-c6i"/>
+                        <outlet property="listTableView" destination="BYT-RT-SSA" id="P8N-RK-mX9"/>
                         <outlet property="profileImageView" destination="aKX-g9-XGe" id="4pr-in-LCP"/>
                         <outlet property="usernameLabel" destination="ezw-tK-JOe" id="znJ-fb-2Jy"/>
                     </connections>

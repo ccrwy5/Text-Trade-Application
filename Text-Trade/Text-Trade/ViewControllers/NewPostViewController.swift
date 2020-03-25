@@ -52,6 +52,10 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         guard let userProfile = UserService.currentUserProfile else { return }
         
+//        if titleTextField.text == nil && authorTextField == nil {
+//            postButton.isEnabled = false
+//        }
+        
         let postRef = Database.database().reference().child("posts").childByAutoId()
         let postObject = [
             "author": [
