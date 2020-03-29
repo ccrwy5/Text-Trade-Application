@@ -13,15 +13,32 @@ import Firebase
 class NewPostViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var postButton: UIBarButtonItem!
-    @IBOutlet weak var textView: UITextView!
+    //@IBOutlet weak var textView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var classUsedForTextField: UITextField!
     
+    @IBOutlet weak var QRButtonImage: UIButton!
+    @IBOutlet weak var QRButtonText: UIButton!
+    
+    var verificationId = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.delegate = self
+        let testString = verificationId
+
+        let array = testString.components(separatedBy: "by ")
+        print(array)
+        let title = array.first!
+        let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let author = array.last!
+        
+        titleTextField.text = trimmedTitle
+        authorTextField.text = author
+        
+        //textView.delegate = self
         setupUI()
 
 
@@ -85,7 +102,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     
     
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        textView.resignFirstResponder()
+        //textView.resignFirstResponder()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
             super.dismiss(animated: flag, completion: completion)
         })
@@ -93,8 +110,14 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        textView.becomeFirstResponder()
+        //textView.becomeFirstResponder()
         
     }
-
+    
+    @IBAction func QRButtonImagePressed(_ sender: Any) {
+    }
+    
+    @IBAction func QRButtonTextPressed(_ sender: Any) {
+    }
+    
 }

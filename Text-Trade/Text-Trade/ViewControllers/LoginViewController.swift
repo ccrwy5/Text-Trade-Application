@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var logoImageView: UIImageView!
@@ -21,6 +21,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        emailTextField.returnKeyType = .next
+        emailTextField.returnKeyType = .next
+        createDoneButton()
+        
 
     }
     
@@ -83,6 +88,33 @@ class LoginViewController: UIViewController {
         
         loginButton.layer.cornerRadius = 22
 
+    }
+    
+    func createDoneButton(){
+        let toolBar = UIToolbar()
+            toolBar.sizeToFit()
+        
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+            
+            let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
+            
+            toolBar.setItems([flexibleSpace, doneButton], animated: false)
+            emailTextField.inputAccessoryView = toolBar
+            passwordTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func doneClicked(){
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      if textField == emailTextField {
+         textField.resignFirstResponder()
+         passwordTextField.becomeFirstResponder()
+      } else if textField == passwordTextField {
+         textField.resignFirstResponder()
+      }
+     return true
     }
     
 

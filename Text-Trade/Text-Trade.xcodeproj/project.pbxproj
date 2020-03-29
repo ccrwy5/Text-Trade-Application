@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3BF92A3B695F81440D0AD78 /* Pods_Text_Trade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */; };
+		39050E986E68CB6EF5AAFC06 /* libPods-Text-Trade.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08044717898AC1D32B86C35E /* libPods-Text-Trade.a */; };
 		C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6501D802419A60C0012EE41 /* FlexibleTextField.swift */; };
 		CE258E82242499E8003DCE90 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E81242499E8003DCE90 /* NewPostViewController.swift */; };
 		CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8324249AB8003DCE90 /* UserProfile.swift */; };
@@ -16,6 +16,11 @@
 		CE258E8A2425A272003DCE90 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E892425A272003DCE90 /* HelperExtensions.swift */; };
 		CE258E8C24280C97003DCE90 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8B24280C97003DCE90 /* LoadingCell.swift */; };
 		CE258E8F2429281E003DCE90 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */; };
+		CE258E9324304DC4003DCE90 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9224304DC4003DCE90 /* ScannerViewController.swift */; };
+		CE258E9524304E0C003DCE90 /* QRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9424304E0C003DCE90 /* QRData.swift */; };
+		CE258E9724304E3B003DCE90 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9624304E3B003DCE90 /* Toast.swift */; };
+		CE258E9924304EA4003DCE90 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9824304EA4003DCE90 /* ScannerView.swift */; };
+		CE258E9B24305057003DCE90 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9A24305057003DCE90 /* ScanResultViewController.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
@@ -31,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Trade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08044717898AC1D32B86C35E /* libPods-Text-Trade.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Text-Trade.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
 		B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
 		C6501D802419A60C0012EE41 /* FlexibleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextField.swift; sourceTree = "<group>"; };
@@ -42,6 +47,11 @@
 		CE258E892425A272003DCE90 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		CE258E8B24280C97003DCE90 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		CE258E9224304DC4003DCE90 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		CE258E9424304E0C003DCE90 /* QRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRData.swift; sourceTree = "<group>"; };
+		CE258E9624304E3B003DCE90 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		CE258E9824304EA4003DCE90 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		CE258E9A24305057003DCE90 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3BF92A3B695F81440D0AD78 /* Pods_Text_Trade.framework in Frameworks */,
+				39050E986E68CB6EF5AAFC06 /* libPods-Text-Trade.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +83,7 @@
 		3D96C1F04B1AB7572AAC0DEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				02A09D96E8B4904B7508FB5B /* Pods_Text_Trade.framework */,
+				08044717898AC1D32B86C35E /* libPods-Text-Trade.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -94,6 +104,7 @@
 				C6501D802419A60C0012EE41 /* FlexibleTextField.swift */,
 				CEDCAABE2415DD73001E112C /* Main.storyboard */,
 				CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */,
+				CE258E9824304EA4003DCE90 /* ScannerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +118,8 @@
 				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
 				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
 				CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */,
+				CE258E9224304DC4003DCE90 /* ScannerViewController.swift */,
+				CE258E9A24305057003DCE90 /* ScanResultViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -153,6 +166,8 @@
 				CE258E87242537B6003DCE90 /* ImageService.swift */,
 				CE258E892425A272003DCE90 /* HelperExtensions.swift */,
 				CE258E8B24280C97003DCE90 /* LoadingCell.swift */,
+				CE258E9424304E0C003DCE90 /* QRData.swift */,
+				CE258E9624304E3B003DCE90 /* Toast.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,7 +183,6 @@
 				CEDCAAB12415DD73001E112C /* Sources */,
 				CEDCAAB22415DD73001E112C /* Frameworks */,
 				CEDCAAB32415DD73001E112C /* Resources */,
-				37BB7D45A8B6191CA33DC90C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,23 +242,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37BB7D45A8B6191CA33DC90C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5483D540AF3C791FB3820381 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,20 +272,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */,
+				CE258E9924304EA4003DCE90 /* ScannerView.swift in Sources */,
 				CEDCAAD62415F56D001E112C /* FeedTableViewCell.swift in Sources */,
 				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
 				CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */,
 				CE258E8C24280C97003DCE90 /* LoadingCell.swift in Sources */,
 				CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */,
 				CE258E88242537B6003DCE90 /* ImageService.swift in Sources */,
+				CE258E9724304E3B003DCE90 /* Toast.swift in Sources */,
 				CE258E8A2425A272003DCE90 /* HelperExtensions.swift in Sources */,
 				CE258E82242499E8003DCE90 /* NewPostViewController.swift in Sources */,
 				CE258E8624249DA6003DCE90 /* UserService.swift in Sources */,
+				CE258E9B24305057003DCE90 /* ScanResultViewController.swift in Sources */,
 				CE258E8F2429281E003DCE90 /* ProfilePageViewController.swift in Sources */,
 				CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */,
 				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
 				C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */,
 				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,
+				CE258E9524304E0C003DCE90 /* QRData.swift in Sources */,
+				CE258E9324304DC4003DCE90 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
