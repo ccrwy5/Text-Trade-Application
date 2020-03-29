@@ -13,7 +13,6 @@ class ProfilePageViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var listABookButton: UIButton!
     @IBOutlet weak var listTableView: UITableView!
   
     
@@ -23,15 +22,6 @@ class ProfilePageViewController: UIViewController {
 
         loadCurrentProfileInfo()
         
-        //listABookButton.layer.cornerRadius = 10
-        listABookButton.layer.borderWidth = 2
-        listABookButton.layer.cornerRadius = 10
-        listABookButton.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        listABookButton.layer.cornerRadius = 22
-        listABookButton.clipsToBounds = true
-       // logoutButton.layer.cornerRadius = 10
-       // wishListButton.layer.cornerRadius = 10
-
     }
     
     @IBAction func logoutButton(_ sender: Any) {
