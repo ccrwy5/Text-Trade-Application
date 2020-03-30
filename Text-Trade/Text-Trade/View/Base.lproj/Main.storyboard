@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-WT" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-Eh-QGV">
-                                <rect key="frame" x="80" y="148" width="254.00000000000011" height="120"/>
+                                <rect key="frame" x="80" y="148" width="254" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="RYu-2I-A2b"/>
                                 </constraints>
@@ -168,7 +168,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rCL-Qs-MWH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rCL-Qs-MWH">
                                 <rect key="frame" x="157" y="138" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="J4o-Td-93w"/>
@@ -234,7 +234,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aKX-g9-XGe">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aKX-g9-XGe">
                                 <rect key="frame" x="157" y="30" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="HAF-Ry-IX6"/>
@@ -246,7 +246,7 @@
                                 <rect key="frame" x="0.0" y="257" width="414" height="468"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KrZ-fy-5we">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" id="KrZ-fy-5we">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KrZ-fy-5we" id="Ytp-CL-PA7">
@@ -255,6 +255,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nAo-oD-gLd" id="ghA-Us-nE4"/>
+                                    <outlet property="delegate" destination="nAo-oD-gLd" id="IGC-xW-Cnd"/>
+                                </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-h7-212">
                                 <rect key="frame" x="10" y="216" width="394" height="32"/>
@@ -264,6 +268,9 @@
                                     <segment title="Wishlist"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="handleSegmentChange:" destination="nAo-oD-gLd" eventType="valueChanged" id="h8f-1t-r2x"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -284,11 +291,16 @@
                         <viewLayoutGuide key="safeArea" id="qUl-PE-Snd"/>
                     </view>
                     <navigationItem key="navigationItem" id="VvP-e0-77n">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="qoL-IO-gDI"/>
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="qoL-IO-gDI">
+                            <connections>
+                                <action selector="logoutButton:" destination="nAo-oD-gLd" id="LDN-w6-C4d"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="BYT-RT-SSA" id="P8N-RK-mX9"/>
                         <outlet property="profileImageView" destination="aKX-g9-XGe" id="4pr-in-LCP"/>
+                        <outlet property="segmentedControl" destination="SVh-h7-212" id="83Y-Om-AZp"/>
                         <outlet property="usernameLabel" destination="ezw-tK-JOe" id="znJ-fb-2Jy"/>
                     </connections>
                 </viewController>

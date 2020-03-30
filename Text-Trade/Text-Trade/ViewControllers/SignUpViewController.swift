@@ -12,6 +12,9 @@ import Firebase
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var imagePicker: UIImagePickerController!
+    
+    var userListingsArray: [String] = []
+    var userWishListArray: [String] = []
 
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -120,7 +123,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
             let userObject = [
                 "username": username,
-                "photoURL": profileImageURL.absoluteString
+                "photoURL": profileImageURL.absoluteString,
+                "User's Listings": [""],
+                "Wish list items": [""]
             ] as [String:Any]
             
             databaseRef.setValue(userObject) { error, ref in
