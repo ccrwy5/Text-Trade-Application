@@ -121,11 +121,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let databaseRef = Database.database().reference().child("users/profile/\(uid)")
             
+            let test: [String: Any] = ["Book Title": username, "Book Author": username]
+            
+            
             let userObject = [
                 "username": username,
                 "photoURL": profileImageURL.absoluteString,
-                "User's Listings": [""],
-                "Wish list items": [""]
+                "User's Listings": [
+
+                    //["Book Title": "listingTitle", "Book Author": "listingAuthor"],
+                    //["Book Title2": "listingTitle2", "Book Author2": "listingAuthor2"],
+                    //test
+                ],
+                "Wish list items": [
+                    ["bookTitle": "","bookAuthor": ""]
+                ]
             ] as [String:Any]
             
             databaseRef.setValue(userObject) { error, ref in

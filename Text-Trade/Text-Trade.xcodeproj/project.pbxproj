@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,8 @@
 		CE258E9724304E3B003DCE90 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9624304E3B003DCE90 /* Toast.swift */; };
 		CE258E9924304EA4003DCE90 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9824304EA4003DCE90 /* ScannerView.swift */; };
 		CE258E9B24305057003DCE90 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9A24305057003DCE90 /* ScanResultViewController.swift */; };
+		CE4F29642431DA030071AA55 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29632431DA030071AA55 /* Listing.swift */; };
+		CE4F29922433E08C0071AA55 /* ProfilePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		CE258E9624304E3B003DCE90 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		CE258E9824304EA4003DCE90 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		CE258E9A24305057003DCE90 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
+		CE4F29632431DA030071AA55 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewCell.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
 				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
 				CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */,
+				CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */,
 				CE258E9224304DC4003DCE90 /* ScannerViewController.swift */,
 				CE258E9A24305057003DCE90 /* ScanResultViewController.swift */,
 			);
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDCAAD92415F8B6001E112C /* Post.swift */,
+				CE4F29632431DA030071AA55 /* Listing.swift */,
 				CE258E8324249AB8003DCE90 /* UserProfile.swift */,
 				CE258E8524249DA6003DCE90 /* UserService.swift */,
 				CE258E87242537B6003DCE90 /* ImageService.swift */,
@@ -272,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */,
+				CE4F29642431DA030071AA55 /* Listing.swift in Sources */,
 				CE258E9924304EA4003DCE90 /* ScannerView.swift in Sources */,
 				CEDCAAD62415F56D001E112C /* FeedTableViewCell.swift in Sources */,
 				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
@@ -286,6 +293,7 @@
 				CE258E9B24305057003DCE90 /* ScanResultViewController.swift in Sources */,
 				CE258E8F2429281E003DCE90 /* ProfilePageViewController.swift in Sources */,
 				CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */,
+				CE4F29922433E08C0071AA55 /* ProfilePageTableViewCell.swift in Sources */,
 				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
 				C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */,
 				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,

@@ -13,7 +13,6 @@ import Firebase
 class NewPostViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var postButton: UIBarButtonItem!
-    //@IBOutlet weak var textView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var classUsedForTextField: UITextField!
@@ -22,14 +21,15 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var QRButtonText: UIButton!
     
     var verificationId = String()
-    
+    //var allUsersListings = [[String: Any]]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let testString = verificationId
 
         let array = testString.components(separatedBy: "by ")
-        print(array)
+        //print(array)
         let title = array.first!
         let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
 
@@ -38,9 +38,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         titleTextField.text = trimmedTitle
         authorTextField.text = author
         
-        //textView.delegate = self
         setupUI()
-
+        //getAllUserListings()
+        //getAllUserListings2()
 
     }
     
@@ -69,10 +69,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         guard let userProfile = UserService.currentUserProfile else { return }
         
-//        if titleTextField.text == nil && authorTextField == nil {
-//            postButton.isEnabled = false
-//        }
-        
+        /* Set's the book into the posts section of DB */
         let postRef = Database.database().reference().child("posts").childByAutoId()
         let postObject = [
             "author": [
@@ -80,7 +77,6 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                 "username": userProfile.username,
                 "photoURL": userProfile.photoURL.absoluteString
             ],
-            //"text": textView.text,
             "bookTitle": titleTextField.text ?? "",
             "bookAuthor": authorTextField.text ?? "",
             "classUsedFor": classUsedForTextField.text ?? "",
@@ -92,11 +88,22 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
             } else {
-                // Handle the error
+                print("error in postRef setValue")
             }
         })
         
-        self.dismiss(animated: true, completion: nil)
+        /* Set's the book into the user's listings section of DB */
+        
+        let currentUser = (Auth.auth().currentUser?.uid)!
+        let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings").childByAutoId()
+        
+        let listingObject = [
+                "id": listingDatabaseRef.key,
+                "bookTitle": titleTextField.text ?? "",
+                "bookAuthor": authorTextField.text ?? ""
+        ] as [String: Any]
+        
+        listingDatabaseRef.setValue(listingObject)
 
     }
     
@@ -119,5 +126,53 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func QRButtonTextPressed(_ sender: Any) {
     }
+    
+//    func getAllUserListings() {
+//        let currentUser = (Auth.auth().currentUser?.uid)!
+//        let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
+//
+//        listingDatabaseRef.observeSingleEvent(of: .value) { (snapshot) in
+//            for child in snapshot.children {
+//                let snap = child as! DataSnapshot
+//                //let key = snap.key
+//                let value = snap.value!
+//                //print(value)
+//
+//            }
+//        }
+//    }
+//
+//
+//    var listingsList = [Listing]()
+//    func getAllUserListings2(){
+//        let currentUser = (Auth.auth().currentUser?.uid)!
+//        let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
+//
+//        listingDatabaseRef.observe(.value) { (snapshot) in
+//            if snapshot.childrenCount > 0 {
+//
+//                self.listingsList.removeAll()
+//
+//                for listing in snapshot.children.allObjects as! [DataSnapshot] {
+//                    let listingObject = listing.value as? [String: Any]
+//                        let bookTitle = listingObject?["bookTitle"]
+//                        let bookAuthor = listingObject?["bookAuthor"]
+//                        let id = listingObject?["id"]
+//
+//                    let newListing = Listing(id: id as? String, bookTitle: bookTitle as? String, bookAuthor: bookAuthor as? String)
+//                    self.listingsList.append(newListing)
+//                    //print(self.listingsList)
+//
+//                    print("\(self.listingsList)")
+//                }
+//
+//
+//
+//
+//            }
+//        }
+//    }
+    
+    
     
 }

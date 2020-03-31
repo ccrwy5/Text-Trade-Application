@@ -16,18 +16,21 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var userListedBooksArray: [String] = []
     var userWishListArray: [String] = []
+    var listings = [Listing]()
     
     
+    var listingReference: DatabaseReference!
+    var listingsList = [Listing]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadCurrentProfileInfo()
         segmentedControl.selectedSegmentIndex = 0
-        addDummyListing()
-        addDummyWishListItem()
+ 
+        populateListings()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,11 +44,9 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func handleSegmentChange(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
-            addDummyListing()
+            populateListings()
             listTableView.reloadData()
-            print(userListedBooksArray)
         } else if sender.selectedSegmentIndex == 1 {
-            addDummyWishListItem()
             listTableView.reloadData()
             print(userWishListArray)
         }
@@ -61,23 +62,37 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
         usernameLabel.text = Auth.auth().currentUser?.displayName
     }
     
-    func addDummyListing(){
+    func populateListings(){
         let currentUser = (Auth.auth().currentUser?.uid)!
-        let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
+        listingReference = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
         
-        userListedBooksArray = ["book1", "book2"]
-        
-        listingDatabaseRef.setValue(userListedBooksArray)
+        listingReference.observe(.value, with: {(snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.listingsList.removeAll()
+                
+                for listing in snapshot.children.allObjects as! [DataSnapshot] {
+                    let listingObject = listing.value as? [String:AnyObject]
+                    let name = listingObject?["bookTitle"]
+                    let genre = listingObject?["bookAuthor"]
+                    let id = listingObject?["id"]
+                    
+                    let artist = Listing(id: id as! String?, bookTitle: name as! String?, bookAuthor: genre as! String?)
+                    
+                    self.listingsList.append(artist)
+                }
+                self.listTableView.reloadData()
+            }
+        })
 
     }
     
-    func addDummyWishListItem(){
+    
+    func populateWishList(){
         let currentUser = (Auth.auth().currentUser?.uid)!
         let wishListDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("Wish list items")
-
-        userWishListArray = ["book3", "book4", "book5"]
         
-        wishListDatabaseRef.setValue(userWishListArray)
+        //coming soon
+
     }
     
     /* -------- Table View Functions -------- */
@@ -93,21 +108,30 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
         var numberOfRows: Int = 0
         
         if segmentedControl.selectedSegmentIndex == 0 {
-            numberOfRows = userListedBooksArray.count
+            numberOfRows = listingsList.count
+            print("Number of rows: \(numberOfRows)")
+            print("Contents: \(listingsList)")
+
+            
         } else if segmentedControl.selectedSegmentIndex == 1 {
             numberOfRows = userWishListArray.count
         }
         
         return numberOfRows
     }
-
+    
     // Populate Cells from Arrays
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = listTableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
+        let cell = listTableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! ProfilePageTableViewCell
         
         if segmentedControl.selectedSegmentIndex == 0 {
-            cell.textLabel?.text = userListedBooksArray[indexPath.row]
+            
+            let listing: Listing
+            listing = listingsList[indexPath.row]
+            cell.titleLabel.text = listing.bookTitle
+            
+            
         } else if segmentedControl.selectedSegmentIndex == 1 {
             cell.textLabel?.text = userWishListArray[indexPath.row]
         }
