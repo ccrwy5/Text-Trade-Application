@@ -332,17 +332,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QqD-xG-zZ7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="628"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by title, class, or both" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-cW-v71">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="zAQ-Iw-iqI" id="qCG-gn-oFe"/>
+                                </connections>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QId-FG-kpi">
+                                <rect key="frame" x="5" y="56" width="404" height="32"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Book Title"/>
+                                    <segment title="Class"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Jl6-cW-v71" firstAttribute="top" secondItem="9Ug-sF-abN" secondAttribute="top" id="5UO-YL-Bxp"/>
                             <constraint firstItem="9Ug-sF-abN" firstAttribute="bottom" secondItem="QqD-xG-zZ7" secondAttribute="bottom" id="7Gq-WJ-M7i"/>
                             <constraint firstItem="QqD-xG-zZ7" firstAttribute="leading" secondItem="9Ug-sF-abN" secondAttribute="leading" id="88I-kS-znh"/>
                             <constraint firstItem="9Ug-sF-abN" firstAttribute="trailing" secondItem="QqD-xG-zZ7" secondAttribute="trailing" id="8px-e1-weR"/>
-                            <constraint firstItem="QqD-xG-zZ7" firstAttribute="top" secondItem="9Ug-sF-abN" secondAttribute="top" id="dyM-hj-46u"/>
+                            <constraint firstItem="Jl6-cW-v71" firstAttribute="leading" secondItem="9Ug-sF-abN" secondAttribute="leading" id="9yh-lx-Wr7"/>
+                            <constraint firstItem="QId-FG-kpi" firstAttribute="top" secondItem="Jl6-cW-v71" secondAttribute="bottom" symbolic="YES" id="Mdr-JC-n7Y"/>
+                            <constraint firstItem="QId-FG-kpi" firstAttribute="leading" secondItem="9Ug-sF-abN" secondAttribute="leading" constant="5" id="VM1-rZ-z77"/>
+                            <constraint firstItem="Jl6-cW-v71" firstAttribute="trailing" secondItem="9Ug-sF-abN" secondAttribute="trailing" id="cQI-R6-aKd"/>
+                            <constraint firstItem="9Ug-sF-abN" firstAttribute="trailing" secondItem="QId-FG-kpi" secondAttribute="trailing" constant="5" id="eKx-dd-RX8"/>
+                            <constraint firstItem="QqD-xG-zZ7" firstAttribute="top" secondItem="QId-FG-kpi" secondAttribute="bottom" constant="10" id="fv4-ca-oiV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Ug-sF-abN"/>
                     </view>
@@ -361,6 +384,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="feedSearchBar" destination="Jl6-cW-v71" id="aT8-9d-zzw"/>
+                        <outlet property="feedSegmentedControl" destination="QId-FG-kpi" id="lPb-R0-nlG"/>
                         <outlet property="logoutButton" destination="AmH-BY-r3L" id="yfJ-BW-vln"/>
                         <outlet property="tableView" destination="QqD-xG-zZ7" id="vRR-eT-FOd"/>
                     </connections>
@@ -374,7 +399,7 @@
             <objects>
                 <viewController id="kV8-CN-nMf" customClass="NewPostViewController" customModule="Text_Trade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jG7-Uc-rU8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List a book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLm-3Q-djX">
@@ -414,7 +439,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-Ma-ypq">
-                                <rect key="frame" x="172" y="663.5" width="70" height="69"/>
+                                <rect key="frame" x="172" y="580.5" width="70" height="69"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="3yi-LS-PfC"/>
@@ -428,7 +453,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4t-mf-qYG">
-                                <rect key="frame" x="150.5" y="741" width="113" height="30"/>
+                                <rect key="frame" x="150.5" y="658" width="113" height="30"/>
                                 <state key="normal" title="Use QR Scanner"/>
                                 <connections>
                                     <action selector="QRButtonTextPressed:" destination="kV8-CN-nMf" eventType="touchUpInside" id="Wem-sj-oHP"/>
@@ -483,7 +508,7 @@
             <objects>
                 <viewController id="RfW-yN-1Ty" customClass="ScannerViewController" customModule="Text_Trade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEK-I7-LLK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjw-BY-QKB" customClass="QRScannerView" customModule="Text_Trade" customModuleProvider="target">
@@ -534,7 +559,7 @@
             <objects>
                 <viewController id="gqf-cX-zhf" customClass="ScanResultViewController" customModule="Text_Trade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dMW-jR-dax">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code Found:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYx-nR-4iF">
@@ -550,7 +575,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-vp-5dr">
-                                <rect key="frame" x="107" y="658" width="200" height="50"/>
+                                <rect key="frame" x="107" y="575" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="roh-YU-tIP"/>
@@ -677,7 +702,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="svJ-pH-D1Q"/>
-        <segue reference="bFZ-iY-1g9"/>
+        <segue reference="3Vs-yz-0mS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

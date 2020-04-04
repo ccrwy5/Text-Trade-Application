@@ -9,14 +9,19 @@
 import UIKit
 import Firebase
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
 
     var posts = [Post]()
+    var currentPosts = [Post]()
     var fetchingMore = false
     var endReached = false
     let leadingScreensForBatching: CGFloat = 3.0
     var refreshControl: UIRefreshControl?
+    
+    @IBOutlet weak var feedSearchBar: UISearchBar!
+    @IBOutlet weak var feedSegmentedControl: UISegmentedControl!
+    
     
     var postsRef: DatabaseReference {
         return Database.database().reference().child("posts")
@@ -59,6 +64,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         
+        
         let cellNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
         tableView.register(LoadingCell.self, forCellReuseIdentifier: "loadingCell")
@@ -66,11 +72,24 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.reloadData()
         
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor:UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor:UIColor.white], for: .normal)
+
+        
         refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
         refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         //observePosts()
+        
+        searchBarSetup()
 
+    }
+    
+    func searchBarSetup() {
+        feedSearchBar.showsScopeBar = true
+        feedSearchBar.selectedScopeButtonIndex = 0
+        feedSearchBar.delegate = self
+        //self.artistsTable.tableHeaderView = searchBar
     }
     
     
@@ -92,6 +111,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
             
             self.posts.insert(contentsOf: tempPosts, at: 0)
+            self.currentPosts = self.posts
+
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         //            return completion(tempPosts)
@@ -140,7 +161,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         //return posts.count
         
         if(section == 0){
-            return posts.count
+            return currentPosts.count
         }else{
             return fetchingMore ? 1 : 0
         }
@@ -149,7 +170,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! FeedTableViewCell
-            cell.setPost(post: posts[indexPath.row])
+            //cell.setPost(inputPost: posts[indexPath.row])
+            cell.setPost(inputPost: currentPosts[indexPath.row])
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
@@ -189,6 +211,33 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            currentPosts = posts
+            tableView.reloadData()
+            return
+        }
+        if(feedSegmentedControl.selectedSegmentIndex == 0){
+            currentPosts = posts.filter({ (book) -> Bool in
+                return book.bookTitle.lowercased().contains(searchText.lowercased()) || book.classUsedFor.lowercased().contains(searchText.lowercased())
+
+        })
+        self.tableView.reloadData()
+        } else if(feedSegmentedControl.selectedSegmentIndex == 1){
+            currentPosts = posts.filter({ (book) -> Bool in
+                return book.bookTitle.lowercased().contains(searchText.lowercased())
+            })
+            self.tableView.reloadData()
+            
+        } else if(feedSegmentedControl.selectedSegmentIndex == 2) {
+            currentPosts = posts.filter({ (book) -> Bool in
+                return book.classUsedFor.lowercased().contains(searchText.lowercased())
+            })
+            self.tableView.reloadData()
+        }
+
     }
 
 }

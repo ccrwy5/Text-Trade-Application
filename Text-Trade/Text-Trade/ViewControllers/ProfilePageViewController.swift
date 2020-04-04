@@ -16,6 +16,7 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    
     var userWishListArray: [String] = []
     var listings = [Listing]()
     
