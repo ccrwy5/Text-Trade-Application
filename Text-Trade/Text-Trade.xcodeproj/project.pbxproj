@@ -23,6 +23,7 @@
 		CE258E9B24305057003DCE90 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E9A24305057003DCE90 /* ScanResultViewController.swift */; };
 		CE4F29642431DA030071AA55 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29632431DA030071AA55 /* Listing.swift */; };
 		CE4F29922433E08C0071AA55 /* ProfilePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */; };
+		CE5108C32438499D0083B324 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5108C22438499D0083B324 /* RefreshButton.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		CE258E9A24305057003DCE90 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		CE4F29632431DA030071AA55 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewCell.swift; sourceTree = "<group>"; };
+		CE5108C22438499D0083B324 /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				CEDCAABE2415DD73001E112C /* Main.storyboard */,
 				CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */,
 				CE258E9824304EA4003DCE90 /* ScannerView.swift */,
+				CE5108C22438499D0083B324 /* RefreshButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
 				CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */,
 				CE258E8C24280C97003DCE90 /* LoadingCell.swift in Sources */,
+				CE5108C32438499D0083B324 /* RefreshButton.swift in Sources */,
 				CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */,
 				CE258E88242537B6003DCE90 /* ImageService.swift in Sources */,
 				CE258E9724304E3B003DCE90 /* Toast.swift in Sources */,

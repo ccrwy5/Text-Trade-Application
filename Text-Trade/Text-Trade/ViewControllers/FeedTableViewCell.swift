@@ -25,11 +25,7 @@ class FeedTableViewCell: UITableViewCell {
         
         
         
-//        let starButton = UIButton(type: .system)
-//        starButton.setTitle("SOME TITLE", for: .normal)
-//        starButton.setImage(UIImage(named: "wishlistIcon"), for: .normal)
-//        starButton.frame = CGRect(x:0, y:0, width: 50, height: 50)
-//        accessoryView = starButton
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-WT" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-Eh-QGV">
-                                <rect key="frame" x="80" y="148" width="254" height="120"/>
+                                <rect key="frame" x="80" y="148" width="254.00000000000011" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="RYu-2I-A2b"/>
                                 </constraints>
@@ -277,7 +277,7 @@
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-h7-212">
                                 <rect key="frame" x="10" y="216" width="394" height="32"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <segments>
                                     <segment title="Listings"/>
                                     <segment title="Wishlist"/>

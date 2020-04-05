@@ -10,6 +10,10 @@ import UIKit
 import Foundation
 import Firebase
 
+//protocol NewPostVCDelegate {
+//    func didUploadPost(withID id: String)
+//}
+
 class NewPostViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var postButton: UIBarButtonItem!
@@ -20,8 +24,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var QRButtonImage: UIButton!
     @IBOutlet weak var QRButtonText: UIButton!
     
+    //var delegate: NewPostVCDelegate?
+    
     var verificationId = String()
-    //var allUsersListings = [[String: Any]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +90,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         postRef.setValue(postObject, withCompletionBlock: { error, ref in
             if error == nil {
+                
                 self.navigationController?.popViewController(animated: true)
+                //self.delegate?.didUploadPost(withID: ref.key!)
                 self.dismiss(animated: true, completion: nil)
             } else {
                 print("error in postRef setValue")

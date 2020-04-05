@@ -19,6 +19,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     let leadingScreensForBatching: CGFloat = 3.0
     var refreshControl: UIRefreshControl?
     
+    var seeNewPostsButton: SeeNewPostsButton!
+    var seeNewPostsButtonTopAnchor: NSLayoutConstraint!
+    
     @IBOutlet weak var feedSearchBar: UISearchBar!
     @IBOutlet weak var feedSegmentedControl: UISegmentedControl!
     
@@ -79,10 +82,48 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
         refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        
+        
+        var layoutGuide:UILayoutGuide!
+        
+        if #available(iOS 11.0, *) {
+            layoutGuide = view.safeAreaLayoutGuide
+        } else {
+            // Fallback on earlier versions
+            layoutGuide = view.layoutMarginsGuide
+        }
+        
+        seeNewPostsButton = SeeNewPostsButton()
+        view.addSubview(seeNewPostsButton)
+        seeNewPostsButton.translatesAutoresizingMaskIntoConstraints = false
+        seeNewPostsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        seeNewPostsButtonTopAnchor = seeNewPostsButton.topAnchor.constraint(equalTo: layoutGuide.topAnchor, constant: -44)
+        seeNewPostsButtonTopAnchor.isActive = true
+        seeNewPostsButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        seeNewPostsButton.widthAnchor.constraint(equalToConstant: seeNewPostsButton.button.bounds.width).isActive = true
+        
+        seeNewPostsButton.button.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
+        
         //observePosts()
         
         searchBarSetup()
+        beginBatchFetch()
 
+    }
+    
+    func toggleSeeNewPostsButton(hidden: Bool) {
+        if hidden {
+            // hide it
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                self.seeNewPostsButtonTopAnchor.constant = -44.0
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                self.seeNewPostsButtonTopAnchor.constant = 112
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
     }
     
     func searchBarSetup() {
@@ -95,6 +136,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func handleRefresh(){
         print("Refresh")
+        toggleSeeNewPostsButton(hidden: true)
         
         newPostsQuery.queryLimited(toFirst: 20).observeSingleEvent(of: .value, with: { snapshot in
                     var tempPosts = [Post]()
@@ -111,13 +153,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
             
             self.posts.insert(contentsOf: tempPosts, at: 0)
-            self.currentPosts = self.posts
+            //self.currentPosts = self.posts
+            //self.tableView.reloadData()
+            
+            let newIndexPaths = (0..<tempPosts.count).map { i in
+                return IndexPath(row: i, section: 0)
+            }
 
-            self.tableView.reloadData()
+            self.tableView.insertRows(at: newIndexPaths, with: .top)
+            
             self.refreshControl?.endRefreshing()
-        //            return completion(tempPosts)
-        //            self.posts = tempPosts
-        //            self.tableView.reloadData()
+
                     
                 })
         
@@ -158,20 +204,20 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return posts.count
-        
-        if(section == 0){
-            return currentPosts.count
-        }else{
+        switch section {
+        case 0:
+            return posts.count
+        case 1:
             return fetchingMore ? 1 : 0
+        default:
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! FeedTableViewCell
-            //cell.setPost(inputPost: posts[indexPath.row])
-            cell.setPost(inputPost: currentPosts[indexPath.row])
+            cell.setPost(inputPost: posts[indexPath.row])
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
@@ -209,6 +255,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.endReached = newPosts.count == 0
             UIView.performWithoutAnimation {
                 self.tableView.reloadData()
+                
+                self.listenForNewPosts()
             }
         }
     }
@@ -239,5 +287,23 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
 
     }
+    
+    func listenForNewPosts(){
+        newPostsQuery.observe(.childAdded) { (snapshot) in
+            
+            if snapshot.key != self.posts.first?.id,
+                let data = snapshot.value as? [String:Any],
+                let post = Post.parse(snapshot.key, data) {
+                
+                self.toggleSeeNewPostsButton(hidden: false)
+            }
+        }
+    }
 
 }
+
+//extension FeedViewController: NewPostVCDelegate {
+//    func didUploadPost(withID id: String) {
+//        <#code#>
+//    }
+//}
