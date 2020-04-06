@@ -24,13 +24,14 @@
 		CE4F29642431DA030071AA55 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29632431DA030071AA55 /* Listing.swift */; };
 		CE4F29922433E08C0071AA55 /* ProfilePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */; };
 		CE5108C32438499D0083B324 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5108C22438499D0083B324 /* RefreshButton.swift */; };
+		CE5108C5243B86230083B324 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5108C4243B86230083B324 /* GoogleService-Info.plist */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
 		CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAAC12415DD75001E112C /* Assets.xcassets */; };
 		CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */; };
 		CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAACC2415DDD0001E112C /* LoginViewController.swift */; };
-		CEDCAACF2415E013001E112C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAACE2415E013001E112C /* GoogleService-Info.plist */; };
+		CEDCAACF2415E013001E112C /* GoogleService-Info(1).plist in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAACE2415E013001E112C /* GoogleService-Info(1).plist */; };
 		CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD02415E355001E112C /* SignUpViewController.swift */; };
 		CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD22415ECBB001E112C /* FeedViewController.swift */; };
 		CEDCAAD62415F56D001E112C /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 		CE4F29632431DA030071AA55 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewCell.swift; sourceTree = "<group>"; };
 		CE5108C22438499D0083B324 /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
+		CE5108C4243B86230083B324 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +68,7 @@
 		CEDCAAC42415DD75001E112C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEDCAAC62415DD75001E112C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDCAACC2415DDD0001E112C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CEDCAACE2415E013001E112C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEDCAACE2415E013001E112C /* GoogleService-Info(1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info(1).plist"; sourceTree = "<group>"; };
 		CEDCAAD02415E355001E112C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEDCAAD22415ECBB001E112C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -160,7 +162,8 @@
 				CEDCAABA2415DD73001E112C /* SceneDelegate.swift */,
 				CEDCAAC12415DD75001E112C /* Assets.xcassets */,
 				CEDCAAC62415DD75001E112C /* Info.plist */,
-				CEDCAACE2415E013001E112C /* GoogleService-Info.plist */,
+				CEDCAACE2415E013001E112C /* GoogleService-Info(1).plist */,
+				CE5108C4243B86230083B324 /* GoogleService-Info.plist */,
 			);
 			path = "Text-Trade";
 			sourceTree = "<group>";
@@ -240,9 +243,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5108C5243B86230083B324 /* GoogleService-Info.plist in Resources */,
 				CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */,
 				CEDCAAD72415F56D001E112C /* FeedTableViewCell.xib in Resources */,
-				CEDCAACF2415E013001E112C /* GoogleService-Info.plist in Resources */,
+				CEDCAACF2415E013001E112C /* GoogleService-Info(1).plist in Resources */,
 				CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */,
 				CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */,
 			);
@@ -454,7 +458,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisrehagen.Text-Trade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.capstone.Text-Trade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -473,7 +477,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisrehagen.Text-Trade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.capstone.Text-Trade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

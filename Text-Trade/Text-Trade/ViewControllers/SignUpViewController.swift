@@ -121,6 +121,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let databaseRef = Database.database().reference().child("users/profile/\(uid)")
             
+            
+            
             let test: [String: Any] = ["Book Title": username, "Book Author": username]
             
             
@@ -134,7 +136,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     //test
                 ],
                 "Wish list items": [
-                    ["bookTitle": "","bookAuthor": ""]
+                    //["bookTitle": "","bookAuthor": ""]
                 ]
             ] as [String:Any]
             

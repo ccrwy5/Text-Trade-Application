@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedTableViewCell: UITableViewCell {
     
@@ -16,6 +17,9 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookAuthorLabel: UILabel!
     @IBOutlet weak var classUsedForLabel: UILabel!
+    @IBOutlet weak var wishListImageView: UIImageView!
+    
+    var favorited = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,9 +27,10 @@ class FeedTableViewCell: UITableViewCell {
         profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
         profileImageView.clipsToBounds = true
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        wishListImageView.isUserInteractionEnabled = true
+        wishListImageView.addGestureRecognizer(tapGestureRecognizer)
         
-        
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,6 +60,41 @@ class FeedTableViewCell: UITableViewCell {
         bookAuthorLabel.text = "By: " + inputPost.bookAuthor
         classUsedForLabel.text = "Used in: " + inputPost.classUsedFor
         subtitleLabel.text = inputPost.createdAt.calenderTimeSinceNow()
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+
+        if(favorited == false){
+            wishListImageView.image = UIImage(systemName: "bookmark.fill")
+            favorited = true
+            setFavorite()
+            
+        } else {
+            wishListImageView.image = UIImage(systemName: "bookmark")
+            favorited = false
+        }
+    }
+    
+    func setFavorite(){
+        /* Set's the book into the user's listings section of DB */
+        
+        let currentUser = (Auth.auth().currentUser?.uid)!
+        let wishListDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("Wish list items").childByAutoId()
+        
+        let wishListObject = [
+                "id": wishListDatabaseRef.key,
+                "bookTitle": bookTitleLabel.text ?? "",
+                "bookAuthor": bookAuthorLabel.text ?? ""
+                
+        ] as [String: Any]
+        
+        wishListDatabaseRef.setValue(wishListObject)
+    }
+    
+    func removeFavorite(){
+        
     }
     
 }
