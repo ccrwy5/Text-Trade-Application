@@ -321,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9j7-CV-ngu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4874" y="860"/>
+            <point key="canvasLocation" x="4829" y="1260"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="x0e-Xk-3W6">
@@ -388,18 +388,19 @@
                         <outlet property="feedSegmentedControl" destination="QId-FG-kpi" id="lPb-R0-nlG"/>
                         <outlet property="logoutButton" destination="AmH-BY-r3L" id="yfJ-BW-vln"/>
                         <outlet property="tableView" destination="QqD-xG-zZ7" id="vRR-eT-FOd"/>
+                        <segue destination="hdC-Wl-ajO" kind="show" identifier="clickedFeedCell" id="CM1-ji-gaG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hi-o1-tf0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4873.913043478261" y="99.776785714285708"/>
+            <point key="canvasLocation" x="4830" y="-295"/>
         </scene>
         <!--Item-->
         <scene sceneID="Vwj-ep-1j3">
             <objects>
                 <viewController id="kV8-CN-nMf" customClass="NewPostViewController" customModule="Text_Trade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jG7-Uc-rU8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List a book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLm-3Q-djX">
@@ -439,7 +440,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-Ma-ypq">
-                                <rect key="frame" x="172" y="580.5" width="70" height="69"/>
+                                <rect key="frame" x="172" y="663.5" width="70" height="69"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="3yi-LS-PfC"/>
@@ -453,7 +454,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4t-mf-qYG">
-                                <rect key="frame" x="150.5" y="658" width="113" height="30"/>
+                                <rect key="frame" x="150.5" y="741" width="113" height="30"/>
                                 <state key="normal" title="Use QR Scanner"/>
                                 <connections>
                                     <action selector="QRButtonTextPressed:" destination="kV8-CN-nMf" eventType="touchUpInside" id="Wem-sj-oHP"/>
@@ -501,14 +502,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WtO-AL-4EE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5768" y="100"/>
+            <point key="canvasLocation" x="5822" y="-295"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="2dP-cR-01o">
             <objects>
                 <viewController id="RfW-yN-1Ty" customClass="ScannerViewController" customModule="Text_Trade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEK-I7-LLK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjw-BY-QKB" customClass="QRScannerView" customModule="Text_Trade" customModuleProvider="target">
@@ -552,14 +553,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoN-EF-RRU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6525" y="100"/>
+            <point key="canvasLocation" x="6839" y="-295"/>
         </scene>
         <!--Scan Result View Controller-->
         <scene sceneID="iJU-37-Wo6">
             <objects>
                 <viewController id="gqf-cX-zhf" customClass="ScanResultViewController" customModule="Text_Trade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dMW-jR-dax">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code Found:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYx-nR-4iF">
@@ -575,7 +576,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-vp-5dr">
-                                <rect key="frame" x="107" y="575" width="200" height="50"/>
+                                <rect key="frame" x="107" y="658" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="roh-YU-tIP"/>
@@ -610,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzI-w6-0Qi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7405" y="98"/>
+            <point key="canvasLocation" x="7967" y="-295"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="iie-q1-SX0">
@@ -648,7 +649,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AeM-CO-eEG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4028" y="100"/>
+            <point key="canvasLocation" x="3986" y="-294"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lU8-4y-4TN">
@@ -689,7 +690,56 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Syd-3m-48T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4028" y="860"/>
+            <point key="canvasLocation" x="3632" y="1260"/>
+        </scene>
+        <!--Post Details View Controller-->
+        <scene sceneID="MVZ-SI-5sg">
+            <objects>
+                <viewController storyboardIdentifier="PostDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hdC-Wl-ajO" customClass="PostDetailsViewController" customModule="Text_Trade" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uKo-ue-YGy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BookTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmV-Hx-4nW">
+                                <rect key="frame" x="30" y="50" width="164" height="43"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdk-vA-Ndg">
+                                <rect key="frame" x="30" y="153" width="43" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rh9-Xz-R9B">
+                                <rect key="frame" x="30" y="113" width="51" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pmV-Hx-4nW" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="8tU-hE-OrN"/>
+                            <constraint firstItem="rh9-Xz-R9B" firstAttribute="top" secondItem="pmV-Hx-4nW" secondAttribute="bottom" constant="20" id="AyO-kK-BTX"/>
+                            <constraint firstItem="pmV-Hx-4nW" firstAttribute="top" secondItem="Rd1-91-1fR" secondAttribute="top" constant="50" id="GoA-Bm-8Yy"/>
+                            <constraint firstItem="tdk-vA-Ndg" firstAttribute="top" secondItem="rh9-Xz-R9B" secondAttribute="bottom" constant="20" id="b7B-wq-Wa6"/>
+                            <constraint firstItem="tdk-vA-Ndg" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="fA6-iD-a96"/>
+                            <constraint firstItem="rh9-Xz-R9B" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="t4a-3h-st7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rd1-91-1fR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Owg-A9-2LE"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="rh9-Xz-R9B" id="gY6-la-znl"/>
+                        <outlet property="sellerLabel" destination="tdk-vA-Ndg" id="DA5-xB-O8U"/>
+                        <outlet property="titleLabel" destination="pmV-Hx-4nW" id="Fvx-5a-Cbg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVR-KZ-D1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4829" y="499"/>
         </scene>
     </scenes>
     <resources>
@@ -701,8 +751,9 @@
         <image name="userIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="JiR-hD-Gn0"/>
         <segue reference="svJ-pH-D1Q"/>
-        <segue reference="3Vs-yz-0mS"/>
+        <segue reference="bFZ-iY-1g9"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -226,6 +226,20 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "clickedFeedCell", sender: self)
+        
+        let postDetailsVC = storyboard?.instantiateViewController(identifier: "PostDetailsViewController") as? PostDetailsViewController
+        let post = posts[indexPath.row]
+        postDetailsVC?.bookTitle = post.bookTitle
+        postDetailsVC?.authorName = post.bookAuthor
+        postDetailsVC?.sellerName = post.author.username
+        
+        
+        
+        self.navigationController?.pushViewController(postDetailsVC!, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cellHeights[indexPath] = cell.frame.size.height
     }

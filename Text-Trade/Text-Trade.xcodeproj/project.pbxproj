@@ -25,6 +25,7 @@
 		CE4F29922433E08C0071AA55 /* ProfilePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */; };
 		CE5108C32438499D0083B324 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5108C22438499D0083B324 /* RefreshButton.swift */; };
 		CE5108C5243B86230083B324 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5108C4243B86230083B324 /* GoogleService-Info.plist */; };
+		CE5108C7243BDC2F0083B324 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5108C6243BDC2F0083B324 /* PostDetailsViewController.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
 		CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAABE2415DD73001E112C /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewCell.swift; sourceTree = "<group>"; };
 		CE5108C22438499D0083B324 /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		CE5108C4243B86230083B324 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE5108C6243BDC2F0083B324 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDCAABA2415DD73001E112C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */,
 				CE258E9224304DC4003DCE90 /* ScannerViewController.swift */,
 				CE258E9A24305057003DCE90 /* ScanResultViewController.swift */,
+				CE5108C6243BDC2F0083B324 /* PostDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
 				C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */,
 				CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */,
+				CE5108C7243BDC2F0083B324 /* PostDetailsViewController.swift in Sources */,
 				CE258E9524304E0C003DCE90 /* QRData.swift in Sources */,
 				CE258E9324304DC4003DCE90 /* ScannerViewController.swift in Sources */,
 			);

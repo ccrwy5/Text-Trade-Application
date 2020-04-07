@@ -152,6 +152,25 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
         }
         return "Books that \(currentUser ?? "user") \(sectionDifference)"
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let currentUser = Auth.auth().currentUser?.displayName
+            let postDetailsVC = storyboard?.instantiateViewController(identifier: "PostDetailsViewController") as? PostDetailsViewController
+            //let post = posts[indexPath.row]
+            let listing = listingsList[indexPath.row]
+            postDetailsVC?.bookTitle = listing.bookTitle!
+            postDetailsVC?.authorName = listing.bookAuthor!
+            postDetailsVC?.sellerName = currentUser!
+            self.navigationController?.pushViewController(postDetailsVC!, animated: true)
+
+            
+            
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            
+        }
+    }
 }
 
 extension UIImageView {
