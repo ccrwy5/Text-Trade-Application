@@ -751,7 +751,6 @@
         <image name="userIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JiR-hD-Gn0"/>
         <segue reference="svJ-pH-D1Q"/>
         <segue reference="bFZ-iY-1g9"/>
     </inferredMetricsTieBreakers>

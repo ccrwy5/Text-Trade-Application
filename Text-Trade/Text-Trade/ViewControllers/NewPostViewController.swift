@@ -85,7 +85,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
             "bookTitle": titleTextField.text ?? "",
             "bookAuthor": authorTextField.text ?? "",
             "classUsedFor": classUsedForTextField.text ?? "",
-            "timestamp": [".sv":"timestamp"]
+            "timestamp": [".sv":"timestamp"],
+            "postID": postRef.key,
+            "peopleWhoLike": [""]
         ] as [String:Any]
         
         postRef.setValue(postObject, withCompletionBlock: { error, ref in
@@ -133,53 +135,4 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func QRButtonTextPressed(_ sender: Any) {
     }
-    
-//    func getAllUserListings() {
-//        let currentUser = (Auth.auth().currentUser?.uid)!
-//        let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
-//
-//        listingDatabaseRef.observeSingleEvent(of: .value) { (snapshot) in
-//            for child in snapshot.children {
-//                let snap = child as! DataSnapshot
-//                //let key = snap.key
-//                let value = snap.value!
-//                //print(value)
-//
-//            }
-//        }
-//    }
-//
-//
-//    var listingsList = [Listing]()
-//    func getAllUserListings2(){
-//        let currentUser = (Auth.auth().currentUser?.uid)!
-//        let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
-//
-//        listingDatabaseRef.observe(.value) { (snapshot) in
-//            if snapshot.childrenCount > 0 {
-//
-//                self.listingsList.removeAll()
-//
-//                for listing in snapshot.children.allObjects as! [DataSnapshot] {
-//                    let listingObject = listing.value as? [String: Any]
-//                        let bookTitle = listingObject?["bookTitle"]
-//                        let bookAuthor = listingObject?["bookAuthor"]
-//                        let id = listingObject?["id"]
-//
-//                    let newListing = Listing(id: id as? String, bookTitle: bookTitle as? String, bookAuthor: bookAuthor as? String)
-//                    self.listingsList.append(newListing)
-//                    //print(self.listingsList)
-//
-//                    print("\(self.listingsList)")
-//                }
-//
-//
-//
-//
-//            }
-//        }
-//    }
-    
-    
-    
 }

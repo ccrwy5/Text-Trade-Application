@@ -17,12 +17,16 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
-    var userWishListArray: [String] = []
-    var listings = [Listing]()
-    
-    
+    //var listings = [Listing]()
     var listingReference: DatabaseReference!
+    var bookmarkReference: DatabaseReference!
+    
+    
     var listingsList = [Listing]()
+    var bookmarkList: [Bookmark] = []
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,7 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
         segmentedControl.selectedSegmentIndex = 0
  
         populateListings()
+        populateBookmarks()
         
     }
     
@@ -48,8 +53,9 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
             populateListings()
             listTableView.reloadData()
         } else if sender.selectedSegmentIndex == 1 {
+            populateBookmarks()
             listTableView.reloadData()
-            print(userWishListArray)
+            print(bookmarkList)
         }
     }
     
@@ -88,11 +94,28 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     
-    func populateWishList(){
+    func populateBookmarks(){
         let currentUser = (Auth.auth().currentUser?.uid)!
-        let wishListDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("Wish list items")
+        bookmarkReference = Database.database().reference().child("users").child("profile").child(currentUser).child("Wish list items")
         
-        //coming soon
+        bookmarkReference.observe(.value, with: {(snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.bookmarkList.removeAll()
+                
+                for book in snapshot.children.allObjects as! [DataSnapshot] {
+                    let wishListObject = book.value as? [String:AnyObject]
+                    let name = wishListObject?["bookTitle"]
+                    let genre = wishListObject?["bookAuthor"]
+                    let id = wishListObject?["id"]
+                    
+                    let item = Bookmark(id: id as! String?, bookTitle: name as! String?, bookAuthor: genre as! String?)
+                    
+                    self.bookmarkList.append(item)
+                }
+                self.listTableView.reloadData()
+            }
+        })
+
 
     }
     
@@ -115,7 +138,9 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
 
             
         } else if segmentedControl.selectedSegmentIndex == 1 {
-            numberOfRows = userWishListArray.count
+            numberOfRows = bookmarkList.count
+            print("Number of rows: \(numberOfRows)")
+            print("Contents: \(bookmarkList)")
         }
         
         return numberOfRows
@@ -134,7 +159,10 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
             
             
         } else if segmentedControl.selectedSegmentIndex == 1 {
-            cell.textLabel?.text = userWishListArray[indexPath.row]
+            
+            let bookmarkItem: Bookmark
+            bookmarkItem = bookmarkList[indexPath.row]
+            cell.titleLabel.text = bookmarkItem.bookTitle
         }
             return cell
     }

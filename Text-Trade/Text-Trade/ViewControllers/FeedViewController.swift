@@ -218,7 +218,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! FeedTableViewCell
             cell.setPost(inputPost: posts[indexPath.row])
+            cell.postID = self.posts[indexPath.row].postID
+            
+                    
+//            for person in self.posts[indexPath.row].peopleWhoBookmark {
+//                if person == Auth.auth().currentUser?.uid {
+//                    cell.wishListImageView.image = UIImage(systemName: "bookmark.fill")
+//                    break
+//                }
+//            }
             return cell
+            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
             cell.spinner.startAnimating()
@@ -234,8 +244,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         postDetailsVC?.bookTitle = post.bookTitle
         postDetailsVC?.authorName = post.bookAuthor
         postDetailsVC?.sellerName = post.author.username
-        
-        
         
         self.navigationController?.pushViewController(postDetailsVC!, animated: true)
     }

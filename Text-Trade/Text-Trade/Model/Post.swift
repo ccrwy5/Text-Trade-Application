@@ -15,15 +15,22 @@ class Post{
     var createdAt: Date
     var bookAuthor: String
     var classUsedFor: String
+    var postID: String
+    
+    
+    var peopleWhoLike: [String] = [String]()
 
     
-    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String) {
+    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String, postID: String, peopleWhoLike: [String]) {
         self.id = id
         self.author = author
         self.bookTitle = bookTitle
         self.createdAt = Date(timeIntervalSince1970: timestamp/1000)
         self.bookAuthor = bookAuthor
         self.classUsedFor = classUsedFor
+        self.postID = postID
+        self.peopleWhoLike = peopleWhoLike
+        
     }
     
     static func parse(_ key:String, _ data:[String:Any]) -> Post? {
@@ -36,10 +43,12 @@ class Post{
             let bookTitle = data["bookTitle"] as? String,
             let timestamp = data["timestamp"] as? Double,
             let bookAuthor = data["bookAuthor"] as? String,
-            let classUsedFor = data["classUsedFor"] as? String {
+            let classUsedFor = data["classUsedFor"] as? String,
+            let postID = data["postID"] as? String,
+            let peopleWhoLike = data["peopleWhoLike"] as? [String]{
             
             let userProfile = UserProfile(uid: uid, username: username, photoURL: url)
-            return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor)
+            return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike)
             
         }
         

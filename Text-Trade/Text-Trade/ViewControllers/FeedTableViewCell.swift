@@ -19,7 +19,10 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var classUsedForLabel: UILabel!
     @IBOutlet weak var wishListImageView: UIImageView!
     
+    var postID: String!
     var favorited = false
+    
+    let currentUser = Auth.auth().currentUser?.uid
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,6 +63,7 @@ class FeedTableViewCell: UITableViewCell {
         bookAuthorLabel.text = "By: " + inputPost.bookAuthor
         classUsedForLabel.text = "Used in: " + inputPost.classUsedFor
         subtitleLabel.text = inputPost.createdAt.calenderTimeSinceNow()
+        
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -70,10 +74,12 @@ class FeedTableViewCell: UITableViewCell {
             wishListImageView.image = UIImage(systemName: "bookmark.fill")
             favorited = true
             setFavorite()
+            addBookmark()
             
         } else {
             wishListImageView.image = UIImage(systemName: "bookmark")
             favorited = false
+            removeBookmark()
         }
     }
     
@@ -93,8 +99,68 @@ class FeedTableViewCell: UITableViewCell {
         wishListDatabaseRef.setValue(wishListObject)
     }
     
-    func removeFavorite(){
-        
+    func addBookmark(){
+        let ref = Database.database().reference()
+        let keyToPost = ref.child("posts").childByAutoId().key
+
+        ref.child("posts").child(self.postID).observeSingleEvent(of: .value) { (snapshot) in
+            if let post = snapshot.value as? [String: AnyObject] {
+                let updateBookmarks: [String: Any] = ["peopleWhoBookmark/\(keyToPost!)": self.currentUser!]
+                ref.child("posts").child(self.postID).updateChildValues(updateBookmarks) { (error, reference) in
+
+                    if error == nil {
+                        ref.child("posts").child(self.postID).observeSingleEvent(of: .value) { (snap) in
+                            if let properties = snap.value as? [String: AnyObject] {
+                                if let likes = properties["peopleWhoBookmark"] as? [String: AnyObject] {
+                                    let count = likes.count
+                                    print("Likes: \(count)")
+
+                                    let update = ["likes": count]
+                                    ref.child("posts").child(self.postID).updateChildValues(update)
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        ref.removeAllObservers()
     }
-    
+
+    func removeBookmark(){
+        let ref = Database.database().reference()
+        
+        
+        ref.child("posts").child(self.postID).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if let properties = snapshot.value as? [String : AnyObject] {
+                if let peopleWhoBookmark = properties["peopleWhoBookmark"] as? [String : AnyObject] {
+                    for (id,person) in peopleWhoBookmark {
+                        if person as? String == Auth.auth().currentUser!.uid {
+                            ref.child("posts").child(self.postID).child("peopleWhoBookmark").child(id).removeValue(completionBlock: { (error, reff) in
+                                if error == nil {
+                                    ref.child("posts").child(self.postID).observeSingleEvent(of: .value, with: { (snap) in
+                                        if let prop = snap.value as? [String : AnyObject] {
+                                            if let likes = prop["peopleWhoBookmark"] as? [String : AnyObject] {
+                                                let count = likes.count
+                                                ref.child("posts").child(self.postID).updateChildValues(["likes" : count])
+                                            }else {
+                                                ref.child("posts").child(self.postID).updateChildValues(["likes" : 0])
+                                            }
+                                        }
+                                    })
+                                }
+                            })
+
+                            break
+                        }
+                    }
+                }
+            }
+            
+        })
+        ref.removeAllObservers()
+    }
 }
