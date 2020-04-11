@@ -23,6 +23,8 @@ class FeedTableViewCell: UITableViewCell {
     var favorited = false
     
     let currentUser = Auth.auth().currentUser?.uid
+    let keyToPost = Database.database().reference().child("posts").childByAutoId().key
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,13 +75,24 @@ class FeedTableViewCell: UITableViewCell {
         if(favorited == false){
             wishListImageView.image = UIImage(systemName: "bookmark.fill")
             favorited = true
-            setFavorite()
+            //setFavorite()
             addBookmark()
             
         } else {
             wishListImageView.image = UIImage(systemName: "bookmark")
             favorited = false
-            removeBookmark()
+            let deleteRef = Database.database().reference().child("posts").child(self.postID).child("peopleWhoBookmark").child(self.keyToPost!)
+            
+            deleteRef.removeValue { (error, reff) in
+                if error != nil {
+                    print("error: \(error)")
+                }
+            }
+            
+
+            
+            //removeBookmark()
+            
         }
     }
     
@@ -101,11 +114,11 @@ class FeedTableViewCell: UITableViewCell {
     
     func addBookmark(){
         let ref = Database.database().reference()
-        let keyToPost = ref.child("posts").childByAutoId().key
+        //let keyToPost = ref.child("posts").childByAutoId().key
 
         ref.child("posts").child(self.postID).observeSingleEvent(of: .value) { (snapshot) in
             if let post = snapshot.value as? [String: AnyObject] {
-                let updateBookmarks: [String: Any] = ["peopleWhoBookmark/\(keyToPost!)": self.currentUser!]
+                let updateBookmarks: [String: Any] = ["peopleWhoBookmark/\(self.keyToPost!)": self.currentUser!]
                 ref.child("posts").child(self.postID).updateChildValues(updateBookmarks) { (error, reference) in
 
                     if error == nil {

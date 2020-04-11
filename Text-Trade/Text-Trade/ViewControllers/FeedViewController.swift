@@ -219,7 +219,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! FeedTableViewCell
             cell.setPost(inputPost: posts[indexPath.row])
             cell.postID = self.posts[indexPath.row].postID
-            
+                        
             var testArray = [String]()
             let ref = Database.database().reference().child("posts").child(cell.postID).child("peopleWhoBookmark")
             ref.observe(.value, with: {(snapshot) in
@@ -227,20 +227,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     testArray.removeAll()
                     
                     for person in snapshot.children.allObjects as! [DataSnapshot] {
-                        //let artistsObject = person.value as? [String:AnyObject]
-                        //print(person.value ?? "Value")
                         testArray.append(person.value as! String)
+                        
                     }
-                    print(testArray)
+                    print("\(testArray)\n")
                     for person in testArray {
-                                   if person == Auth.auth().currentUser?.uid {
-                                       cell.wishListImageView.image = UIImage(systemName: "bookmark.fill")
-                                   }
-                               }
-                                    
+                        if person == Auth.auth().currentUser?.uid {
+                            cell.wishListImageView.image = UIImage(systemName: "bookmark.fill")
+                        }
+                    }
                 }
             })
-            
             
             return cell
             
@@ -336,11 +333,4 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-
 }
-
-//extension FeedViewController: NewPostVCDelegate {
-//    func didUploadPost(withID id: String) {
-//        <#code#>
-//    }
-//}
