@@ -220,20 +220,23 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.setPost(inputPost: posts[indexPath.row])
             cell.postID = self.posts[indexPath.row].postID
                         
-            var testArray = [String]()
             let ref = Database.database().reference().child("posts").child(cell.postID).child("peopleWhoBookmark")
             ref.observe(.value, with: {(snapshot) in
                 if snapshot.childrenCount > 0 {
-                    testArray.removeAll()
+                    self.posts[indexPath.row].peopleWhoLike.removeAll()
                     
                     for person in snapshot.children.allObjects as! [DataSnapshot] {
-                        testArray.append(person.value as! String)
+                        self.posts[indexPath.row].peopleWhoLike.append(person.value as! String)
                         
                     }
-                    print("\(testArray)\n")
-                    for person in testArray {
+                    //print("\(testArray)\n")
+                    for person in self.posts[indexPath.row].peopleWhoLike {
                         if person == Auth.auth().currentUser?.uid {
                             cell.wishListImageView.image = UIImage(systemName: "bookmark.fill")
+                            cell.favorited = true
+                        } else {
+                            cell.wishListImageView.image = UIImage(systemName: "bookmark")
+                            cell.favorited = false
                         }
                     }
                 }

@@ -75,7 +75,7 @@ class FeedTableViewCell: UITableViewCell {
         if(favorited == false){
             wishListImageView.image = UIImage(systemName: "bookmark.fill")
             favorited = true
-            //setFavorite()
+            setFavorite()
             addBookmark()
             
         } else {
@@ -85,13 +85,15 @@ class FeedTableViewCell: UITableViewCell {
             
             deleteRef.removeValue { (error, reff) in
                 if error != nil {
-                    print("error: \(error)")
+                    print("error: \(String(describing: error))")
+                } else {
+                    print("Removed from ...Cell.swift")
                 }
             }
             
 
             
-            //removeBookmark()
+            removeBookmark()
             
         }
     }
