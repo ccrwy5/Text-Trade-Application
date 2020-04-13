@@ -18,6 +18,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var bookAuthorLabel: UILabel!
     @IBOutlet weak var classUsedForLabel: UILabel!
     @IBOutlet weak var wishListImageView: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel!
     
     var postID: String!
     var favorited = false
@@ -65,6 +66,7 @@ class FeedTableViewCell: UITableViewCell {
         bookAuthorLabel.text = "By: " + inputPost.bookAuthor
         classUsedForLabel.text = "Used in: " + inputPost.classUsedFor
         subtitleLabel.text = inputPost.createdAt.calenderTimeSinceNow()
+        priceLabel.text = "$\(inputPost.price)"
         
     }
     

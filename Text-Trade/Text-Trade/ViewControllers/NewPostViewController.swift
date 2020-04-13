@@ -20,6 +20,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var classUsedForTextField: UITextField!
+    @IBOutlet weak var askingPriceTextField: UITextField!
+    
     
     @IBOutlet weak var QRButtonImage: UIButton!
     @IBOutlet weak var QRButtonText: UIButton!
@@ -68,6 +70,12 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         classUsedForTextField.layer.cornerRadius = 22
         classUsedForTextField.clipsToBounds = true
         
+        askingPriceTextField.layer.borderWidth = 2
+        askingPriceTextField.layer.cornerRadius = 10
+        askingPriceTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
+        askingPriceTextField.layer.cornerRadius = 22
+        askingPriceTextField.clipsToBounds = true
+        
     }
     
     @IBAction func handlePostButton(_ sender: Any) {
@@ -85,6 +93,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
             "bookTitle": titleTextField.text ?? "",
             "bookAuthor": authorTextField.text ?? "",
             "classUsedFor": classUsedForTextField.text ?? "",
+            "price": askingPriceTextField.text ?? "",
             "timestamp": [".sv":"timestamp"],
             "postID": postRef.key,
             "peopleWhoLike": [""]

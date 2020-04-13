@@ -434,7 +434,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class used for" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jho-rm-oag" customClass="FlexibleTextField" customModule="Text_Trade" customModuleProvider="target">
                                 <rect key="frame" x="30" y="278" width="354" height="50"/>
@@ -444,7 +444,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6PL-Zm-oym" customClass="FlexibleTextField" customModule="Text_Trade" customModuleProvider="target">
                                 <rect key="frame" x="30" y="203" width="354" height="50"/>
@@ -454,7 +454,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-Ma-ypq">
                                 <rect key="frame" x="172" y="663.5" width="70" height="69"/>
@@ -478,19 +478,32 @@
                                     <segue destination="RfW-yN-1Ty" kind="show" id="svJ-pH-D1Q"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Asking Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIl-84-cVb" customClass="FlexibleTextField" customModule="Text_Trade" customModuleProvider="target">
+                                <rect key="frame" x="30" y="353" width="354" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S6Y-pK-WFU"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6dw-1g-93r" firstAttribute="leading" secondItem="Zy2-Sv-KVb" secondAttribute="leading" constant="30" id="1G7-JP-a97"/>
+                            <constraint firstItem="Zy2-Sv-KVb" firstAttribute="trailing" secondItem="fIl-84-cVb" secondAttribute="trailing" constant="30" id="3Zn-zS-9X2"/>
                             <constraint firstItem="Zy2-Sv-KVb" firstAttribute="trailing" secondItem="6dw-1g-93r" secondAttribute="trailing" constant="30" id="9eL-Ar-Gvt"/>
                             <constraint firstItem="6PL-Zm-oym" firstAttribute="top" secondItem="6dw-1g-93r" secondAttribute="bottom" constant="25" id="EbH-rh-eze"/>
                             <constraint firstItem="Zy2-Sv-KVb" firstAttribute="trailing" secondItem="6PL-Zm-oym" secondAttribute="trailing" constant="30" id="MEr-mf-eST"/>
+                            <constraint firstItem="fIl-84-cVb" firstAttribute="leading" secondItem="Zy2-Sv-KVb" secondAttribute="leading" constant="30" id="OXt-x7-1Fc"/>
                             <constraint firstItem="x4t-mf-qYG" firstAttribute="centerX" secondItem="jG7-Uc-rU8" secondAttribute="centerX" id="Pbv-Ig-vhw"/>
                             <constraint firstItem="Zy2-Sv-KVb" firstAttribute="trailing" secondItem="jho-rm-oag" secondAttribute="trailing" constant="30" id="Rcr-Bh-czW"/>
                             <constraint firstItem="Tcg-Ma-ypq" firstAttribute="centerX" secondItem="jG7-Uc-rU8" secondAttribute="centerX" id="S2Q-Pn-ULa"/>
                             <constraint firstItem="6PL-Zm-oym" firstAttribute="leading" secondItem="Zy2-Sv-KVb" secondAttribute="leading" constant="30" id="b2j-C4-wCY"/>
                             <constraint firstItem="jho-rm-oag" firstAttribute="top" secondItem="6PL-Zm-oym" secondAttribute="bottom" constant="25" id="fo0-9Q-B1d"/>
                             <constraint firstItem="6dw-1g-93r" firstAttribute="top" secondItem="BLm-3Q-djX" secondAttribute="bottom" constant="35" id="jlP-32-6I4"/>
+                            <constraint firstItem="fIl-84-cVb" firstAttribute="top" secondItem="jho-rm-oag" secondAttribute="bottom" constant="25" id="kug-RR-UDt"/>
                             <constraint firstItem="BLm-3Q-djX" firstAttribute="leading" secondItem="Zy2-Sv-KVb" secondAttribute="leading" constant="30" id="rAG-Lo-F8a"/>
                             <constraint firstItem="x4t-mf-qYG" firstAttribute="top" secondItem="Tcg-Ma-ypq" secondAttribute="bottom" constant="8" id="wUE-mT-Rn9"/>
                             <constraint firstItem="BLm-3Q-djX" firstAttribute="top" secondItem="Zy2-Sv-KVb" secondAttribute="top" constant="50" id="xUb-K5-Agd"/>
@@ -511,6 +524,7 @@
                     <connections>
                         <outlet property="QRButtonImage" destination="Tcg-Ma-ypq" id="LW8-dc-WmH"/>
                         <outlet property="QRButtonText" destination="x4t-mf-qYG" id="yEi-S2-6aw"/>
+                        <outlet property="askingPriceTextField" destination="fIl-84-cVb" id="nQc-Pk-rgr"/>
                         <outlet property="authorTextField" destination="6PL-Zm-oym" id="rd2-5a-fxH"/>
                         <outlet property="classUsedForTextField" destination="jho-rm-oag" id="c8X-8o-96A"/>
                         <outlet property="postButton" destination="y3C-xE-C33" id="d4e-fa-lNj"/>
@@ -735,6 +749,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCA-OQ-Psi">
+                                <rect key="frame" x="31" y="193" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
@@ -743,13 +763,16 @@
                             <constraint firstItem="pmV-Hx-4nW" firstAttribute="top" secondItem="Rd1-91-1fR" secondAttribute="top" constant="50" id="GoA-Bm-8Yy"/>
                             <constraint firstItem="tdk-vA-Ndg" firstAttribute="top" secondItem="rh9-Xz-R9B" secondAttribute="bottom" constant="20" id="b7B-wq-Wa6"/>
                             <constraint firstItem="tdk-vA-Ndg" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="fA6-iD-a96"/>
+                            <constraint firstItem="mCA-OQ-Psi" firstAttribute="top" secondItem="tdk-vA-Ndg" secondAttribute="bottom" constant="20" id="m4g-oc-uUf"/>
                             <constraint firstItem="rh9-Xz-R9B" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="t4a-3h-st7"/>
+                            <constraint firstItem="mCA-OQ-Psi" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="31" id="xNF-jm-DBs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rd1-91-1fR"/>
                     </view>
                     <navigationItem key="navigationItem" id="Owg-A9-2LE"/>
                     <connections>
                         <outlet property="authorLabel" destination="rh9-Xz-R9B" id="gY6-la-znl"/>
+                        <outlet property="priceLabel" destination="mCA-OQ-Psi" id="lHg-N1-iP4"/>
                         <outlet property="sellerLabel" destination="tdk-vA-Ndg" id="DA5-xB-O8U"/>
                         <outlet property="titleLabel" destination="pmV-Hx-4nW" id="Fvx-5a-Cbg"/>
                     </connections>
