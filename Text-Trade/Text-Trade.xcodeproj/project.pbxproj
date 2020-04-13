@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		39050E986E68CB6EF5AAFC06 /* libPods-Text-Trade.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08044717898AC1D32B86C35E /* libPods-Text-Trade.a */; };
 		C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6501D802419A60C0012EE41 /* FlexibleTextField.swift */; };
+		C6ADF9B4243CDB61006DC149 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */; };
+		C6ADF9B6243CF107006DC149 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADF9B5243CF107006DC149 /* Notification.swift */; };
 		CE258E82242499E8003DCE90 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E81242499E8003DCE90 /* NewPostViewController.swift */; };
 		CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8324249AB8003DCE90 /* UserProfile.swift */; };
 		CE258E8624249DA6003DCE90 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8524249DA6003DCE90 /* UserService.swift */; };
@@ -24,7 +26,6 @@
 		CE4F29642431DA030071AA55 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29632431DA030071AA55 /* Listing.swift */; };
 		CE4F29922433E08C0071AA55 /* ProfilePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */; };
 		CE5108C32438499D0083B324 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5108C22438499D0083B324 /* RefreshButton.swift */; };
-		CE5108C5243B86230083B324 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5108C4243B86230083B324 /* GoogleService-Info.plist */; };
 		CE5108C7243BDC2F0083B324 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5108C6243BDC2F0083B324 /* PostDetailsViewController.swift */; };
 		CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAB82415DD73001E112C /* AppDelegate.swift */; };
 		CEDCAABB2415DD73001E112C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAABA2415DD73001E112C /* SceneDelegate.swift */; };
@@ -32,7 +33,6 @@
 		CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAAC12415DD75001E112C /* Assets.xcassets */; };
 		CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAAC32415DD75001E112C /* LaunchScreen.storyboard */; };
 		CEDCAACD2415DDD0001E112C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAACC2415DDD0001E112C /* LoginViewController.swift */; };
-		CEDCAACF2415E013001E112C /* GoogleService-Info(1).plist in Resources */ = {isa = PBXBuildFile; fileRef = CEDCAACE2415E013001E112C /* GoogleService-Info(1).plist */; };
 		CEDCAAD12415E355001E112C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD02415E355001E112C /* SignUpViewController.swift */; };
 		CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD22415ECBB001E112C /* FeedViewController.swift */; };
 		CEDCAAD62415F56D001E112C /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */; };
@@ -45,6 +45,9 @@
 		780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
 		B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
 		C6501D802419A60C0012EE41 /* FlexibleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextField.swift; sourceTree = "<group>"; };
+		C6ADF9B2243CC7D3006DC149 /* Text-Trade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Text-Trade.entitlements"; sourceTree = "<group>"; };
+		C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6ADF9B5243CF107006DC149 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		CE258E81242499E8003DCE90 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		CE258E8324249AB8003DCE90 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		CE258E8524249DA6003DCE90 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		CE4F29632431DA030071AA55 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewCell.swift; sourceTree = "<group>"; };
 		CE5108C22438499D0083B324 /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
-		CE5108C4243B86230083B324 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE5108C6243BDC2F0083B324 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		CEDCAAB52415DD73001E112C /* Text-Trade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text-Trade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDCAAB82415DD73001E112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +72,6 @@
 		CEDCAAC42415DD75001E112C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEDCAAC62415DD75001E112C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDCAACC2415DDD0001E112C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CEDCAACE2415E013001E112C /* GoogleService-Info(1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info(1).plist"; sourceTree = "<group>"; };
 		CEDCAAD02415E355001E112C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEDCAAD22415ECBB001E112C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		CEDCAAB72415DD73001E112C /* Text-Trade */ = {
 			isa = PBXGroup;
 			children = (
+				C6ADF9B2243CC7D3006DC149 /* Text-Trade.entitlements */,
 				CE258E8D242811DC003DCE90 /* ViewControllers */,
 				C6501D7F2419A5F40012EE41 /* View */,
 				CEDCAAD82415F8AB001E112C /* Model */,
@@ -165,8 +167,7 @@
 				CEDCAABA2415DD73001E112C /* SceneDelegate.swift */,
 				CEDCAAC12415DD75001E112C /* Assets.xcassets */,
 				CEDCAAC62415DD75001E112C /* Info.plist */,
-				CEDCAACE2415E013001E112C /* GoogleService-Info(1).plist */,
-				CE5108C4243B86230083B324 /* GoogleService-Info.plist */,
+				C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */,
 			);
 			path = "Text-Trade";
 			sourceTree = "<group>";
@@ -183,6 +184,7 @@
 				CE258E8B24280C97003DCE90 /* LoadingCell.swift */,
 				CE258E9424304E0C003DCE90 /* QRData.swift */,
 				CE258E9624304E3B003DCE90 /* Toast.swift */,
+				C6ADF9B5243CF107006DC149 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +200,7 @@
 				CEDCAAB12415DD73001E112C /* Sources */,
 				CEDCAAB22415DD73001E112C /* Frameworks */,
 				CEDCAAB32415DD73001E112C /* Resources */,
+				7F150D258F31B231A5A803F1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,12 +249,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE5108C5243B86230083B324 /* GoogleService-Info.plist in Resources */,
 				CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */,
 				CEDCAAD72415F56D001E112C /* FeedTableViewCell.xib in Resources */,
-				CEDCAACF2415E013001E112C /* GoogleService-Info(1).plist in Resources */,
 				CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */,
 				CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */,
+				C6ADF9B4243CDB61006DC149 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +282,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7F150D258F31B231A5A803F1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Text-Trade/Pods-Text-Trade-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -303,6 +322,7 @@
 				CE258E8624249DA6003DCE90 /* UserService.swift in Sources */,
 				CE258E9B24305057003DCE90 /* ScanResultViewController.swift in Sources */,
 				CE258E8F2429281E003DCE90 /* ProfilePageViewController.swift in Sources */,
+				C6ADF9B6243CF107006DC149 /* Notification.swift in Sources */,
 				CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */,
 				CE4F29922433E08C0071AA55 /* ProfilePageTableViewCell.swift in Sources */,
 				CEDCAADA2415F8B6001E112C /* Post.swift in Sources */,
@@ -455,14 +475,15 @@
 			baseConfigurationReference = 780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Text-Trade/Text-Trade.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7XRP8G6Q3;
+				DEVELOPMENT_TEAM = L6S5J73KBX;
 				INFOPLIST_FILE = "Text-Trade/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.capstone.Text-Trade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.teamBooks.Text-Trade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -474,14 +495,15 @@
 			baseConfigurationReference = B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Text-Trade/Text-Trade.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7XRP8G6Q3;
+				DEVELOPMENT_TEAM = L6S5J73KBX;
 				INFOPLIST_FILE = "Text-Trade/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.capstone.Text-Trade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.teamBooks.Text-Trade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
