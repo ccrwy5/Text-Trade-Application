@@ -750,7 +750,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCA-OQ-Psi">
-                                <rect key="frame" x="31" y="193" width="39" height="21"/>
+                                <rect key="frame" x="30" y="193" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkX-mx-MdO">
+                                <rect key="frame" x="30" y="234" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -762,16 +768,19 @@
                             <constraint firstItem="rh9-Xz-R9B" firstAttribute="top" secondItem="pmV-Hx-4nW" secondAttribute="bottom" constant="20" id="AyO-kK-BTX"/>
                             <constraint firstItem="pmV-Hx-4nW" firstAttribute="top" secondItem="Rd1-91-1fR" secondAttribute="top" constant="50" id="GoA-Bm-8Yy"/>
                             <constraint firstItem="tdk-vA-Ndg" firstAttribute="top" secondItem="rh9-Xz-R9B" secondAttribute="bottom" constant="20" id="b7B-wq-Wa6"/>
+                            <constraint firstItem="pkX-mx-MdO" firstAttribute="top" secondItem="mCA-OQ-Psi" secondAttribute="bottom" constant="20" id="bCC-0H-Ysx"/>
                             <constraint firstItem="tdk-vA-Ndg" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="fA6-iD-a96"/>
                             <constraint firstItem="mCA-OQ-Psi" firstAttribute="top" secondItem="tdk-vA-Ndg" secondAttribute="bottom" constant="20" id="m4g-oc-uUf"/>
+                            <constraint firstItem="pkX-mx-MdO" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="nsX-tN-xt3"/>
                             <constraint firstItem="rh9-Xz-R9B" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="t4a-3h-st7"/>
-                            <constraint firstItem="mCA-OQ-Psi" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="31" id="xNF-jm-DBs"/>
+                            <constraint firstItem="mCA-OQ-Psi" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="xNF-jm-DBs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rd1-91-1fR"/>
                     </view>
                     <navigationItem key="navigationItem" id="Owg-A9-2LE"/>
                     <connections>
                         <outlet property="authorLabel" destination="rh9-Xz-R9B" id="gY6-la-znl"/>
+                        <outlet property="phoneNumberLabel" destination="pkX-mx-MdO" id="w0Q-qy-BgJ"/>
                         <outlet property="priceLabel" destination="mCA-OQ-Psi" id="lHg-N1-iP4"/>
                         <outlet property="sellerLabel" destination="tdk-vA-Ndg" id="DA5-xB-O8U"/>
                         <outlet property="titleLabel" destination="pmV-Hx-4nW" id="Fvx-5a-Cbg"/>

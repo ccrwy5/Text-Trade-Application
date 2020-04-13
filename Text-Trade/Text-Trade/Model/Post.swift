@@ -41,6 +41,7 @@ class Post{
             let uid = author["uid"] as? String,
             let username = author["username"] as? String,
             let photoURL = author["photoURL"] as? String,
+            let phoneNumber = author["phoneNumber"] as? String,
             let url = URL(string:photoURL),
             let bookTitle = data["bookTitle"] as? String,
             let timestamp = data["timestamp"] as? Double,
@@ -50,7 +51,7 @@ class Post{
             let peopleWhoLike = data["peopleWhoLike"] as? [String],
             let price = data["price"] as? String {
             
-            let userProfile = UserProfile(uid: uid, username: username, photoURL: url)
+            let userProfile = UserProfile(uid: uid, username: username, photoURL: url, phoneNumber: phoneNumber)
             return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike, price: price)
             
         }

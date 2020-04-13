@@ -14,12 +14,14 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var sellerLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
     
     
     var bookTitle: String = ""
     var authorName: String = ""
     var sellerName: String = ""
     var price: String = ""
+    var phoneNumber: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class PostDetailsViewController: UIViewController {
         authorLabel.text = "By: \(authorName)"
         sellerLabel.text = "Seller: \(sellerName)"
         priceLabel.text = "Price: $\(price)"
+        phoneNumberLabel.text = "Phone Number: \(phoneNumber)"
+        
         
     }
     

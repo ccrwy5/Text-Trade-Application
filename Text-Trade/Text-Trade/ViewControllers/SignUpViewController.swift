@@ -56,6 +56,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         guard let email = emailTextField.text else { return }
         guard let pass = passwordTextField.text else { return }
         guard let image = profileImageView.image else { return }
+        guard let phoneNumber = phoneNumberTextField.text else { return }
                 
         Auth.auth().createUser(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
@@ -75,7 +76,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                             if error == nil {
                                 print("User display name changed!")
                                 
-                                self.saveProfile(username: username, profileImageURL: url!) { success in
+                                self.saveProfile(username: username, profileImageURL: url!, phoneNumber: phoneNumber) { success in
                                     if success {
                                         self.dismiss(animated: true, completion: nil)
                                     }
@@ -110,40 +111,28 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             storageRef.putData(imageData, metadata: metaData) { metaData, error in
             if error == nil, metaData != nil {
 
-                storageRef.downloadURL { url, error in
-                    completion(url)
-                    // success!
+            storageRef.downloadURL { url, error in
+                completion(url)
+                // success!
                 }
-                } else {
-                    // failed
-                    completion(nil)
+            } else {
+                // failed
+                completion(nil)
                 }
             }
         }
         
-        func saveProfile(username:String, profileImageURL:URL, completion: @escaping ((_ success:Bool)->())) {
+    func saveProfile(username:String, profileImageURL:URL, phoneNumber: String, completion: @escaping ((_ success:Bool)->())) {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let databaseRef = Database.database().reference().child("users/profile/\(uid)")
-            
-            
-            
-            let test: [String: Any] = ["Book Title": username, "Book Author": username]
-            
             
             let userObject = [
                 "username": username,
                 "photoURL": profileImageURL.absoluteString,
-                "phoneNumber": phoneNumberTextField.text ?? "No phone number provided",
+                //"phoneNumber": phoneNumber,
                 "timestamp": [".sv":"timestamp"],
-                "User's Listings": [
-
-                    //["Book Title": "listingTitle", "Book Author": "listingAuthor"],
-                    //["Book Title2": "listingTitle2", "Book Author2": "listingAuthor2"],
-                    //test
-                ],
-                "Wish list items": [
-                    //["bookTitle": "","bookAuthor": ""]
-                ]
+                "User's Listings": [],
+                "Wish list items": []
             ] as [String:Any]
             
             databaseRef.setValue(userObject) { error, ref in
@@ -173,8 +162,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         phoneNumberTextField.layer.cornerRadius = 22
         phoneNumberTextField.clipsToBounds = true
         
-        
-        
         emailTextField.layer.borderWidth = 2
         emailTextField.layer.cornerRadius = 10
         emailTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
@@ -188,8 +175,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.clipsToBounds = true
         
         createAccountButton.layer.cornerRadius = 22
-        
     }
+    
     @IBAction func phoneEntryChanged(_ sender: UITextField) {
         var text = sender.text
 
@@ -211,9 +198,9 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
+        
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         if let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
             self.profileImageView.image = pickedImage

@@ -88,7 +88,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
             "author": [
                 "uid": userProfile.uid,
                 "username": userProfile.username,
-                "photoURL": userProfile.photoURL.absoluteString
+                "photoURL": userProfile.photoURL.absoluteString,
+                "phoneNumber": userProfile.phoneNumber
             ],
             "bookTitle": titleTextField.text ?? "",
             "bookAuthor": authorTextField.text ?? "",
