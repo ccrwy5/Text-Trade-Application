@@ -24,7 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailTextField.returnKeyType = .next
         emailTextField.returnKeyType = .next
-        createDoneButton()
+        //createDoneButton()
         
 
     }
@@ -90,32 +90,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    func createDoneButton(){
-        let toolBar = UIToolbar()
-            toolBar.sizeToFit()
-        
-            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-            
-            let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
-            
-            toolBar.setItems([flexibleSpace, doneButton], animated: false)
-            emailTextField.inputAccessoryView = toolBar
-            passwordTextField.inputAccessoryView = toolBar
-    }
+//    func createDoneButton(){
+//        let toolBar = UIToolbar()
+//            toolBar.sizeToFit()
+//
+//            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+//
+//            let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
+//
+//            toolBar.setItems([flexibleSpace, doneButton], animated: false)
+//            emailTextField.inputAccessoryView = toolBar
+//            passwordTextField.inputAccessoryView = toolBar
+//    }
     
-    @objc func doneClicked(){
-        view.endEditing(true)
-    }
+//    @objc func doneClicked(){
+//        view.endEditing(true)
+//    }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      if textField == emailTextField {
-         textField.resignFirstResponder()
-         passwordTextField.becomeFirstResponder()
-      } else if textField == passwordTextField {
-         textField.resignFirstResponder()
-      }
-     return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//      if textField == emailTextField {
+//         textField.resignFirstResponder()
+//         passwordTextField.becomeFirstResponder()
+//      } else if textField == passwordTextField {
+//         textField.resignFirstResponder()
+//      }
+//     return true
+//    }
     
 
 
