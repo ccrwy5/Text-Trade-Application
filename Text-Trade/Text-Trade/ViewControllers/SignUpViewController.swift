@@ -133,6 +133,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             let userObject = [
                 "username": username,
                 "photoURL": profileImageURL.absoluteString,
+                "phoneNumber": phoneNumberTextField.text ?? "No phone number provided",
+                "timestamp": [".sv":"timestamp"],
                 "User's Listings": [
 
                     //["Book Title": "listingTitle", "Book Author": "listingAuthor"],
@@ -187,6 +189,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         createAccountButton.layer.cornerRadius = 22
         
+    }
+    @IBAction func phoneEntryChanged(_ sender: UITextField) {
+        var text = sender.text
+
+        if(text?.count == 3) {
+            text! += "-"
+            phoneNumberTextField.text = text
+        } else if(text?.count == 7){
+            text! += "-"
+            phoneNumberTextField.text = text
+        }
     }
     
 }

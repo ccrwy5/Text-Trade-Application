@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-WT" translatesAutoresizingMaskIntoConstraints="NO" id="Kb2-Eh-QGV">
-                                <rect key="frame" x="80" y="148" width="254.00000000000011" height="120"/>
+                                <rect key="frame" x="80" y="148" width="254" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="RYu-2I-A2b"/>
                                 </constraints>
@@ -157,6 +157,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert" textContentType="tel"/>
+                                <connections>
+                                    <action selector="phoneEntryChanged:" destination="xkk-fe-lbF" eventType="editingChanged" id="2F2-jK-EMJ"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-FM-Fwf" customClass="FlexibleTextField" customModule="Text_Trade" customModuleProvider="target">
                                 <rect key="frame" x="30" y="518" width="354" height="50"/>
@@ -225,7 +228,7 @@
                         <outlet property="emailTextField" destination="xAa-FM-Fwf" id="x6H-Sg-tmS"/>
                         <outlet property="fullNameTextField" destination="A5l-ZF-8mk" id="fDO-XC-RoR"/>
                         <outlet property="passwordTextField" destination="5F6-Rc-zWL" id="zB9-6K-R9l"/>
-                        <outlet property="phoneNumberTextField" destination="Aao-fK-DWi" id="aiM-Qm-qLM"/>
+                        <outlet property="phoneNumberTextField" destination="Aao-fK-DWi" id="5Ia-ns-aEd"/>
                         <outlet property="profileImageView" destination="rCL-Qs-MWH" id="MX5-gh-Iqu"/>
                         <outlet property="usernameTextField" destination="tTy-hZ-tIo" id="foB-8G-SSn"/>
                     </connections>
