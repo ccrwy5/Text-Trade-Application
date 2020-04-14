@@ -11,7 +11,7 @@ import Firebase
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pushManager.registerForPushNotifications()
         
         FirebaseApp.configure()
+        
+        let sender = PushNotificationSender()
+        sender.sendPushNotification(to: "token", title: "Notification title", body: "Notification body")
         // Override point for customization after application launch.
         
         /*let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]

@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		39050E986E68CB6EF5AAFC06 /* libPods-Text-Trade.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08044717898AC1D32B86C35E /* libPods-Text-Trade.a */; };
+		C63F3487244653510068A376 /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F3486244653510068A376 /* NotificationSender.swift */; };
 		C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6501D802419A60C0012EE41 /* FlexibleTextField.swift */; };
 		C6ADF9B4243CDB61006DC149 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */; };
 		C6ADF9B6243CF107006DC149 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADF9B5243CF107006DC149 /* Notification.swift */; };
@@ -44,6 +45,7 @@
 		08044717898AC1D32B86C35E /* libPods-Text-Trade.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Text-Trade.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		780AF08428323227113C3FE4 /* Pods-Text-Trade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.debug.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.debug.xcconfig"; sourceTree = "<group>"; };
 		B2F10E6A2ACFDFF432759C21 /* Pods-Text-Trade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text-Trade.release.xcconfig"; path = "Target Support Files/Pods-Text-Trade/Pods-Text-Trade.release.xcconfig"; sourceTree = "<group>"; };
+		C63F3486244653510068A376 /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		C6501D802419A60C0012EE41 /* FlexibleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextField.swift; sourceTree = "<group>"; };
 		C6ADF9B2243CC7D3006DC149 /* Text-Trade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Text-Trade.entitlements"; sourceTree = "<group>"; };
 		C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				CE258E9424304E0C003DCE90 /* QRData.swift */,
 				CE258E9624304E3B003DCE90 /* Toast.swift */,
 				C6ADF9B5243CF107006DC149 /* Notification.swift */,
+				C63F3486244653510068A376 /* NotificationSender.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				CE258E9924304EA4003DCE90 /* ScannerView.swift in Sources */,
 				CEDCAAD62415F56D001E112C /* FeedTableViewCell.swift in Sources */,
 				CEDCAAB92415DD73001E112C /* AppDelegate.swift in Sources */,
+				C63F3487244653510068A376 /* NotificationSender.swift in Sources */,
 				CEDCAAD32415ECBB001E112C /* FeedViewController.swift in Sources */,
 				CE258E8C24280C97003DCE90 /* LoadingCell.swift in Sources */,
 				CE5108C32438499D0083B324 /* RefreshButton.swift in Sources */,

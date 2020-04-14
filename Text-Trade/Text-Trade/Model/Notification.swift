@@ -39,8 +39,8 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
         if let token = Messaging.messaging().fcmToken {
             let usersRef = Firestore.firestore().collection("users_table").document(userID)
             usersRef.setData(["fcmToken": token], merge: true)
-        }*/
-    }
+        }
+    }*/
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print(remoteMessage.appData)
     }
@@ -51,3 +51,4 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
         print(response)
     }
 
+}
