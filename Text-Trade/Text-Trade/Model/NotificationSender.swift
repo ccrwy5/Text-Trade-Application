@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import UserNotificationsUI
 
 class PushNotificationSender {
     func sendPushNotification(to token: String, title: String, body: String) {

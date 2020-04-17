@@ -11,6 +11,7 @@ import UIKit
 import UserNotificationsUI
 
 
+
 class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCenterDelegate {
     let userID: String
     init(userID: String) {
@@ -33,19 +34,19 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
             UIApplication.shared.registerUserNotificationSettings(settings)
         }
         UIApplication.shared.registerForRemoteNotifications()
-       // updateFirestorePushTokenIfNeeded()
+        updateFirestorePushTokenIfNeeded()
     }
-   /* func updateFirestorePushTokenIfNeeded() {
+    func updateFirestorePushTokenIfNeeded() {
         if let token = Messaging.messaging().fcmToken {
             let usersRef = Firestore.firestore().collection("users_table").document(userID)
             usersRef.setData(["fcmToken": token], merge: true)
         }
-    }*/
+    }
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print(remoteMessage.appData)
     }
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-       // updateFirestorePushTokenIfNeeded()
+        updateFirestorePushTokenIfNeeded()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(response)
