@@ -373,10 +373,10 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
 
-<<<<<<< HEAD
+
 PODFILE CHECKSUM: eacfa6aa4cfad3235642258bba59d4c83d3f5f24
-=======
+
 PODFILE CHECKSUM: 4b40d1ebaddb42f1860f3a15dab8b599f80a78e3
->>>>>>> April8
+
 
 COCOAPODS: 1.9.1

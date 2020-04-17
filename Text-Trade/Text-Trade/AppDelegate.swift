@@ -22,14 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         pushManager.registerForPushNotifications()
         
         FirebaseApp.configure()
-<<<<<<< HEAD
         IQKeyboardManager.shared.enable = true
 
-=======
         
         let sender = PushNotificationSender()
         sender.sendPushNotification(to: "token", title: "Notification title", body: "Notification body")
->>>>>>> April8
+
         // Override point for customization after application launch.
         
         /*let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
