@@ -8,18 +8,32 @@
 
 import UIKit
 import Firebase
+import UserNotificationsUI
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let pushManager = PushNotificationManager(userID: "currently_logged_in_user_id")
+        pushManager.registerForPushNotifications()
+        
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
 
+        
+        let sender = PushNotificationSender()
+        sender.sendPushNotification(to: "token", title: "Notification title", body: "Notification body")
+
         // Override point for customization after application launch.
+        
+        /*let notificationTypes : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+        let notificationSettings = UIUserNotificationSettings(types: notificationTypes , categories: nil)
+        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(notificationSettings)*/
                 
         return true
     }
@@ -36,6 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+   /* private func application(_ application: UIApplication, didRecieveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        //print("MessageID : \(userInfo["gcm_message_id"]!)")
+        
+        print(userInfo)
+    }*/
+    
+    
 
 
 }
