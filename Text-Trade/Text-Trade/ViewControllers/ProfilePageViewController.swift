@@ -156,6 +156,7 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
             let listing: Listing
             listing = listingsList[indexPath.row]
             cell.titleLabel.text = listing.bookTitle
+            cell.authorLabel.text = listing.bookAuthor
             
             
         } else if segmentedControl.selectedSegmentIndex == 1 {
@@ -198,6 +199,57 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
         } else if segmentedControl.selectedSegmentIndex == 1 {
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        
+        
+        let currentUser = (Auth.auth().currentUser?.uid)!
+        var localID: AnyObject?
+        var mainID: AnyObject?
+        
+        
+        let deleteSwipe = UIContextualAction(style: .destructive, title: "Delete/Mark as Sold") {  (contextualAction, view, boolValue) in
+            //print(postRef.key!)
+            //print(listingRef.key!)
+            //print(currentUser)
+            
+            let localDeleteRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
+            let mainDeleteRef = Database.database().reference().child("posts")
+            
+            localDeleteRef.observe(.value, with: {(snapshot) in
+                if snapshot.childrenCount > 0 {
+                    self.listingsList.removeAll()
+                    
+                    for listing in snapshot.children.allObjects as! [DataSnapshot] {
+                        let listingObject = listing.value as? [String:AnyObject]
+                        localID = listingObject?["id"]
+                        mainID = listingObject?["mainID"]
+                        
+
+                    }
+
+                }
+                print(localID!)
+                print(mainID!)
+                
+                localDeleteRef.child(localID as! String).setValue(nil)
+                mainDeleteRef.child(mainID as! String).setValue(nil)
+                
+                //let feedVC = FeedViewController()
+                //feedVC.tableView.reloadData()
+                self.listTableView.reloadData()
+            })
+
+            
+            
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteSwipe])
+
+        return swipeActions
+        
     }
 }
 

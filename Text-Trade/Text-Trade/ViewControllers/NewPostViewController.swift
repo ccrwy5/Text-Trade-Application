@@ -29,6 +29,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     var verificationId = String()
     var imagePicker: UIImagePickerController!
     let postRef = Database.database().reference().child("posts").childByAutoId()
+    //let currentUser = (Auth.auth().currentUser?.uid)!
+    let listingDatabaseRef = Database.database().reference().child("users").child("profile").child((Auth.auth().currentUser?.uid)!).child("User's Listings").childByAutoId()
     var bookImage: UIImage? = nil
 
     override func viewDidLoad() {
@@ -162,11 +164,12 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         /* Set's the book into the user's listings section of DB */
         
-        let currentUser = (Auth.auth().currentUser?.uid)!
-        let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings").childByAutoId()
+        //let currentUser = (Auth.auth().currentUser?.uid)!
         
+        //let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings").childByAutoId()
         let listingObject = [
                 "id": listingDatabaseRef.key,
+                "mainID": postRef.key,
                 "bookTitle": titleTextField.text ?? "",
                 "bookAuthor": authorTextField.text ?? ""
         ] as [String: Any]

@@ -270,19 +270,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSW-Gg-cib">
-                                                    <rect key="frame" x="30" y="11.5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSW-Gg-cib">
+                                                    <rect key="frame" x="30" y="12" width="35.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lf-IO-wg6">
+                                                    <rect key="frame" x="70.5" y="13" width="45" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="1Lf-IO-wg6" firstAttribute="centerY" secondItem="Ytp-CL-PA7" secondAttribute="centerY" id="0zh-IN-sFZ"/>
                                                 <constraint firstItem="tSW-Gg-cib" firstAttribute="centerY" secondItem="Ytp-CL-PA7" secondAttribute="centerY" id="42l-Zv-bnu"/>
+                                                <constraint firstItem="1Lf-IO-wg6" firstAttribute="leading" secondItem="tSW-Gg-cib" secondAttribute="trailing" constant="5" id="IeQ-Gz-l5e"/>
                                                 <constraint firstItem="tSW-Gg-cib" firstAttribute="leading" secondItem="Ytp-CL-PA7" secondAttribute="leadingMargin" constant="10" id="odr-26-44b"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="authorLabel" destination="1Lf-IO-wg6" id="fWf-nJ-rlE"/>
                                             <outlet property="titleLabel" destination="tSW-Gg-cib" id="hoI-yx-eP3"/>
                                         </connections>
                                     </tableViewCell>
