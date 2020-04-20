@@ -21,14 +21,15 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var classUsedForTextField: UITextField!
     @IBOutlet weak var askingPriceTextField: UITextField!
-    
-    
-    @IBOutlet weak var QRButtonImage: UIButton!
+    @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var QRButtonText: UIButton!
     
     //var delegate: NewPostVCDelegate?
     
     var verificationId = String()
+    var imagePicker: UIImagePickerController!
+    let postRef = Database.database().reference().child("posts").childByAutoId()
+    var bookImage: UIImage? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,11 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         titleTextField.text = trimmedTitle
         authorTextField.text = author
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
         
         setupUI()
         //getAllUserListings()
@@ -79,12 +85,27 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func handlePostButton(_ sender: Any) {
+        print("1")
         
-        guard let userProfile = UserService.currentUserProfile else { return }
+        guard let userProfile = UserService.currentUserProfile else {
+            print("error in userProfile")
+            return
+            
+        }
+        print("2")
         
+        guard let imageSelected = self.bookImage else {
+            print("image is nil")
+            return
+        }
+        
+        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
+            return
+        }
+
         /* Set's the book into the posts section of DB */
-        let postRef = Database.database().reference().child("posts").childByAutoId()
-        let postObject = [
+        //let postRef = Database.database().reference().child("posts").childByAutoId()
+        var postObject = [
             "author": [
                 "uid": userProfile.uid,
                 "username": userProfile.username,
@@ -97,9 +118,34 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
             "price": askingPriceTextField.text ?? "",
             "timestamp": [".sv":"timestamp"],
             "postID": postRef.key,
+            //"bookImageURL": "url",
             "peopleWhoLike": [""]
         ] as [String:Any]
+        print("3")
         
+        let storageRef = Storage.storage().reference().child("posts/\(postRef.key!)")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        storageRef.putData(imageData, metadata: metadata) { (storageMetaData, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+                return
+            }
+            storageRef.downloadURL { (url, error) in
+                if let metaImageUrl = url?.absoluteString {
+                    print(metaImageUrl)
+                    postObject["bookImageURL"] = metaImageUrl
+                    
+                    self.postRef.updateChildValues(postObject) { (erro, ref) in
+                        if error == nil {
+                            print("done")
+                        }
+                    }
+
+                }
+            }
+        }
+
         postRef.setValue(postObject, withCompletionBlock: { error, ref in
             if error == nil {
                 
@@ -110,6 +156,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                 print("error in postRef setValue")
             }
         })
+        
+        print("4")
+
         
         /* Set's the book into the user's listings section of DB */
         
@@ -123,6 +172,11 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         ] as [String: Any]
         
         listingDatabaseRef.setValue(listingObject)
+
+        
+        print("5")
+        
+        //uploadPhoto()
 
     }
     
@@ -140,9 +194,60 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    @IBAction func QRButtonImagePressed(_ sender: Any) {
+    @IBAction func cameraButtonPressed(_ sender: Any) {
+        print("camera button pressed")
+        self.present(imagePicker, animated: true, completion: nil)
+
     }
+    
+    func uploadPhoto(){
+        let storageRef = Storage.storage().reference().child("posts/\(postRef.key!)")
+        if let uploadData = bookImageView.image!.pngData() {
+            
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil{
+                    print(error)
+                    return
+                }
+                
+                print(metadata)
+            })
+        }
+    }
+    
+    
     
     @IBAction func QRButtonTextPressed(_ sender: Any) {
     }
 }
+
+extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        if let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
+            bookImage = pickedImage
+            self.bookImageView.image = pickedImage
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+    return input.rawValue
+}
+

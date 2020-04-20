@@ -17,12 +17,13 @@ class Post{
     var classUsedFor: String
     var postID: String
     var price: String
+    var bookImage: URL
     
     
     var peopleWhoLike: [String] = [String]()
 
     
-    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String, postID: String, peopleWhoLike: [String], price: String) {
+    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String, postID: String, peopleWhoLike: [String], price: String, bookImage: URL) {
         self.id = id
         self.author = author
         self.bookTitle = bookTitle
@@ -32,6 +33,7 @@ class Post{
         self.postID = postID
         self.peopleWhoLike = peopleWhoLike
         self.price = price
+        self.bookImage = bookImage
         
     }
     
@@ -49,10 +51,12 @@ class Post{
             let classUsedFor = data["classUsedFor"] as? String,
             let postID = data["postID"] as? String,
             let peopleWhoLike = data["peopleWhoLike"] as? [String],
-            let price = data["price"] as? String {
+            let price = data["price"] as? String,
+            let bookImage = data["bookImageURL"] as? String,
+            let bookURL = URL(string: bookImage){
             
             let userProfile = UserProfile(uid: uid, username: username, photoURL: url, phoneNumber: phoneNumber)
-            return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike, price: price)
+                return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike, price: price, bookImage: bookURL)
             
         }
         

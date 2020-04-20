@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SLi-uv-ffy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SLi-uv-ffy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -457,17 +457,16 @@
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-Ma-ypq">
-                                <rect key="frame" x="172" y="663.5" width="70" height="69"/>
+                                <rect key="frame" x="182" y="683.5" width="50" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="3yi-LS-PfC"/>
+                                    <constraint firstAttribute="width" constant="50" id="3yi-LS-PfC"/>
                                     <constraint firstAttribute="width" secondItem="Tcg-Ma-ypq" secondAttribute="height" multiplier="1:1" id="J9S-y9-5GZ"/>
-                                    <constraint firstAttribute="height" constant="70" id="XYX-mz-Pke"/>
+                                    <constraint firstAttribute="height" constant="50" id="XYX-mz-Pke"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="camera.circle" catalog="system"/>
                                 <connections>
-                                    <action selector="QRButtonImagePressed:" destination="kV8-CN-nMf" eventType="touchUpInside" id="q8U-qh-hDO"/>
-                                    <segue destination="RfW-yN-1Ty" kind="show" id="IjG-AT-We8"/>
+                                    <action selector="cameraButtonPressed:" destination="kV8-CN-nMf" eventType="touchUpInside" id="hHD-Oa-Gud"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4t-mf-qYG">
@@ -488,6 +487,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nosign" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-na-KQu">
+                                <rect key="frame" x="117" y="433.5" width="180" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6cf-na-KQu" secondAttribute="height" multiplier="1:1" id="UjK-U4-n14"/>
+                                    <constraint firstAttribute="width" constant="180" id="ynl-Fc-2RQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
@@ -497,12 +503,14 @@
                             <constraint firstItem="6PL-Zm-oym" firstAttribute="top" secondItem="6dw-1g-93r" secondAttribute="bottom" constant="25" id="EbH-rh-eze"/>
                             <constraint firstItem="Zy2-Sv-KVb" firstAttribute="trailing" secondItem="6PL-Zm-oym" secondAttribute="trailing" constant="30" id="MEr-mf-eST"/>
                             <constraint firstItem="fIl-84-cVb" firstAttribute="leading" secondItem="Zy2-Sv-KVb" secondAttribute="leading" constant="30" id="OXt-x7-1Fc"/>
+                            <constraint firstItem="6cf-na-KQu" firstAttribute="top" secondItem="fIl-84-cVb" secondAttribute="bottom" constant="30" id="PAX-oe-wjK"/>
                             <constraint firstItem="x4t-mf-qYG" firstAttribute="centerX" secondItem="jG7-Uc-rU8" secondAttribute="centerX" id="Pbv-Ig-vhw"/>
                             <constraint firstItem="Zy2-Sv-KVb" firstAttribute="trailing" secondItem="jho-rm-oag" secondAttribute="trailing" constant="30" id="Rcr-Bh-czW"/>
                             <constraint firstItem="Tcg-Ma-ypq" firstAttribute="centerX" secondItem="jG7-Uc-rU8" secondAttribute="centerX" id="S2Q-Pn-ULa"/>
                             <constraint firstItem="6PL-Zm-oym" firstAttribute="leading" secondItem="Zy2-Sv-KVb" secondAttribute="leading" constant="30" id="b2j-C4-wCY"/>
                             <constraint firstItem="jho-rm-oag" firstAttribute="top" secondItem="6PL-Zm-oym" secondAttribute="bottom" constant="25" id="fo0-9Q-B1d"/>
                             <constraint firstItem="6dw-1g-93r" firstAttribute="top" secondItem="BLm-3Q-djX" secondAttribute="bottom" constant="35" id="jlP-32-6I4"/>
+                            <constraint firstItem="6cf-na-KQu" firstAttribute="centerX" secondItem="jG7-Uc-rU8" secondAttribute="centerX" id="kHC-jW-ACd"/>
                             <constraint firstItem="fIl-84-cVb" firstAttribute="top" secondItem="jho-rm-oag" secondAttribute="bottom" constant="25" id="kug-RR-UDt"/>
                             <constraint firstItem="BLm-3Q-djX" firstAttribute="leading" secondItem="Zy2-Sv-KVb" secondAttribute="leading" constant="30" id="rAG-Lo-F8a"/>
                             <constraint firstItem="x4t-mf-qYG" firstAttribute="top" secondItem="Tcg-Ma-ypq" secondAttribute="bottom" constant="8" id="wUE-mT-Rn9"/>
@@ -522,10 +530,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="QRButtonImage" destination="Tcg-Ma-ypq" id="LW8-dc-WmH"/>
                         <outlet property="QRButtonText" destination="x4t-mf-qYG" id="yEi-S2-6aw"/>
                         <outlet property="askingPriceTextField" destination="fIl-84-cVb" id="nQc-Pk-rgr"/>
                         <outlet property="authorTextField" destination="6PL-Zm-oym" id="rd2-5a-fxH"/>
+                        <outlet property="bookImageView" destination="6cf-na-KQu" id="jqu-HW-1fF"/>
                         <outlet property="classUsedForTextField" destination="jho-rm-oag" id="c8X-8o-96A"/>
                         <outlet property="postButton" destination="y3C-xE-C33" id="d4e-fa-lNj"/>
                         <outlet property="titleTextField" destination="6dw-1g-93r" id="zk9-kA-0Q2"/>
@@ -761,12 +769,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-Zr-FNP">
+                                <rect key="frame" x="57" y="305" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dxZ-Zr-FNP" secondAttribute="height" multiplier="1:1" id="6j2-W2-Kim"/>
+                                    <constraint firstAttribute="width" constant="300" id="P2k-5W-39J"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dxZ-Zr-FNP" firstAttribute="centerX" secondItem="uKo-ue-YGy" secondAttribute="centerX" id="4IQ-oH-hld"/>
                             <constraint firstItem="pmV-Hx-4nW" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="8tU-hE-OrN"/>
                             <constraint firstItem="rh9-Xz-R9B" firstAttribute="top" secondItem="pmV-Hx-4nW" secondAttribute="bottom" constant="20" id="AyO-kK-BTX"/>
                             <constraint firstItem="pmV-Hx-4nW" firstAttribute="top" secondItem="Rd1-91-1fR" secondAttribute="top" constant="50" id="GoA-Bm-8Yy"/>
+                            <constraint firstItem="dxZ-Zr-FNP" firstAttribute="top" secondItem="pkX-mx-MdO" secondAttribute="bottom" constant="50" id="Yf4-2N-x7F"/>
                             <constraint firstItem="tdk-vA-Ndg" firstAttribute="top" secondItem="rh9-Xz-R9B" secondAttribute="bottom" constant="20" id="b7B-wq-Wa6"/>
                             <constraint firstItem="pkX-mx-MdO" firstAttribute="top" secondItem="mCA-OQ-Psi" secondAttribute="bottom" constant="20" id="bCC-0H-Ysx"/>
                             <constraint firstItem="tdk-vA-Ndg" firstAttribute="leading" secondItem="Rd1-91-1fR" secondAttribute="leading" constant="30" id="fA6-iD-a96"/>
@@ -780,6 +797,7 @@
                     <navigationItem key="navigationItem" id="Owg-A9-2LE"/>
                     <connections>
                         <outlet property="authorLabel" destination="rh9-Xz-R9B" id="gY6-la-znl"/>
+                        <outlet property="bookImageView" destination="dxZ-Zr-FNP" id="aHP-qG-t18"/>
                         <outlet property="phoneNumberLabel" destination="pkX-mx-MdO" id="w0Q-qy-BgJ"/>
                         <outlet property="priceLabel" destination="mCA-OQ-Psi" id="lHg-N1-iP4"/>
                         <outlet property="sellerLabel" destination="tdk-vA-Ndg" id="DA5-xB-O8U"/>
@@ -795,12 +813,12 @@
         <image name="book.circle" catalog="system" width="64" height="60"/>
         <image name="camera.circle" catalog="system" width="64" height="60"/>
         <image name="logo-WT" width="417" height="192"/>
+        <image name="nosign" catalog="system" width="64" height="60"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="userIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="svJ-pH-D1Q"/>
         <segue reference="bFZ-iY-1g9"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

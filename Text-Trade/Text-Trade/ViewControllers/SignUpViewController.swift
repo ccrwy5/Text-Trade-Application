@@ -129,7 +129,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             let userObject = [
                 "username": username,
                 "photoURL": profileImageURL.absoluteString,
-                //"phoneNumber": phoneNumber,
+                "phoneNumber": phoneNumber,
                 "timestamp": [".sv":"timestamp"],
                 "User's Listings": [],
                 "Wish list items": []

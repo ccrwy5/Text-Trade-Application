@@ -10,8 +10,9 @@
 		82F6A83AD5E3AF365C642DF4 /* libPods-Text-Trade.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9923D28C683B55C9FB84EF /* libPods-Text-Trade.a */; };
 		C63F3487244653510068A376 /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F3486244653510068A376 /* NotificationSender.swift */; };
 		C6501D812419A60C0012EE41 /* FlexibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6501D802419A60C0012EE41 /* FlexibleTextField.swift */; };
-		C6ADF9B4243CDB61006DC149 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */; };
+		C6ADF9B4243CDB61006DC149 /* GoogleService-Info(1).plist in Resources */ = {isa = PBXBuildFile; fileRef = C6ADF9B3243CDB60006DC149 /* GoogleService-Info(1).plist */; };
 		C6ADF9B6243CF107006DC149 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADF9B5243CF107006DC149 /* Notification.swift */; };
+		CE2170CE244BDC7B00097DD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE2170CD244BDC7B00097DD4 /* GoogleService-Info.plist */; };
 		CE258E82242499E8003DCE90 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E81242499E8003DCE90 /* NewPostViewController.swift */; };
 		CE258E8424249AB8003DCE90 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8324249AB8003DCE90 /* UserProfile.swift */; };
 		CE258E8624249DA6003DCE90 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE258E8524249DA6003DCE90 /* UserService.swift */; };
@@ -64,9 +65,10 @@
 		C63F3486244653510068A376 /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		C6501D802419A60C0012EE41 /* FlexibleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextField.swift; sourceTree = "<group>"; };
 		C6ADF9B2243CC7D3006DC149 /* Text-Trade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Text-Trade.entitlements"; sourceTree = "<group>"; };
-		C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6ADF9B3243CDB60006DC149 /* GoogleService-Info(1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info(1).plist"; path = "../../../../../Downloads/GoogleService-Info(1).plist"; sourceTree = "<group>"; };
 		C6ADF9B5243CF107006DC149 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		CC9923D28C683B55C9FB84EF /* libPods-Text-Trade.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Text-Trade.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2170CD244BDC7B00097DD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE258E81242499E8003DCE90 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		CE258E8324249AB8003DCE90 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		CE258E8524249DA6003DCE90 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -261,7 +263,8 @@
 				CEDCAABA2415DD73001E112C /* SceneDelegate.swift */,
 				CEDCAAC12415DD75001E112C /* Assets.xcassets */,
 				CEDCAAC62415DD75001E112C /* Info.plist */,
-				C6ADF9B3243CDB60006DC149 /* GoogleService-Info.plist */,
+				C6ADF9B3243CDB60006DC149 /* GoogleService-Info(1).plist */,
+				CE2170CD244BDC7B00097DD4 /* GoogleService-Info.plist */,
 			);
 			path = "Text-Trade";
 			sourceTree = "<group>";
@@ -348,8 +351,9 @@
 				CEDCAAC52415DD75001E112C /* LaunchScreen.storyboard in Resources */,
 				CEDCAAD72415F56D001E112C /* FeedTableViewCell.xib in Resources */,
 				CEDCAAC22415DD75001E112C /* Assets.xcassets in Resources */,
+				CE2170CE244BDC7B00097DD4 /* GoogleService-Info.plist in Resources */,
 				CEDCAAC02415DD73001E112C /* Main.storyboard in Resources */,
-				C6ADF9B4243CDB61006DC149 /* GoogleService-Info.plist in Resources */,
+				C6ADF9B4243CDB61006DC149 /* GoogleService-Info(1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +601,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamBooks.Text-Trade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.capstone.Text-Trade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -617,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamBooks.Text-Trade";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.capstone.Text-Trade";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
