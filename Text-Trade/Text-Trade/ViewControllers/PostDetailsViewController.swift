@@ -23,6 +23,7 @@ class PostDetailsViewController: UIViewController {
     var sellerName: String = ""
     var price: String = ""
     var phoneNumber: String = ""
+    var email: String = ""
     var bookImage: URL? = nil
 
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class PostDetailsViewController: UIViewController {
         authorLabel.text = "By: \(authorName)"
         sellerLabel.text = "Seller: \(sellerName)"
         priceLabel.text = "Price: $\(price)"
-        phoneNumberLabel.text = "Phone Number: \(phoneNumber)"
+        phoneNumberLabel.text = "Email: \(email)"
         
         
         ImageService.getImage(withURL: bookImage!) { image, url in

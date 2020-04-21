@@ -107,9 +107,9 @@ class FeedTableViewCell: UITableViewCell {
         let wishListDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("Wish list items").childByAutoId()
         
         let wishListObject = [
-                "id": wishListDatabaseRef.key,
-                "bookTitle": bookTitleLabel.text ?? "",
-                "bookAuthor": bookAuthorLabel.text ?? ""
+            "id": wishListDatabaseRef.key!,
+            "bookTitle": bookTitleLabel.text ?? "",
+            "bookAuthor": bookAuthorLabel.text ?? ""
                 
         ] as [String: Any]
         

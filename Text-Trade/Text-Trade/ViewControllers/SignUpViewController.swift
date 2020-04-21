@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                             if error == nil {
                                 print("User display name changed!")
                                 
-                                self.saveProfile(username: username, profileImageURL: url!, phoneNumber: phoneNumber) { success in
+                                self.saveProfile(username: username, profileImageURL: url!, phoneNumber: phoneNumber, email: email) { success in
                                     if success {
                                         self.dismiss(animated: true, completion: nil)
                                     }
@@ -122,7 +122,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-    func saveProfile(username:String, profileImageURL:URL, phoneNumber: String, completion: @escaping ((_ success:Bool)->())) {
+    func saveProfile(username:String, profileImageURL:URL, phoneNumber: String, email: String, completion: @escaping ((_ success:Bool)->())) {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let databaseRef = Database.database().reference().child("users/profile/\(uid)")
             
@@ -130,6 +130,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 "username": username,
                 "photoURL": profileImageURL.absoluteString,
                 "phoneNumber": phoneNumber,
+                "email": email,
                 "timestamp": [".sv":"timestamp"],
                 "User's Listings": [],
                 "Wish list items": []

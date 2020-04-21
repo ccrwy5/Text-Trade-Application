@@ -24,9 +24,10 @@ class UserService {
                 let username = dict["username"] as? String,
                 let photoURL = dict["photoURL"] as? String,
                 let phoneNumber = dict["phoneNumber"] as? String,
+                let email = dict["email"] as? String,
                 let url = URL(string:photoURL) {
                 
-                userProfile = UserProfile(uid: snapshot.key, username: username, photoURL: url, phoneNumber: phoneNumber)
+                userProfile = UserProfile(uid: snapshot.key, username: username, photoURL: url, phoneNumber: phoneNumber, email: email)
             }
             
             completion(userProfile)

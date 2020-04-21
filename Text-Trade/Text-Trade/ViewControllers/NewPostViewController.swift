@@ -84,6 +84,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         askingPriceTextField.layer.cornerRadius = 22
         askingPriceTextField.clipsToBounds = true
         
+        bookImageView.layer.cornerRadius = bookImageView.bounds.height / 2
+        bookImageView.clipsToBounds = true
+        
     }
     
     @IBAction func handlePostButton(_ sender: Any) {
@@ -112,7 +115,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                 "uid": userProfile.uid,
                 "username": userProfile.username,
                 "photoURL": userProfile.photoURL.absoluteString,
-                "phoneNumber": userProfile.phoneNumber
+                "phoneNumber": userProfile.phoneNumber,
+                "email": userProfile.email
             ],
             "bookTitle": titleTextField.text ?? "",
             "bookAuthor": authorTextField.text ?? "",
@@ -174,7 +178,12 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                 "bookAuthor": authorTextField.text ?? ""
         ] as [String: Any]
         
-        listingDatabaseRef.setValue(listingObject)
+        //listingDatabaseRef.setValue(listingObject)
+        listingDatabaseRef.updateChildValues(listingObject) { (error, ref) in
+            if error == nil{
+                print("done 2")
+            }
+        }
 
         
         print("5")

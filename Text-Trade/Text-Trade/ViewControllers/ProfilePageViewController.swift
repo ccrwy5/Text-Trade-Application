@@ -182,66 +182,54 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
         return "Books that \(currentUser ?? "user") \(sectionDifference)"
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         
-        if segmentedControl.selectedSegmentIndex == 0 {
-            let currentUser = Auth.auth().currentUser?.displayName
-            let postDetailsVC = storyboard?.instantiateViewController(identifier: "PostDetailsViewController") as? PostDetailsViewController
-            //let post = posts[indexPath.row]
-            let listing = listingsList[indexPath.row]
-            postDetailsVC?.bookTitle = listing.bookTitle!
-            postDetailsVC?.authorName = listing.bookAuthor!
-            postDetailsVC?.sellerName = currentUser!
-            self.navigationController?.pushViewController(postDetailsVC!, animated: true)
-
-            
-            
-        } else if segmentedControl.selectedSegmentIndex == 1 {
-            
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        if segmentedControl.selectedSegmentIndex == 0 {
+//            let currentUser = Auth.auth().currentUser?.displayName
+//            let postDetailsVC = storyboard?.instantiateViewController(identifier: "PostDetailsViewController") as? PostDetailsViewController
+//            //let post = posts[indexPath.row]
+//            let listing = listingsList[indexPath.row]
+//            postDetailsVC?.bookTitle = listing.bookTitle!
+//            postDetailsVC?.authorName = listing.bookAuthor!
+//            postDetailsVC?.sellerName = currentUser!
+//            self.navigationController?.pushViewController(postDetailsVC!, animated: true)
+//
+//
+//
+//        } else if segmentedControl.selectedSegmentIndex == 1 {
+//
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         
-        
         let currentUser = (Auth.auth().currentUser?.uid)!
-        var localID: AnyObject?
-        var mainID: AnyObject?
+ 
+        
+        let selectedListing = self.listingsList[indexPath.row]
         
         
         let deleteSwipe = UIContextualAction(style: .destructive, title: "Delete/Mark as Sold") {  (contextualAction, view, boolValue) in
-            //print(postRef.key!)
-            //print(listingRef.key!)
-            //print(currentUser)
-            
+
             let localDeleteRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings")
-            let mainDeleteRef = Database.database().reference().child("posts")
+            let indivListing = localDeleteRef.child(selectedListing.id!)
             
-            localDeleteRef.observe(.value, with: {(snapshot) in
-                if snapshot.childrenCount > 0 {
-                    self.listingsList.removeAll()
-                    
-                    for listing in snapshot.children.allObjects as! [DataSnapshot] {
-                        let listingObject = listing.value as? [String:AnyObject]
-                        localID = listingObject?["id"]
-                        mainID = listingObject?["mainID"]
-                        
-
-                    }
-
-                }
-                print(localID!)
-                print(mainID!)
+            var mainID: String = ""
+            indivListing.observeSingleEvent(of: .value) { (snapshot) in
+                let dict = snapshot.value as! [String: Any]
+                mainID = dict["mainID"] as! String
+                print("MainID: \(mainID)")
+                let feedDeleteRef = Database.database().reference().child("posts").child(mainID)
+                print("feedDeleteRef = \(feedDeleteRef)")
                 
-                localDeleteRef.child(localID as! String).setValue(nil)
-                mainDeleteRef.child(mainID as! String).setValue(nil)
-                
-                //let feedVC = FeedViewController()
-                //feedVC.tableView.reloadData()
-                self.listTableView.reloadData()
-            })
-
+                feedDeleteRef.setValue(nil)
+                indivListing.setValue(nil)
+            }
+            
+            
+            
+            
             
             
         }

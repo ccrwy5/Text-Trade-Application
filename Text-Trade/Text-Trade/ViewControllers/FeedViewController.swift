@@ -18,12 +18,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var endReached = false
     let leadingScreensForBatching: CGFloat = 3.0
     var refreshControl: UIRefreshControl?
-    
     var seeNewPostsButton: SeeNewPostsButton!
     var seeNewPostsButtonTopAnchor: NSLayoutConstraint!
+    var cellHeights: [IndexPath:CGFloat] = [:]
     
     @IBOutlet weak var feedSearchBar: UISearchBar!
     @IBOutlet weak var feedSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
     
     
     var postsRef: DatabaseReference {
@@ -55,19 +57,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return queryRef
     }
-    
-    
-    
-    var cellHeights: [IndexPath:CGFloat] = [:]
-
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        searchBarSetup()
+
         let cellNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
         tableView.register(LoadingCell.self, forCellReuseIdentifier: "loadingCell")
@@ -104,10 +99,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         seeNewPostsButton.button.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
         
-        //observePosts()
         
-        searchBarSetup()
         beginBatchFetch()
+        //handleDelete()
 
     }
     
@@ -130,14 +124,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         feedSearchBar.showsScopeBar = true
         feedSearchBar.selectedScopeButtonIndex = 0
         feedSearchBar.delegate = self
-        //self.artistsTable.tableHeaderView = searchBar
+        let textFieldInsideSearchBar = feedSearchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
     }
     
     
     @objc func handleRefresh(){
         print("Refresh")
         toggleSeeNewPostsButton(hidden: true)
-        
         newPostsQuery.queryLimited(toFirst: 20).observeSingleEvent(of: .value, with: { snapshot in
                     var tempPosts = [Post]()
                     let firstPost = self.posts.first
@@ -147,33 +141,39 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                             let dict = childSnapshot.value as? [String:Any],
                             let post = Post.parse(childSnapshot.key, dict),
                             childSnapshot.key != firstPost?.id {
-                                
                                 tempPosts.insert(post, at: 0)
                             }
                     }
-            
             self.posts.insert(contentsOf: tempPosts, at: 0)
-            //self.currentPosts = self.posts
-            //self.tableView.reloadData()
+            self.currentPosts = self.posts
+            self.tableView.reloadData()
             
-            let newIndexPaths = (0..<tempPosts.count).map { i in
-                return IndexPath(row: i, section: 0)
-            }
-
-            self.tableView.insertRows(at: newIndexPaths, with: .top)
-            
+//            let newIndexPaths = (0..<tempPosts.count).map { i in
+//                return IndexPath(row: i, section: 0)
+//            }
+//            self.tableView.insertRows(at: newIndexPaths, with: .top)
             self.refreshControl?.endRefreshing()
-
-                    
-                })
+         
+        })
         
-        
+        //handleDelete()
+   
+    }
+    
+    func handleDelete(){
+        let ref = Database.database().reference().child("posts")
+        ref.observeSingleEvent(of: .childRemoved, with: { snapshot in
+            if let index = self.posts.firstIndex(where: {$0.id == snapshot.key}) {
+                self.posts.remove(at: index) //remove it from the array via the index
+                self.tableView.reloadData()
+            } else {
+                print("item not found)")
+            }
+        })
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         try! Auth.auth().signOut()
-        //self.dismiss(animated: false, completion: nil)
-        //self.performSegue(withIdentifier: "logOutClicked", sender: self)
     }
     
     func fetchPosts(completion:@escaping (_ posts:[Post])->()){
@@ -190,89 +190,42 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                         
                         tempPosts.insert(post, at: 0)
                     }
+                
             }
             return completion(tempPosts)
-//            self.posts = tempPosts
+            //self.posts = tempPosts
 //            self.tableView.reloadData()
             
         })
     }
     
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return posts.count
-        case 1:
-            return fetchingMore ? 1 : 0
-        default:
-            return 0
+    func listenForNewPosts(){
+        newPostsQuery.observe(.childAdded) { (snapshot) in
+            
+            if snapshot.key != self.posts.first?.id,
+                let data = snapshot.value as? [String:Any],
+                let post = Post.parse(snapshot.key, data) {
+                
+                self.toggleSeeNewPostsButton(hidden: false)
+            }
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! FeedTableViewCell
-            cell.setPost(inputPost: posts[indexPath.row])
-            cell.postID = self.posts[indexPath.row].postID
-                        
-            let ref = Database.database().reference().child("posts").child(cell.postID).child("peopleWhoBookmark")
-            ref.observe(.value, with: {(snapshot) in
-                if snapshot.childrenCount > 0 {
-                    self.posts[indexPath.row].peopleWhoLike.removeAll()
-                    
-                    for person in snapshot.children.allObjects as! [DataSnapshot] {
-                        self.posts[indexPath.row].peopleWhoLike.append(person.value as! String)
-                        
-                    }
-                    //print("\(testArray)\n")
-                    for person in self.posts[indexPath.row].peopleWhoLike {
-                        if person == Auth.auth().currentUser?.uid {
-                            cell.wishListImageView.image = UIImage(systemName: "bookmark.fill")
-                            cell.favorited = true
-                        } else {
-                            cell.wishListImageView.image = UIImage(systemName: "bookmark")
-                            cell.favorited = false
-                        }
-                    }
-                }
-            })
-            
-            return cell
-            
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
-            cell.spinner.startAnimating()
-            return cell
+    func beginBatchFetch() {
+        fetchingMore = true
+        self.tableView.reloadSections(IndexSet(integer: 1), with: .fade)
+        
+        fetchPosts { newPosts in
+            self.posts.append(contentsOf: newPosts)
+            self.currentPosts.append(contentsOf: newPosts)
+            self.fetchingMore = false
+            self.endReached = newPosts.count == 0
+            UIView.performWithoutAnimation {
+                self.tableView.reloadData()
+                
+                self.listenForNewPosts()
+            }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "clickedFeedCell", sender: self)
-        
-        let postDetailsVC = storyboard?.instantiateViewController(identifier: "PostDetailsViewController") as? PostDetailsViewController
-        let post = posts[indexPath.row]
-        postDetailsVC?.bookTitle = post.bookTitle
-        postDetailsVC?.authorName = post.bookAuthor
-        postDetailsVC?.sellerName = post.author.username
-        postDetailsVC?.price = post.price
-        postDetailsVC?.phoneNumber = post.author.phoneNumber
-        postDetailsVC?.bookImage = post.bookImage
-        
-        
-        self.navigationController?.pushViewController(postDetailsVC!, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cellHeights[indexPath] = cell.frame.size.height
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeights[indexPath] ?? 72.0
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -286,21 +239,76 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func beginBatchFetch() {
-        fetchingMore = true
-        self.tableView.reloadSections(IndexSet(integer: 1), with: .fade)
-        
-        fetchPosts { newPosts in
-            self.posts.append(contentsOf: newPosts)
-            self.fetchingMore = false
-            self.endReached = newPosts.count == 0
-            UIView.performWithoutAnimation {
-                self.tableView.reloadData()
-                
-                self.listenForNewPosts()
-            }
+    /*----------------- Table View -----------------------*/
+
+    
+    //Sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    //Rows
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        if(section == 0){
+            return currentPosts.count
+        }else{
+            return fetchingMore ? 1 : 0
         }
     }
+    
+    
+    //Populate Rows and Cells
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! FeedTableViewCell
+            cell.setPost(inputPost: currentPosts[indexPath.row])
+            return cell
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
+            cell.spinner.startAnimating()
+            return cell
+        }
+    }
+    
+    
+    //Click on Cell and Open Details VC
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "clickedFeedCell", sender: self)
+        
+        let postDetailsVC = storyboard?.instantiateViewController(identifier: "PostDetailsViewController") as? PostDetailsViewController
+        let post = posts[indexPath.row]
+        postDetailsVC?.bookTitle = post.bookTitle
+        postDetailsVC?.authorName = post.bookAuthor
+        postDetailsVC?.sellerName = post.author.username
+        postDetailsVC?.price = post.price
+        postDetailsVC?.phoneNumber = post.author.phoneNumber
+        postDetailsVC?.bookImage = post.bookImage
+        postDetailsVC?.email = post.author.email
+        
+        
+        self.navigationController?.pushViewController(postDetailsVC!, animated: true)
+    }
+    
+    //Cell Height
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellHeights[indexPath] = cell.frame.size.height
+    }
+    
+    //Row Height
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeights[indexPath] ?? 72.0
+    }
+    
+    @IBAction func feedSegmentedControl(_ sender: Any) {
+        print("switch")
+        tableView.reloadData()
+    }
+    
+    
+    /*----------------- Search Bar -----------------------*/
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
@@ -308,36 +316,30 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             tableView.reloadData()
             return
         }
+                
         if(feedSegmentedControl.selectedSegmentIndex == 0){
+            
             currentPosts = posts.filter({ (book) -> Bool in
                 return book.bookTitle.lowercased().contains(searchText.lowercased()) || book.classUsedFor.lowercased().contains(searchText.lowercased())
-
-        })
-        self.tableView.reloadData()
+            })
+            self.tableView.reloadData()
+            
         } else if(feedSegmentedControl.selectedSegmentIndex == 1){
+            
             currentPosts = posts.filter({ (book) -> Bool in
                 return book.bookTitle.lowercased().contains(searchText.lowercased())
             })
             self.tableView.reloadData()
             
-        } else if(feedSegmentedControl.selectedSegmentIndex == 2) {
+            
+            
+        } else if(feedSegmentedControl.selectedSegmentIndex == 2){
+            
             currentPosts = posts.filter({ (book) -> Bool in
                 return book.classUsedFor.lowercased().contains(searchText.lowercased())
             })
             self.tableView.reloadData()
         }
-
-    }
-    
-    func listenForNewPosts(){
-        newPostsQuery.observe(.childAdded) { (snapshot) in
-            
-            if snapshot.key != self.posts.first?.id,
-                let data = snapshot.value as? [String:Any],
-                let post = Post.parse(snapshot.key, data) {
-                
-                self.toggleSeeNewPostsButton(hidden: false)
-            }
-        }
+        
     }
 }
