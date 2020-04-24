@@ -14,7 +14,7 @@ import Firebase
 //    func didUploadPost(withID id: String)
 //}
 
-class NewPostViewController: UIViewController, UITextViewDelegate {
+class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var postButton: UIBarButtonItem!
     @IBOutlet weak var titleTextField: UITextField!
@@ -23,6 +23,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var askingPriceTextField: UITextField!
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var QRButtonText: UIButton!
+    //@IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var bookCoverTypeSegmentedControl: UISegmentedControl!
     
     //var delegate: NewPostVCDelegate?
     
@@ -56,6 +58,13 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         setupUI()
         //getAllUserListings()
         //getAllUserListings2()
+        
+        
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
+        bookImageView.isUserInteractionEnabled = true
+        bookImageView.addGestureRecognizer(imageTap)
+        bookImageView.layer.cornerRadius = bookImageView.bounds.height / 2
+        bookImageView.clipsToBounds = true
 
     }
     
@@ -63,45 +72,56 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         titleTextField.layer.borderWidth = 2
         titleTextField.layer.cornerRadius = 10
         titleTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        titleTextField.layer.cornerRadius = 22
+        titleTextField.layer.cornerRadius = 18
         titleTextField.clipsToBounds = true
         
         authorTextField.layer.borderWidth = 2
         authorTextField.layer.cornerRadius = 10
         authorTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        authorTextField.layer.cornerRadius = 22
+        authorTextField.layer.cornerRadius = 18
         authorTextField.clipsToBounds = true
         
         classUsedForTextField.layer.borderWidth = 2
         classUsedForTextField.layer.cornerRadius = 10
         classUsedForTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        classUsedForTextField.layer.cornerRadius = 22
+        classUsedForTextField.layer.cornerRadius = 18
         classUsedForTextField.clipsToBounds = true
         
         askingPriceTextField.layer.borderWidth = 2
         askingPriceTextField.layer.cornerRadius = 10
         askingPriceTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        askingPriceTextField.layer.cornerRadius = 22
+        askingPriceTextField.layer.cornerRadius = 18
         askingPriceTextField.clipsToBounds = true
         
         bookImageView.layer.cornerRadius = bookImageView.bounds.height / 2
         bookImageView.clipsToBounds = true
         
+        QRButtonText.titleLabel?.adjustsFontSizeToFitWidth = true
+        //cameraButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        askingPriceTextField.delegate = self
+        
+        
     }
     
     @IBAction func handlePostButton(_ sender: Any) {
-        print("1")
+        
         
         guard let userProfile = UserService.currentUserProfile else {
             print("error in userProfile")
             return
             
         }
-        print("2")
-        
         guard let imageSelected = self.bookImage else {
             print("image is nil")
             return
+        }
+        
+        var bookCoverType = ""
+        if(bookCoverTypeSegmentedControl.selectedSegmentIndex == 0){
+            bookCoverType = "Hardcover"
+        } else {
+            bookCoverType = "Paperback"
         }
         
         guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
@@ -116,14 +136,16 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                 "username": userProfile.username,
                 "photoURL": userProfile.photoURL.absoluteString,
                 "phoneNumber": userProfile.phoneNumber,
-                "email": userProfile.email
+                "email": userProfile.email,
+                "fullName": userProfile.fullName
             ],
             "bookTitle": titleTextField.text ?? "",
             "bookAuthor": authorTextField.text ?? "",
             "classUsedFor": classUsedForTextField.text ?? "",
             "price": askingPriceTextField.text ?? "",
             "timestamp": [".sv":"timestamp"],
-            "postID": postRef.key,
+            "postID": postRef.key!,
+            "bookCoverType": bookCoverType,
             //"bookImageURL": "url",
             "peopleWhoLike": [""]
         ] as [String:Any]
@@ -134,7 +156,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         metadata.contentType = "image/jpg"
         storageRef.putData(imageData, metadata: metadata) { (storageMetaData, error) in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "Error")
                 return
             }
             storageRef.downloadURL { (url, error) in
@@ -172,10 +194,12 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         //let listingDatabaseRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Listings").childByAutoId()
         let listingObject = [
-                "id": listingDatabaseRef.key,
-                "mainID": postRef.key,
-                "bookTitle": titleTextField.text ?? "",
-                "bookAuthor": authorTextField.text ?? ""
+            "id": listingDatabaseRef.key!,
+            "mainID": postRef.key!,
+            "bookTitle": titleTextField.text ?? "",
+            "bookAuthor": authorTextField.text ?? "",
+            "price": askingPriceTextField.text ?? "",
+            "bookCoverType": bookCoverType
         ] as [String: Any]
         
         //listingDatabaseRef.setValue(listingObject)
@@ -186,12 +210,16 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         }
 
         
-        print("5")
         
         //uploadPhoto()
 
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == askingPriceTextField{
+            //askingPriceTextField.text = "$"
+        }
+    }
     
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         //textView.resignFirstResponder()
@@ -206,10 +234,15 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    @IBAction func cameraButtonPressed(_ sender: Any) {
-        print("camera button pressed")
+//    @IBAction func cameraButtonPressed(_ sender: Any) {
+//        print("camera button pressed")
+//        self.present(imagePicker, animated: true, completion: nil)
+//
+//    }
+    
+    @objc func openImagePicker(){
+        print("image pressed")
         self.present(imagePicker, animated: true, completion: nil)
-
     }
     
     func uploadPhoto(){
@@ -222,7 +255,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                     return
                 }
                 
-                print(metadata)
+                //print(metadata)
             })
         }
     }

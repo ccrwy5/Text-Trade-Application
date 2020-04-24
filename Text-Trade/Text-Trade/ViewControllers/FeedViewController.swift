@@ -144,19 +144,36 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 tempPosts.insert(post, at: 0)
                             }
                     }
+            
             self.posts.insert(contentsOf: tempPosts, at: 0)
             self.currentPosts = self.posts
+   
             self.tableView.reloadData()
+
+
             
 //            let newIndexPaths = (0..<tempPosts.count).map { i in
 //                return IndexPath(row: i, section: 0)
 //            }
 //            self.tableView.insertRows(at: newIndexPaths, with: .top)
             self.refreshControl?.endRefreshing()
-         
+            
         })
         
-        //handleDelete()
+        
+        
+        newPostsQuery.queryLimited(toFirst: 20).observeSingleEvent(of: .childRemoved, with: { snapshot in
+                
+            self.beginBatchFetch()
+            //self.tableView.reloadData()
+
+
+            self.refreshControl?.endRefreshing()
+                    
+                })
+        
+        
+
    
     }
     
@@ -212,6 +229,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func beginBatchFetch() {
+        print("begin batch fetch")
         fetchingMore = true
         self.tableView.reloadSections(IndexSet(integer: 1), with: .fade)
         
@@ -263,7 +281,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! FeedTableViewCell
+            handleDelete()
             cell.setPost(inputPost: currentPosts[indexPath.row])
+            print("Cell set")
             return cell
         } else {
             
@@ -279,7 +299,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         //performSegue(withIdentifier: "clickedFeedCell", sender: self)
         
         let postDetailsVC = storyboard?.instantiateViewController(identifier: "PostDetailsViewController") as? PostDetailsViewController
-        let post = posts[indexPath.row]
+        let post = currentPosts[indexPath.row]
         postDetailsVC?.bookTitle = post.bookTitle
         postDetailsVC?.authorName = post.bookAuthor
         postDetailsVC?.sellerName = post.author.username
@@ -287,6 +307,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         postDetailsVC?.phoneNumber = post.author.phoneNumber
         postDetailsVC?.bookImage = post.bookImage
         postDetailsVC?.email = post.author.email
+        postDetailsVC?.bookCoverType = post.bookCoverType
         
         
         self.navigationController?.pushViewController(postDetailsVC!, animated: true)

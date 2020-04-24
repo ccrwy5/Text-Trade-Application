@@ -18,12 +18,13 @@ class Post{
     var postID: String
     var price: String
     var bookImage: URL
+    var bookCoverType: String
     
     
     var peopleWhoLike: [String] = [String]()
 
     
-    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String, postID: String, peopleWhoLike: [String], price: String, bookImage: URL) {
+    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String, postID: String, peopleWhoLike: [String], price: String, bookImage: URL, bookCoverType: String) {
         self.id = id
         self.author = author
         self.bookTitle = bookTitle
@@ -34,6 +35,7 @@ class Post{
         self.peopleWhoLike = peopleWhoLike
         self.price = price
         self.bookImage = bookImage
+        self.bookCoverType = bookCoverType
         
     }
     
@@ -44,6 +46,7 @@ class Post{
             let username = author["username"] as? String,
             let photoURL = author["photoURL"] as? String,
             let phoneNumber = author["phoneNumber"] as? String,
+            let fullName = author["fullName"] as? String,
             let email = author["email"] as? String,
             let url = URL(string:photoURL),
             let bookTitle = data["bookTitle"] as? String,
@@ -54,10 +57,11 @@ class Post{
             let peopleWhoLike = data["peopleWhoLike"] as? [String],
             let price = data["price"] as? String,
             let bookImage = data["bookImageURL"] as? String,
+            let bookCoverType = data["bookCoverType"] as? String,
             let bookURL = URL(string: bookImage){
             
-            let userProfile = UserProfile(uid: uid, username: username, photoURL: url, phoneNumber: phoneNumber, email: email)
-                return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike, price: price, bookImage: bookURL)
+            let userProfile = UserProfile(uid: uid, username: username, photoURL: url, phoneNumber: phoneNumber, email: email, fullName: fullName)
+                return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike, price: price, bookImage: bookURL, bookCoverType: bookCoverType)
             
         }
         

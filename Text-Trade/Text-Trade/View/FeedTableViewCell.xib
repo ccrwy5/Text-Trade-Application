@@ -58,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q8E-jD-Tmh">
-                                <rect key="frame" x="285" y="38" width="50" height="70.5"/>
+                                <rect key="frame" x="285" y="63" width="50" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElK-b0-JNl">
                                         <rect key="frame" x="19.5" y="0.0" width="11.5" height="20.5"/>
@@ -66,14 +66,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CLd-XK-5Ws">
-                                        <rect key="frame" x="10" y="40.5" width="30" height="30"/>
-                                        <color key="tintColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Kwj-qD-j7x"/>
-                                            <constraint firstAttribute="width" secondItem="CLd-XK-5Ws" secondAttribute="height" multiplier="1:1" id="flD-yz-ljt"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="XPH-Cs-rBb"/>
@@ -119,12 +111,8 @@
                 <outlet property="profileImageView" destination="s5C-Gm-NGh" id="kxC-Zx-qar"/>
                 <outlet property="subtitleLabel" destination="ycA-QB-ega" id="Ohk-UV-aNx"/>
                 <outlet property="usernameLabel" destination="GL4-b6-I6e" id="lCc-nN-5EI"/>
-                <outlet property="wishListImageView" destination="CLd-XK-5Ws" id="gJ2-H7-1EC"/>
             </connections>
             <point key="canvasLocation" x="173.91304347826087" y="124.21875"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="bookmark" catalog="system" width="56" height="64"/>
-    </resources>
 </document>

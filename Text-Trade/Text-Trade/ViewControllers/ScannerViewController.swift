@@ -18,6 +18,7 @@ class ScannerViewController: UIViewController {
     @IBOutlet weak var scanButton: UIButton!{
         didSet{
             scanButton.setTitle("STOP", for: .normal)
+            scanButton.layer.cornerRadius = 12
         }
     }
     

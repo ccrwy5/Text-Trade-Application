@@ -17,11 +17,14 @@ class ScanResultViewController: UIViewController, WKUIDelegate, WKNavigationDele
     var scanResultViewController: ScanResultViewController?
     var printable: String = ""
     
+    @IBOutlet weak var lookUpButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         resultLabel.text = qrData?.codeString
+        lookUpButton.layer.cornerRadius = 12
+        
     }
     
     @IBAction func findBookButtonPressed(_ sender: Any) {

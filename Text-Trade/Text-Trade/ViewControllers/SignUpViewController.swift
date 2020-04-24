@@ -57,6 +57,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         guard let pass = passwordTextField.text else { return }
         guard let image = profileImageView.image else { return }
         guard let phoneNumber = phoneNumberTextField.text else { return }
+        guard let fullName = fullNameTextField.text else { return }
                 
         Auth.auth().createUser(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
@@ -76,7 +77,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                             if error == nil {
                                 print("User display name changed!")
                                 
-                                self.saveProfile(username: username, profileImageURL: url!, phoneNumber: phoneNumber, email: email) { success in
+                                self.saveProfile(fullName: fullName, username: username, profileImageURL: url!, phoneNumber: phoneNumber, email: email) { success in
                                     if success {
                                         self.dismiss(animated: true, completion: nil)
                                     }
@@ -110,7 +111,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
             storageRef.putData(imageData, metadata: metaData) { metaData, error in
             if error == nil, metaData != nil {
-
+                
             storageRef.downloadURL { url, error in
                 completion(url)
                 // success!
@@ -122,11 +123,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-    func saveProfile(username:String, profileImageURL:URL, phoneNumber: String, email: String, completion: @escaping ((_ success:Bool)->())) {
+    func saveProfile(fullName: String, username:String, profileImageURL:URL, phoneNumber: String, email: String, completion: @escaping ((_ success:Bool)->())) {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let databaseRef = Database.database().reference().child("users/profile/\(uid)")
             
             let userObject = [
+                "fullName": fullName,
                 "username": username,
                 "photoURL": profileImageURL.absoluteString,
                 "phoneNumber": phoneNumber,
@@ -148,34 +150,34 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         fullNameTextField.layer.borderWidth = 2
         fullNameTextField.layer.cornerRadius = 10
         fullNameTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        fullNameTextField.layer.cornerRadius = 22
+        fullNameTextField.layer.cornerRadius = 18
         fullNameTextField.clipsToBounds = true
         
         usernameTextField.layer.borderWidth = 2
         usernameTextField.layer.cornerRadius = 10
         usernameTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        usernameTextField.layer.cornerRadius = 22
+        usernameTextField.layer.cornerRadius = 18
         usernameTextField.clipsToBounds = true
         
         phoneNumberTextField.layer.borderWidth = 2
         phoneNumberTextField.layer.cornerRadius = 10
         phoneNumberTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        phoneNumberTextField.layer.cornerRadius = 22
+        phoneNumberTextField.layer.cornerRadius = 18
         phoneNumberTextField.clipsToBounds = true
         
         emailTextField.layer.borderWidth = 2
         emailTextField.layer.cornerRadius = 10
         emailTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        emailTextField.layer.cornerRadius = 22
+        emailTextField.layer.cornerRadius = 18
         emailTextField.clipsToBounds = true
         
         passwordTextField.layer.borderWidth = 2
         passwordTextField.layer.cornerRadius = 10
         passwordTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        passwordTextField.layer.cornerRadius = 22
+        passwordTextField.layer.cornerRadius = 18
         passwordTextField.clipsToBounds = true
         
-        createAccountButton.layer.cornerRadius = 22
+        createAccountButton.layer.cornerRadius = 18
     }
     
     @IBAction func phoneEntryChanged(_ sender: UITextField) {
