@@ -30,6 +30,7 @@ class PostDetailsViewController: UIViewController {
     var email: String = ""
     var bookImage: URL? = nil
     var bookCoverType: String = ""
+    var bookCondition: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,9 @@ class PostDetailsViewController: UIViewController {
         titleLabel.text = bookTitle
         authorLabel.text = "By: \(authorName)"
         //sellerLabel.text = "Seller: \(sellerName)" 
-        priceLabel.text = "Price: $\(price)"
+        priceLabel.text = "$\(price)"
         //phoneNumberLabel.text = "Email: \(email)"
-        bookCoverTypeLabel.text = bookCoverType
+        bookCoverTypeLabel.text = "\(bookCondition) Condition \u{2022} \(bookCoverType)"
         emailButton.setTitle(email, for: .normal)
         
         

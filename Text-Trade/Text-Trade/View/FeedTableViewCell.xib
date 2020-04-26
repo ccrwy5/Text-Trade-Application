@@ -40,13 +40,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqo-DM-VoM">
-                                <rect key="frame" x="80" y="65" width="282" height="20.5"/>
+                                <rect key="frame" x="80" y="65" width="205" height="20.5"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Book Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5x-QA-FYF">
-                                <rect key="frame" x="80" y="87.5" width="282" height="14.5"/>
+                                <rect key="frame" x="80" y="87.5" width="224.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -75,12 +75,12 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GL4-b6-I6e" firstAttribute="top" secondItem="J5U-JO-wNM" secondAttribute="top" constant="15" id="19d-F0-9LV"/>
+                            <constraint firstItem="ElK-b0-JNl" firstAttribute="leading" secondItem="X5x-QA-FYF" secondAttribute="trailing" id="1p8-KS-QVO"/>
+                            <constraint firstItem="q8E-jD-Tmh" firstAttribute="leading" secondItem="Lqo-DM-VoM" secondAttribute="trailing" id="3Pu-Kz-nns"/>
                             <constraint firstItem="X5x-QA-FYF" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="4u8-Jk-QLM"/>
                             <constraint firstItem="s5C-Gm-NGh" firstAttribute="top" secondItem="J5U-JO-wNM" secondAttribute="top" constant="15" id="AQ1-9H-3sf"/>
-                            <constraint firstAttribute="trailing" secondItem="X5x-QA-FYF" secondAttribute="trailing" constant="8" id="Fwn-kq-0y6"/>
                             <constraint firstItem="ycA-QB-ega" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="Hml-5W-RLu"/>
                             <constraint firstAttribute="trailing" secondItem="q8E-jD-Tmh" secondAttribute="trailing" constant="35" id="Op4-we-7iq"/>
-                            <constraint firstAttribute="trailing" secondItem="Lqo-DM-VoM" secondAttribute="trailing" constant="8" id="Sog-R1-bl2"/>
                             <constraint firstItem="ycA-QB-ega" firstAttribute="top" secondItem="GL4-b6-I6e" secondAttribute="bottom" constant="2" id="TCU-4q-wnt"/>
                             <constraint firstItem="GL4-b6-I6e" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="TVf-6z-40s"/>
                             <constraint firstItem="Lqo-DM-VoM" firstAttribute="leading" secondItem="s5C-Gm-NGh" secondAttribute="trailing" constant="15" id="ZBy-2g-UEH"/>

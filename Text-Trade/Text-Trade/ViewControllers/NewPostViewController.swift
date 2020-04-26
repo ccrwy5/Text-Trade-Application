@@ -25,6 +25,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     @IBOutlet weak var QRButtonText: UIButton!
     //@IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var bookCoverTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var conditionSegmentedControl: UISegmentedControl!
     
     //var delegate: NewPostVCDelegate?
     
@@ -56,6 +57,10 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         imagePicker.delegate = self
         
         setupUI()
+        conditionSegmentedControl.selectedSegmentTintColor = UIColor.systemGreen
+        
+
+        
         //getAllUserListings()
         //getAllUserListings2()
         
@@ -72,25 +77,25 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         titleTextField.layer.borderWidth = 2
         titleTextField.layer.cornerRadius = 10
         titleTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        titleTextField.layer.cornerRadius = 18
+        titleTextField.layer.cornerRadius = 12
         titleTextField.clipsToBounds = true
         
         authorTextField.layer.borderWidth = 2
         authorTextField.layer.cornerRadius = 10
         authorTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        authorTextField.layer.cornerRadius = 18
+        authorTextField.layer.cornerRadius = 12
         authorTextField.clipsToBounds = true
         
         classUsedForTextField.layer.borderWidth = 2
         classUsedForTextField.layer.cornerRadius = 10
         classUsedForTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        classUsedForTextField.layer.cornerRadius = 18
+        classUsedForTextField.layer.cornerRadius = 12
         classUsedForTextField.clipsToBounds = true
         
         askingPriceTextField.layer.borderWidth = 2
         askingPriceTextField.layer.cornerRadius = 10
         askingPriceTextField.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-        askingPriceTextField.layer.cornerRadius = 18
+        askingPriceTextField.layer.cornerRadius = 12
         askingPriceTextField.clipsToBounds = true
         
         bookImageView.layer.cornerRadius = bookImageView.bounds.height / 2
@@ -103,6 +108,37 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         
         
     }
+    
+    
+    @IBAction func conditionChanged(_ sender: Any) {
+        if(conditionSegmentedControl.selectedSegmentIndex == 0) {
+            conditionSegmentedControl.selectedSegmentTintColor = UIColor.systemGreen
+        } else if(conditionSegmentedControl.selectedSegmentIndex == 1) {
+            conditionSegmentedControl.selectedSegmentTintColor = UIColor.systemTeal
+        } else if(conditionSegmentedControl.selectedSegmentIndex == 2) {
+            conditionSegmentedControl.selectedSegmentTintColor = UIColor.systemOrange
+        }
+        if(conditionSegmentedControl.selectedSegmentIndex == 3) {
+            conditionSegmentedControl.selectedSegmentTintColor = UIColor.systemRed
+        }
+    }
+    
+    
+    func getCondition() -> String {
+        var condition = ""
+        if(conditionSegmentedControl.selectedSegmentIndex == 0){
+            condition = "New"
+        } else if(conditionSegmentedControl.selectedSegmentIndex == 1){
+            condition = "Good"
+        } else if(conditionSegmentedControl.selectedSegmentIndex == 2){
+            condition = "Fair"
+        } else if(conditionSegmentedControl.selectedSegmentIndex == 3){
+            condition = "Poor"
+        }
+        
+        return condition
+    }
+    
     
     @IBAction func handlePostButton(_ sender: Any) {
         
@@ -123,6 +159,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         } else {
             bookCoverType = "Paperback"
         }
+        
+        let condition = getCondition()
+        
         
         guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
             return
@@ -146,6 +185,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
             "timestamp": [".sv":"timestamp"],
             "postID": postRef.key!,
             "bookCoverType": bookCoverType,
+            "bookCondition": condition,
             //"bookImageURL": "url",
             "peopleWhoLike": [""]
         ] as [String:Any]
@@ -199,6 +239,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
             "bookTitle": titleTextField.text ?? "",
             "bookAuthor": authorTextField.text ?? "",
             "price": askingPriceTextField.text ?? "",
+            "bookCondition": condition,
             "bookCoverType": bookCoverType
         ] as [String: Any]
         

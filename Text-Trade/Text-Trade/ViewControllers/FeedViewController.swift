@@ -308,6 +308,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         postDetailsVC?.bookImage = post.bookImage
         postDetailsVC?.email = post.author.email
         postDetailsVC?.bookCoverType = post.bookCoverType
+        postDetailsVC?.bookCondition = post.bookCondition
         
         
         self.navigationController?.pushViewController(postDetailsVC!, animated: true)

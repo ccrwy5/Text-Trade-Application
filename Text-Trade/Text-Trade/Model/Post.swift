@@ -17,6 +17,7 @@ class Post{
     var classUsedFor: String
     var postID: String
     var price: String
+    var bookCondition: String
     var bookImage: URL
     var bookCoverType: String
     
@@ -24,7 +25,7 @@ class Post{
     var peopleWhoLike: [String] = [String]()
 
     
-    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String, postID: String, peopleWhoLike: [String], price: String, bookImage: URL, bookCoverType: String) {
+    init(id: String, author: UserProfile, bookTitle: String, timestamp: Double, bookAuthor: String, classUsedFor: String, postID: String, peopleWhoLike: [String], price: String, bookImage: URL, bookCoverType: String, bookCondition: String) {
         self.id = id
         self.author = author
         self.bookTitle = bookTitle
@@ -36,6 +37,7 @@ class Post{
         self.price = price
         self.bookImage = bookImage
         self.bookCoverType = bookCoverType
+        self.bookCondition = bookCondition
         
     }
     
@@ -58,10 +60,11 @@ class Post{
             let price = data["price"] as? String,
             let bookImage = data["bookImageURL"] as? String,
             let bookCoverType = data["bookCoverType"] as? String,
+            let bookCondition = data["bookCondition"] as? String,
             let bookURL = URL(string: bookImage){
             
             let userProfile = UserProfile(uid: uid, username: username, photoURL: url, phoneNumber: phoneNumber, email: email, fullName: fullName)
-                return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike, price: price, bookImage: bookURL, bookCoverType: bookCoverType)
+                return Post(id: key, author: userProfile, bookTitle: bookTitle, timestamp:timestamp, bookAuthor: bookAuthor, classUsedFor: classUsedFor, postID: postID, peopleWhoLike: peopleWhoLike, price: price, bookImage: bookURL, bookCoverType: bookCoverType, bookCondition: bookCondition)
             
         }
         

@@ -161,20 +161,20 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
         let listing: Listing
         listing = listingsList[indexPath.row]
         cell.titleLabel.text = listing.bookTitle
-        cell.authorLabel.text = listing.bookAuthor
+        //cell.authorLabel.text = listing.bookAuthor
         cell.priceLabel.text = "$\(listing.price ?? "price")"
         
         return cell
     }
 
     // Header Title
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return "Books you are selling"
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        
+//        return "Swipe to manage your listings"
+//    }
     
 //    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        view.tintColor = UIColor(red:255/255, green:153/255, blue:0/255, alpha: 1)
+//        view.tintColor = UIColor(red:255, green:153, blue:0, alpha: 1)
 //        let header = view as! UITableViewHeaderFooterView
 //        header.textLabel?.textColor = UIColor.white
 //        //241, 184, 45
