@@ -217,12 +217,15 @@ class ProfilePageViewController: UIViewController, UITableViewDataSource, UITabl
                 print("MainID: \(mainID)")
                 let feedDeleteRef = Database.database().reference().child("posts").child(mainID)
                 print("feedDeleteRef = \(feedDeleteRef)")
-                                
-                indivListing.setValue(nil)
+                            
                 
-                //Main Feed
-                //let feedVC = FeedViewController()
-                //feedVC.
+                self.listingsList.remove(at: indexPath.row)
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+                
+                
+                indivListing.setValue(nil)
                 feedDeleteRef.setValue(nil)
 
             }

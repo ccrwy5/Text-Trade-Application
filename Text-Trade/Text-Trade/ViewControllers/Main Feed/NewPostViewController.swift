@@ -275,6 +275,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         } else if textField == classUsedForTextField {
             return range.location < 20
         } else if textField == askingPriceTextField {
+            
             return range.location < 8
         }
         
@@ -368,6 +369,16 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     
     @IBAction func QRButtonTextPressed(_ sender: Any) {
     }
+    
+
+    
+   
+    
+    
+    
+
+
+          
 }
 
 extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
