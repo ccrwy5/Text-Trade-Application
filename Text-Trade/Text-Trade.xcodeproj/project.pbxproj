@@ -163,16 +163,10 @@
 		CE258E8D242811DC003DCE90 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CEDCAACC2415DDD0001E112C /* LoginViewController.swift */,
-				CEDCAAD02415E355001E112C /* SignUpViewController.swift */,
-				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
-				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
-				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
-				CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */,
-				CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */,
-				CE258E9224304DC4003DCE90 /* ScannerViewController.swift */,
-				CE258E9A24305057003DCE90 /* ScanResultViewController.swift */,
-				CE5108C6243BDC2F0083B324 /* PostDetailsViewController.swift */,
+				CEAD7A99245A0F22005DA1B7 /* Scanner */,
+				CEAD7A98245A0F1A005DA1B7 /* Profile Page */,
+				CEAD7A97245A0F06005DA1B7 /* Main Feed */,
+				CEAD7A96245A0EF7005DA1B7 /* Auth */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +225,44 @@
 				CE60B3CA2443EFCB00D42532 /* IQNSArray+Sort.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		CEAD7A96245A0EF7005DA1B7 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CEDCAACC2415DDD0001E112C /* LoginViewController.swift */,
+				CEDCAAD02415E355001E112C /* SignUpViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CEAD7A97245A0F06005DA1B7 /* Main Feed */ = {
+			isa = PBXGroup;
+			children = (
+				CEDCAAD22415ECBB001E112C /* FeedViewController.swift */,
+				CEDCAAD42415F56D001E112C /* FeedTableViewCell.swift */,
+				CE258E81242499E8003DCE90 /* NewPostViewController.swift */,
+				CE5108C6243BDC2F0083B324 /* PostDetailsViewController.swift */,
+			);
+			path = "Main Feed";
+			sourceTree = "<group>";
+		};
+		CEAD7A98245A0F1A005DA1B7 /* Profile Page */ = {
+			isa = PBXGroup;
+			children = (
+				CE258E8E2429281E003DCE90 /* ProfilePageViewController.swift */,
+				CE4F29912433E08C0071AA55 /* ProfilePageTableViewCell.swift */,
+			);
+			path = "Profile Page";
+			sourceTree = "<group>";
+		};
+		CEAD7A99245A0F22005DA1B7 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				CE258E9224304DC4003DCE90 /* ScannerViewController.swift */,
+				CE258E9A24305057003DCE90 /* ScanResultViewController.swift */,
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		CEDCAAAC2415DD73001E112C = {
