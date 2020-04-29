@@ -105,6 +105,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
+    //resign keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         //searchActive = false
