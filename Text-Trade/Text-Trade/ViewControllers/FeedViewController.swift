@@ -105,6 +105,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        //searchActive = false
+        self.feedSearchBar.endEditing(true)
+    }
+    
+
+
+        
+
+    
     func toggleSeeNewPostsButton(hidden: Bool) {
         if hidden {
             // hide it

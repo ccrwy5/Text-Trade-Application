@@ -30,8 +30,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setupUI()
         
+        profileImageView.image = UIImage(named: "userIcon")
+        
         createAccountButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
-
+        createAccountButton.isEnabled = false
+        createAccountButton.alpha = 0.5
+        
+        [fullNameTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [usernameTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [phoneNumberTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [emailTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        
+        
+        
+        
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(imageTap)
@@ -41,6 +54,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
+        
+        fullNameTextField.delegate = self
+        emailTextField.delegate = self
+        usernameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        passwordTextField.delegate = self
         
     }
 
@@ -58,11 +77,32 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         guard let image = profileImageView.image else { return }
         guard let phoneNumber = phoneNumberTextField.text else { return }
         guard let fullName = fullNameTextField.text else { return }
-                
+        
+        
+//        let email = "ccrwy5@mail.missouri.edu"
+//        let suffix = String(email.suffix(18))
+//        print(suffix)
+        
+        
+        
+        if emailTextField.text?.suffix(18) != "@mail.missouri.edu" {
+            print("not mizzou email")
+            let alertController = UIAlertController(title: "Unable to sign up", message: "Email must be a valid Mizzou email address", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        
+        
+        if image != UIImage(named: "userIcon") {
+    
         Auth.auth().createUser(withEmail: email, password: pass) { user, error in
+            
             if error == nil && user != nil {
                 print("User created!")
-                //self.performSegue(withIdentifier: "accountCreated", sender: self)
                 
                 // 1. Upload the profile image to Firebase Storage
                 
@@ -85,17 +125,37 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                 
                             } else {
                                 print("Error: \(error!.localizedDescription)")
+                                let alertController = UIAlertController(title: "Unable to sign up", message: error?.localizedDescription, preferredStyle: .alert)
+                                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                            
+                                alertController.addAction(defaultAction)
+                                self.present(alertController, animated: true, completion: nil)
+                                
                             }
                         }
                     } else {
-                        // Error unable to upload profile image
+                        let alertController = UIAlertController(title: "Unable to add photo", message: error?.localizedDescription, preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
                     }
-                    
                 }
-                
             } else {
                 print("Error: \(error!.localizedDescription)")
+                let alertController = UIAlertController(title: "Unable to sign up", message: error!.localizedDescription , preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
             }
+        }
+        } else {
+            let alertController = UIAlertController(title: "Unable to sign up", message: "Must select icon picture" , preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("no image")
         }
     }
     
@@ -142,6 +202,67 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 completion(error == nil)
             }
         }
+    
+    
+        @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+            
+        // Full Name
+            guard let fullName = fullNameTextField.text, !fullName.isEmpty
+            else {
+                self.createAccountButton.isEnabled = false
+                createAccountButton.alpha = 0.5
+                return
+            }
+            createAccountButton.isEnabled = true
+            createAccountButton.alpha = 1.0
+           
+        //Username
+            guard let userName = usernameTextField.text, !userName.isEmpty
+            else {
+                self.createAccountButton.isEnabled = false
+                createAccountButton.alpha = 0.5
+                return
+            }
+            createAccountButton.isEnabled = true
+            createAccountButton.alpha = 1.0
+           
+        // phone
+            guard let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty
+            else {
+                self.createAccountButton.isEnabled = false
+                createAccountButton.alpha = 0.5
+                return
+            }
+            createAccountButton.isEnabled = true
+            createAccountButton.alpha = 1.0
+        
+        // email
+            guard let email = emailTextField.text, !email.isEmpty
+            else {
+                self.createAccountButton.isEnabled = false
+                createAccountButton.alpha = 0.5
+                return
+            }
+            createAccountButton.isEnabled = true
+            createAccountButton.alpha = 1.0
+         
+            
+        // password
+            guard let password = passwordTextField.text, !password.isEmpty
+            else {
+                self.createAccountButton.isEnabled = false
+                createAccountButton.alpha = 0.5
+                return
+            }
+            createAccountButton.isEnabled = true
+            createAccountButton.alpha = 1.0
+    }
 
     
     
@@ -190,6 +311,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             text! += "-"
             phoneNumberTextField.text = text
         }
+    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == phoneNumberTextField {
+            return range.location < 12
+        } else if textField == emailTextField {
+            return range.location < 30
+        }
+        return range.location < 20
     }
     
 }

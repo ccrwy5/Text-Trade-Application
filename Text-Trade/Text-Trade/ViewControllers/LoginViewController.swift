@@ -25,6 +25,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailTextField.returnKeyType = .next
         emailTextField.returnKeyType = .next
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         //createDoneButton()
         
 
@@ -33,15 +36,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
            if error == nil{
-             //self.performSegue(withIdentifier: "alreadyLoggedIn", sender: self)
             print("logged in")
-                          }
-            else{
-             let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+           } else{
+                //let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Unable to log in", message: "This account is not recognized. Please check your credentials" , preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                             
-              alertController.addAction(defaultAction)
-              self.present(alertController, animated: true, completion: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -117,6 +119,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //      }
 //     return true
 //    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == emailTextField {
+            return range.location < 20
+        } else if textField == passwordTextField {
+            return range.location < 10
+        }
+        return range.location < 20
+    }
     
 
 

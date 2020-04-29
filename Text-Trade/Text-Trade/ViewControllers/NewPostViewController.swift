@@ -58,12 +58,20 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         
         setupUI()
         conditionSegmentedControl.selectedSegmentTintColor = UIColor.systemGreen
-        
 
         
-        //getAllUserListings()
-        //getAllUserListings2()
+        titleTextField.delegate = self
+        authorTextField.delegate = self
+        classUsedForTextField.delegate = self
+        askingPriceTextField.delegate = self
         
+        postButton.isEnabled = false
+        
+        [titleTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [authorTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [askingPriceTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [classUsedForTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+                
         
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         bookImageView.isUserInteractionEnabled = true
@@ -149,6 +157,12 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
             
         }
         guard let imageSelected = self.bookImage else {
+            
+            let alertController = UIAlertController(title: "Unable to post", message: "Must add photo of book", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            
             print("image is nil")
             return
         }
@@ -250,11 +264,24 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
             }
         }
 
-        
-        
-        //uploadPhoto()
-
     }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == titleTextField {
+            return range.location < 30
+        } else if textField == authorTextField {
+            return range.location < 20
+        } else if textField == classUsedForTextField {
+            return range.location < 20
+        } else if textField == askingPriceTextField {
+            return range.location < 8
+        }
+        
+        
+        return range.location < 20
+    }
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == askingPriceTextField{
@@ -275,11 +302,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         
     }
     
-//    @IBAction func cameraButtonPressed(_ sender: Any) {
-//        print("camera button pressed")
-//        self.present(imagePicker, animated: true, completion: nil)
-//
-//    }
+
     
     @objc func openImagePicker(){
         print("image pressed")
@@ -299,6 +322,46 @@ class NewPostViewController: UIViewController, UITextViewDelegate, UITextFieldDe
                 //print(metadata)
             })
         }
+    }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+            
+        // Full Name
+            guard let title = titleTextField.text, !title.isEmpty
+            else {
+                self.postButton.isEnabled = false
+                return
+            }
+            postButton.isEnabled = true
+        
+            guard let author = authorTextField.text, !author.isEmpty
+            else {
+                self.postButton.isEnabled = false
+                return
+            }
+            postButton.isEnabled = true
+        
+            guard let classUsedFor = classUsedForTextField.text, !classUsedFor.isEmpty
+            else {
+                self.postButton.isEnabled = false
+                return
+            }
+            postButton.isEnabled = true
+        
+            guard let price = askingPriceTextField.text, !price.isEmpty
+            else {
+                self.postButton.isEnabled = false
+                return
+            }
+            postButton.isEnabled = true
+           
+
     }
     
     
